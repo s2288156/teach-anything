@@ -1,0 +1,16 @@
+# 工具产物与规划草稿
+.trae/
+
+# 编辑器
+.idea/
+.vscode/
+
+# 依赖
+node_modules/
+
+# 系统垃圾文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log

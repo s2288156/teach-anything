@@ -1,0 +1,13 @@
+{
+  "name": "teach-anything",
+  "version": "0.1.0",
+  "private": true,
+  "description": "个人学习仓库：一个学习方向一个目录，目录内自带 AGENTS.md",
+  "scripts": {
+    "lint": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
+    "lint:fix": "markdownlint-cli2 \"**/*.md\" \"#node_modules\" --fix"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.23.3"
+  }
+}
