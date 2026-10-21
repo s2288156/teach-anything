@@ -66,8 +66,12 @@
 - 共享样式：`assets/course.css`——所有页面统一引用，保证整套课看起来是一门课。
 - 组件：`assets/quiz.js`（选择题）、`assets/sentence.js`（句子拆解）、`assets/translate.js`（回译）。
   三个都是 IIFE + `"use strict"` 原生 JS，通过 `data-*` 属性声明式绑定，不含任何课程数据。
-- 学习记录：`learning-records/000N-<dash-case>.md`，与课程同编号。
-  用于记录诊断结果、错误模式、复习到期的项，是计算最近发展区（ZPD）的依据。
+- 学习记录：`learning-records/000N-<dash-case>.md`。
+  **按缺口记，不全对就不建**——全对的课不留档；只有在连续两次错同一个骨架、
+  或到达第 8 / 16 天复习节点仍没过关时，才建一份缺口记录。
+  文件名用缺口本身命名（例：`0002-plural-subject-failed.md`），不用课号命名课。
+  一份记录写清：缺口是什么、怎么发现的、已用什么补丁、什么条件下回看。
+  这样 96 课下来只会有十几份文件，但每份都是真问题，agent 读它算最近发展区（ZPD）时不需要过滤噪音。
 - 词汇表：`reference/glossary.html`——待学习者能正确使用某个术语后再收录，不做成词典。
   **第 1 课不触发，尚未创建。**
 
@@ -76,6 +80,11 @@
 `data-translate` 的值会拼进 localStorage 键（前缀 `nce-english:translate:`），
 **必须全工作区唯一**，建议 `l<N>-tr-<M>`。
 
+`data-quiz` 同理，前缀 `nce-english:quiz:`，建议 `l<N>-<节号>`（例 `l1-00`、`l1-06`）。
+加了 `data-quiz` 的测验才会出现记录条（上次记录 · 复制为 Markdown · 清空）；
+不写这个属性则组件完全无状态，行为与加之前一致。
+记录条复制出来的是「1 起算的选项序号 + 对错 + 用时」，可直接粘进 learning-records。
+**用时是粗测**：从上一题作答或页面载入算起，含读题时间，不要当精确指标用。
 `sentence.js` 的讲解文字必须写在 `.sent-fb` 的 `data-text` 属性里，不能写在元素内容中
 （JS 会用 `textContent` 覆盖它）。
 
