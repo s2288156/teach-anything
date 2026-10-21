@@ -1,5 +1,6 @@
 # 工具产物与规划草稿
 .trae/
+.trae-html-share-packages/
 
 # 编辑器
 .idea/
