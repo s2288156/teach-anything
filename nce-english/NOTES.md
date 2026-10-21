@@ -65,6 +65,8 @@
 
 - 课程：`lessons/000N-<dash-case>.html`，编号递增，不复用。
 - 课文批注：`reference/lesson-0N-text.html`。
+- 总入口：`index.html`——课程、速查与学习记录的唯一入口；课程按 1–24 / 25–48 / 49–72 / 73–96
+  分四个单元，新增课程时只在对应单元追加一行，不改页面结构，未上线单元不显示。
 - 共享样式：`assets/course.css`——所有页面统一引用，保证整套课看起来是一门课。
 - 组件：`assets/quiz.js`（选择题）、`assets/sentence.js`（句子拆解）、`assets/translate.js`（回译）。
   三个都是 IIFE + `"use strict"` 原生 JS，通过 `data-*` 属性声明式绑定，不含任何课程数据。

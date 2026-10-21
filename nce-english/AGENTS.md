@@ -56,8 +56,11 @@
 5. 按九环节写 `lessons/000N-<dash-case>.html`。
 6. 写 `reference/lesson-0N-text.html`：完整批注，含全部生词、搭配、文化注释。
 7. 在 `reference/review.html` 追加本课骨架行与一行更新记录，不改写已有行。
-8. 跑 `npm run lint`；用 `file://` 打开课程，确认组件可用、无控制台报错。
-9. 判是否建档：全对不建；有缺口才建缺口记录，并同步 `NOTES.md` 待办。
+8. 在 `index.html` 的对应单元课程表追加本课一行（练场 + 手册）；单元不存在时先加该单元的
+   `h3` 与 `ul`；同时更新页头「Lesson N 已上线」。
+9. 跑 `npm run lint`；用 PowerShell 提取 `index.html` 的本地 `href` 逐个 `Test-Path`，
+   再用 `file://` 打开课程，确认组件可用、无控制台报错。
+10. 判是否建档：全对不建；有缺口才建缺口记录，并同步 `NOTES.md` 待办。
 
 判据：**第 04、05、06 节能不能不回看第 02、03 节就完成？**
 不能，说明还在靠翻页而不是靠记忆，本课不算完成。
@@ -66,4 +69,5 @@
 
 - 不建 `GLOSSARY.md` 与 `docs/adr/`——术语在本文件第 3 节，决策在 `NOTES.md` / `MISSION.md`。
 - 不在本文件维护「当前进度」；进度看 `NOTES.md` 待办与 `learning-records/`。
+- 不在 `index.html` 里重复课程内容或维护学习状态；它只放链接与一行元信息，且不预填未上线课程。
 - 不做口语、考试题型、第三册及以上（见 `MISSION.md` 的 Out of scope）。

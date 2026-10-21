@@ -64,6 +64,8 @@
 
 ## Skills
 
+- [课程总目录](index.html)
+  所有课程、速查与学习记录的唯一入口。纯静态，桌面双击或手机经静态服务器访问均可。
 - [Lesson 1 · A Private Conversation](lessons/0001-a-private-conversation.html)
   交互式课程本体。纯静态、无构建、无外部依赖，`file://` 直接打开即可练习。
 - [已学骨架总表](reference/review.html)

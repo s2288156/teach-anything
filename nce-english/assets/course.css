@@ -813,6 +813,101 @@ footer h2 {
   margin: 0;
 }
 
+/* ---------- 总目录 ---------- */
+
+.backlink {
+  margin: 0 0 1.25rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.8rem;
+}
+
+.lesson-list {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lesson-item {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    "no title links"
+    "no skill links";
+  gap: 0.15rem 0.8rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.lesson-item:last-child {
+  border-bottom: 0;
+}
+
+.lesson-no {
+  grid-area: no;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+}
+
+.lesson-title {
+  grid-area: title;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.lesson-cn {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.lesson-skill {
+  grid-area: skill;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.lesson-links {
+  grid-area: links;
+  display: flex;
+  gap: 0.8rem;
+  align-self: center;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.lesson-links a,
+.link-list a {
+  display: inline-block;
+  padding: 0.25rem 0;
+}
+
+.link-list {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.8rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.link-list li:last-child {
+  border-bottom: 0;
+}
+
+.link-list span {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
 /* ---------- 打印 ---------- */
 
 @media print {
@@ -855,5 +950,24 @@ footer h2 {
 
   .sentences > li {
     padding-left: 1.6rem;
+  }
+
+  .lesson-item {
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+    grid-template-areas:
+      "no title"
+      "no skill"
+      "no links";
+    gap: 0.2rem 0.7rem;
+  }
+
+  .lesson-cn {
+    display: block;
+    margin-left: 0;
+  }
+
+  .lesson-links {
+    justify-self: start;
+    padding-top: 0.15rem;
   }
 }
