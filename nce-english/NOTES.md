@@ -84,7 +84,9 @@
 ## 待办
 
 - [ ] 确认 `nce-english/AGENTS.md` 的写法（结构已定稿，前置条件已解除；仓库根路由表仍标注待补）。
-- [ ] 学习者作答第 00 节摸底三题后，回填
+- [x] 学习者作答第 00 节摸底三题后，回填
       [learning-records/0001-baseline-diagnostic.md](learning-records/0001-baseline-diagnostic.md) 的结果登记表与结论。
+      **结论：单复数这一轴没立住（第 1 题错）；三单与时态分野、后缀辨词性均已熟练。**
+      不插地基课，改用三处补丁（Lesson 2 热身换复数主语、Lesson 1 第 03 节第 2 句回看点明 were、Lesson 2 示范先复数）。
 - [ ] 确认技术栈假设（Java / JVM）是否成立，不成立则替换全部桥接句。
 - [ ] Lesson 2 开课前，把 Lesson 1 的骨架追加进 `reference/review.html`（第 1 课已建初版，后续按此累积）。
