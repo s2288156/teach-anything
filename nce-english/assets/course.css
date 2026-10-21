@@ -1,0 +1,786 @@
+/* 新概念英语第二册 · 共享样式
+   所有课程与速查文档统一引用，保证整套课看起来是一门课，而不是一堆散件。 */
+
+:root {
+  --ink: #1f1c18;
+  --ink-soft: #5e574e;
+  --ink-faint: #8b8377;
+  --paper: #fbf8f3;
+  --paper-raised: #fffdf9;
+  --rule: #ded5c7;
+  --rule-soft: #ebe4d9;
+  --accent: #8a4b2a;
+  --accent-soft: #f2e6da;
+  --ok: #2f6b4f;
+  --ok-soft: #e4f0e9;
+  --bad: #9b2f3a;
+  --bad-soft: #f8e4e6;
+  --measure: 42rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 3.5rem 1.25rem 6rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Songti SC", "Noto Serif SC", serif;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+/* ---------- 页头 ---------- */
+
+.kicker {
+  margin: 0 0 0.5rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 0.35rem 0 0;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+}
+
+.meta li {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+}
+
+/* ---------- 目标框 ---------- */
+
+.goal {
+  margin: 2rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+}
+
+.goal p {
+  margin: 0;
+}
+
+.goal strong {
+  color: var(--accent);
+}
+
+/* ---------- 章节 ---------- */
+
+section {
+  margin-top: 3rem;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+h2 .num {
+  margin-right: 0.5rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.8rem;
+  color: var(--accent);
+  vertical-align: 0.15em;
+}
+
+h3 {
+  margin: 2rem 0 0.6rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* ---------- 课文逐句 ---------- */
+
+.sentences {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: sent;
+}
+
+.sentences > li {
+  position: relative;
+  padding: 0.9rem 0 0.9rem 2.2rem;
+  border-bottom: 1px solid var(--rule-soft);
+  counter-increment: sent;
+}
+
+.sentences > li:last-child {
+  border-bottom: 0;
+}
+
+.sentences > li::before {
+  content: counter(sent);
+  position: absolute;
+  top: 1.05rem;
+  left: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+}
+
+.en {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+.en b {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.zh {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.note {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.note code {
+  padding: 0.05rem 0.3rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-soft);
+  border-radius: 3px;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.85em;
+  color: var(--ink);
+}
+
+/* ---------- 表格 ---------- */
+
+table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  padding: 0.6rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+th {
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+td code {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--accent);
+}
+
+/* ---------- 词汇卡 ---------- */
+
+.words {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.word {
+  padding: 0.85rem 1rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+}
+
+.word-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.word-term {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.word-phon {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.word-pos {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.word-mean {
+  margin: 0.2rem 0 0;
+  font-size: 0.98rem;
+}
+
+.word-ex {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---------- 测验 ---------- */
+
+.quiz {
+  padding: 1.25rem 1.3rem 1.45rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+.quiz .q + .q {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.q-text {
+  margin: 0 0 0.7rem;
+  font-size: 1rem;
+}
+
+.q-no {
+  display: inline-block;
+  min-width: 1.4rem;
+  margin-right: 0.35rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.opts {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.opt {
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.opt:hover:not(:disabled) {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.opt:disabled {
+  cursor: default;
+}
+
+.opt.correct {
+  background: var(--ok-soft);
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.opt.wrong {
+  background: var(--bad-soft);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.explain {
+  margin: 0.7rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.score {
+  margin: 1.4rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-soft);
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+/* ---------- 输出任务 ---------- */
+
+.task {
+  padding: 1.1rem 1.3rem;
+  border: 1px dashed var(--accent);
+  border-radius: 4px;
+  background: var(--paper-raised);
+}
+
+.task ol {
+  margin: 0.6rem 0 0;
+  padding-left: 1.3rem;
+}
+
+.task li {
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- 技能框（01 节） ---------- */
+
+.skill {
+  margin: 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+}
+
+.skill p {
+  margin: 0 0 0.6rem;
+}
+
+.skill p:last-child {
+  margin-bottom: 0;
+}
+
+.skill .why {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- 句子拆解（03 / 04 节） ---------- */
+
+.sent {
+  margin: 0 0 1.1rem;
+  padding: 1rem 1.15rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+}
+
+.sent.done {
+  border-color: var(--ok);
+}
+
+.sent-label {
+  margin: 0 0 0.7rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-faint);
+}
+
+.sent-text {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 2.4;
+}
+
+.tok {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.05rem;
+  padding: 0.1rem 0.28rem 0.5rem;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+span.tok {
+  cursor: default;
+}
+
+.tok:hover:not(:disabled) {
+  background: var(--accent-soft);
+}
+
+.tok:disabled {
+  cursor: default;
+}
+
+.tok.lit {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tok.hit {
+  background: var(--ok-soft);
+  color: var(--ok);
+  border-bottom-color: var(--ok);
+}
+
+.tok.miss {
+  background: var(--bad-soft);
+  color: var(--bad);
+  border-bottom-color: var(--bad);
+}
+
+.role-tag {
+  position: absolute;
+  bottom: 0.05rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.6rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: inherit;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.steps {
+  margin: 0.9rem 0 0;
+  padding-left: 1.3rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.steps li {
+  margin-bottom: 0.45rem;
+}
+
+.steps li::marker {
+  color: var(--accent);
+}
+
+.sent-play {
+  margin-top: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.82rem;
+  color: var(--accent);
+  background: var(--paper);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.sent-play:hover {
+  background: var(--accent-soft);
+}
+
+.sent-fb {
+  margin: 0.8rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--ok);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- 回译（05 节） ---------- */
+
+.tr + .tr {
+  margin-top: 1.4rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.tr-zh {
+  margin: 0 0 0.5rem;
+  font-size: 1.02rem;
+}
+
+.tr-input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  resize: vertical;
+}
+
+.tr-input:focus {
+  outline: 0;
+  border-color: var(--accent);
+  background: var(--paper-raised);
+}
+
+.tr-state {
+  margin: 0.4rem 0 0;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+}
+
+.tr-tools {
+  margin: 0.4rem 0 0;
+}
+
+.tr-clear {
+  padding: 0.2rem 0.6rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.tr-clear:hover {
+  color: var(--bad);
+  border-color: var(--bad);
+}
+
+.tr-ans {
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+}
+
+.tr-ans summary {
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.8rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.tr-en {
+  margin: 0.6rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--rule);
+  font-size: 1.05rem;
+}
+
+.tr-note {
+  margin: 0.35rem 0 0;
+  padding-left: 0.85rem;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- 真实技术句桥接（07 节） ---------- */
+
+.bridge {
+  margin: 0 0 1.2rem;
+  padding: 1rem 1.15rem;
+  background: #f4f2ee;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+.bridge-en {
+  margin: 0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.bridge-en b {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.bridge-zh {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.bridge-why {
+  margin: 0.45rem 0 0;
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+}
+
+.bridge-src {
+  margin: 0.45rem 0 0;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.74rem;
+}
+
+/* ---------- 自检清单与默写（08 节） ---------- */
+
+.checklist {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
+}
+
+.checklist li {
+  padding: 0.3rem 0 0.3rem 1.6rem;
+  position: relative;
+  color: var(--ink-soft);
+}
+
+.checklist li::before {
+  content: "☐";
+  position: absolute;
+  left: 0.2rem;
+  color: var(--accent);
+}
+
+.recall {
+  margin-top: 1.4rem;
+  padding: 1rem 1.15rem;
+  background: var(--accent-soft);
+  border-radius: 4px;
+}
+
+.recall summary {
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.recall p {
+  margin: 0.7rem 0 0;
+  font-size: 0.93rem;
+}
+
+/* ---------- 页脚 ---------- */
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+footer h2 {
+  font-size: 0.95rem;
+}
+
+.ask {
+  padding: 0.9rem 1.1rem;
+  background: var(--accent-soft);
+  border-radius: 4px;
+  font-size: 0.92rem;
+}
+
+.ask p {
+  margin: 0;
+}
+
+/* ---------- 打印 ---------- */
+
+@media print {
+  body {
+    padding: 0;
+    background: #fff;
+    font-size: 10.5pt;
+  }
+
+  .wrap {
+    max-width: none;
+  }
+
+  .opt {
+    background: #fff;
+  }
+
+  .quiz {
+    break-inside: avoid;
+  }
+
+  section {
+    break-inside: avoid-page;
+  }
+
+  a {
+    color: var(--ink);
+  }
+}
+
+@media (max-width: 34rem) {
+  body {
+    padding: 2rem 1rem 4rem;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  .sentences > li {
+    padding-left: 1.6rem;
+  }
+}
