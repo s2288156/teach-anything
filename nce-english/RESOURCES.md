@@ -17,8 +17,36 @@
 
 ### 桥接语料（真实技术英语）
 
-课程第 07 节的四句原文全部取自下面两处，逐字摘录、未作改写。
-选它们的理由：changelog 与故障排查天然在讲「已经发生的事」，是过去时的高密度语料。
+课程第 07 节的四句原文逐字摘录、未作改写。
+选材标准：挑「已经发生的事」——release notes、升级说明、故障排查。
+这类文本时态切换密集，也正是读 Spring / JDK 文档时最先撞上的那类句子。
+
+- [Spring Boot Release Notes（GitHub Wiki）](https://github.com/spring-projects/spring-boot/wiki)
+  每版变更说明。`Upgrading from Spring Boot 3.x` 各小节用
+  `has been added` / `Previously, ... would have been used` 讲已发生的变化。
+  Use for: 现在完成时、过去时、被动语态。**新增课程的首选来源。**
+
+- [Spring Boot Reference](https://docs.spring.io/spring-boot/reference/index.html)
+  官方参考文档。陈述语体为主，长句多、从句嵌套深。
+  Use for: 主干切分、从句嵌套、条件与目的状语。
+
+- [Spring Framework Reference](https://docs.spring.io/spring-framework/reference/index.html)
+  官方参考文档，与 Spring Boot 同一套语体，但更偏原理与设计。
+  Use for: 比对同一概念的两种英文写法，练「同义不同句」。
+
+- [Spring Framework Wiki（What's New / Upgrade Notes）](https://github.com/spring-projects/spring-framework/wiki)
+  版本升级与行为变更说明。
+  Use for: 行为变更语体，`no longer` / `instead` 这类转折句。
+
+- [OpenJDK JEP 索引](https://openjdk.org/jeps/0)
+  每份 JEP 都有 `History` 段，用过去时串起一个特性的演进
+  （如 JEP 543：`was first delivered as` / `It became` / `It re-previewed`）。
+  Use for: 过去时连用、技术决策语体。
+
+#### Lesson 1 已用语料（保留）
+
+第 1 课第 07 节的四句取自下面两处。Gradle 是 Spring Boot 官方支持的构建工具，
+这四句仍属本技术栈，保留不改；新增课程优先从上面的 Spring / OpenJDK 来源取句。
 
 - [Gradle 8.10 Release Notes](https://docs.gradle.org/8.10/release-notes.html)
   官方版本说明。Build authoring improvements 与 Promoted features 两小节含大量过去时与过去进行时句子，
@@ -26,13 +54,13 @@
   Use for: 过去时被动、过去进行时的真实例句。
 
 - [Gradle User Guide · Troubleshooting builds](https://docs.gradle.org/current/userguide/troubleshooting.html)
-  官方故障排查文档。**本课首选精读源**——问题描述 + 已发生的事 + 下一步建议，时态切换密集，
+  官方故障排查文档。**第 1 课首选精读源**——问题描述 + 已发生的事 + 下一步建议，时态切换密集，
   结构正是学习者未来最常读的那类文本。`Getting additional help` 与
   `Troubleshooting daemon connection issues` 两小节已用于第 07 节。
   Use for: 报错语体、情态动词过去式、`did not + 原形` 的真实用例。
 
-> 注意：桥接语料的技术栈假设是 Java / JVM 生态，属可修订假设（见 `MISSION.md`）。
-> 若学习者真实主力栈不同，需整组替换，不要只改个别句子。
+> 注意：技术栈为 Spring Boot / Spring Framework / OpenJDK（见 `MISSION.md`）。
+> 若将来换栈，整组替换已产出课程的桥接句，不要只改个别句子。
 
 ## Skills
 

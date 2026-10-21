@@ -5,9 +5,9 @@
 - 起点：初中基础，偏薄。词性、句子成分需要从头讲。
 - 终点：读懂英文技术资料（文档、报错、issue、论文）。
 - 节奏：每天一课。**不卡时长**，以「走完四步闭环」为完成标准（见下）。
-- 技术栈假设：Java / JVM 生态（Gradle、Spring、Maven、报错栈）。
-  这是**可修订假设**，依据仅为仓库根 `AGENTS.md` 举例时提到 `java-gradle`，学习者未明确确认。
-  一旦发现真实主力栈不同，立刻改这一条，并回头替换已产出课程第 07 节的桥接句。
+- 技术栈：Spring Boot / Spring Framework / OpenJDK（学习者已确认）。
+  桥接语料以此生态的官方文档为准：报错栈、issue、release notes、troubleshooting 指南。
+  Gradle 是 Spring Boot 官方支持的构建工具，Lesson 1 第 07 节的四句桥接句继续有效，无需替换。
 
 ## 课程结构：固定的九个环节
 
@@ -104,5 +104,6 @@
       [learning-records/0001-baseline-diagnostic.md](learning-records/0001-baseline-diagnostic.md) 的结果登记表与结论。
       **结论：单复数这一轴没立住（第 1 题错）；三单与时态分野、后缀辨词性均已熟练。**
       不插地基课，改用三处补丁（Lesson 2 热身换复数主语、Lesson 1 第 03 节第 2 句回看点明 were、Lesson 2 示范先复数）。
-- [ ] 确认技术栈假设（Java / JVM）是否成立，不成立则替换全部桥接句。
+- [x] 确认技术栈：Spring Boot / Spring Framework / OpenJDK。
+      已核对 Lesson 1 的 Gradle 桥接句仍属该生态，不替换。
 - [ ] Lesson 2 开课前，把 Lesson 1 的骨架追加进 `reference/review.html`（第 1 课已建初版，后续按此累积）。
