@@ -16,3 +16,9 @@
 | 学习方向 | 目录 | 状态 | 一句话说明 |
 | --- | --- | --- | --- |
 | 新概念英语 | `nce-english` | 进行中 | 第二册课文当语料练句子骨架，桥接 Spring Boot / OpenJDK 技术英语 |
+
+## 站点发布
+
+- 线上入口 `https://s2288156.github.io/teach-anything/`，根 `index.html` 是总目录。
+- [.github/workflows/pages.yml](.github/workflows/pages.yml) 只发布根 `index.html` 与各课程目录。新增课程时，根页加一行链接，并在 `Stage site` 步骤追加 `cp -r <课程目录> _site/<课程目录>`。
+- 改仓库可见性、启用 Pages、重跑 workflow 需在 GitHub 网页操作；当前 CLI 是集成 token，无仓库管理权限。
