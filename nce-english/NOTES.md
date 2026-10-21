@@ -99,7 +99,7 @@
 
 ## 待办
 
-- [ ] 确认 `nce-english/AGENTS.md` 的写法（结构已定稿，前置条件已解除；仓库根路由表仍标注待补）。
+- [x] 编写 `nce-english/AGENTS.md`（只记偏离 teach 的部分；细节仍以本文件为准）。
 - [x] 学习者作答第 00 节摸底三题后，回填
       [learning-records/0001-baseline-diagnostic.md](learning-records/0001-baseline-diagnostic.md) 的结果登记表与结论。
       **结论：单复数这一轴没立住（第 1 题错）；三单与时态分野、后缀辨词性均已熟练。**
