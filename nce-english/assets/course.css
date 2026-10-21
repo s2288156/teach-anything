@@ -376,6 +376,23 @@ td code {
   color: var(--accent);
 }
 
+/* ---------- 测验开始闸门（仅 data-quiz 的测验会出现） ---------- */
+
+.quiz-gate {
+  margin: 1.1rem 0 0.4rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--rule-soft);
+  border-radius: 3px;
+}
+
+.quiz-gate-text {
+  margin: 0 0 0.5rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
 /* ---------- 测验记录条（仅 data-quiz 的测验会出现） ---------- */
 
 .quiz-bar {

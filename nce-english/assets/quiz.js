@@ -13,10 +13,13 @@
    data-answer 是从 0 开始的正确选项下标。
 
    可选：给 section 加 data-quiz="l1-00"。
-   加上后本轮作答会存进 localStorage，并在测验下方挂一条记录条
-   （上次记录 · 复制为 Markdown · 清空）。
+   加上后：
+   - 题目前会挂一个「开始答题」按钮，点击后才计时、才能选项，
+     计时在答完最后一题时停止；
+   - 本轮作答存进 localStorage，测验尾部出现记录条
+     （上次记录 · 复制为 Markdown · 清空）。
    data-quiz 的值必须在本工作区内唯一，它同时是 localStorage 的键。
-   不加 data-quiz 时组件完全无状态，行为和以前一样。 */
+   不加 data-quiz 时组件无状态、也不计时，行为和以前一样。 */
 
 (function () {
   "use strict";
@@ -52,13 +55,18 @@
   }
 
   /* 把一轮作答渲染成可以直接粘进 learning-records 的 Markdown 表格。
-     「学习者选择」按人眼看的第 1–4 项记，所以存的是 0 起算下标，输出时 +1。 */
+     「学习者选择」按人眼看的第 1–4 项记，所以存的是 0 起算下标，输出时 +1。
+     「用时」是单题耗时：第一题从点「开始答题」算起，之后每题从上一次作答算起。 */
   function toMarkdown(id, run) {
     var lines = [];
     var right = run.picks.filter(function (p) {
       return p.ok;
     }).length;
-    lines.push("> " + id + " · " + run.at + " · 答对 " + right + " / " + run.picks.length);
+    var head = "> " + id + " · " + run.at + " · 答对 " + right + " / " + run.picks.length;
+    if (typeof run.total === "number") {
+      head += " · 总用时 " + run.total + " 秒";
+    }
+    lines.push(head);
     lines.push("");
     lines.push("| # | 学习者选择 | 对错 | 用时（秒） | 备注 |");
     lines.push("| --- | --- | --- | --- | --- |");
@@ -104,7 +112,16 @@
     return ok;
   }
 
-  function buildBar(quiz) {
+  function buildGate() {
+    var gate = document.createElement("div");
+    gate.className = "quiz-gate";
+    gate.innerHTML =
+      '<p class="quiz-gate-text">计时从点这个按钮开始，答完最后一题自动停。</p>' +
+      '<button class="quiz-btn" type="button" data-quiz-start>开始答题</button>';
+    return gate;
+  }
+
+  function buildBar() {
     var bar = document.createElement("div");
     bar.className = "quiz-bar";
     bar.innerHTML =
@@ -114,7 +131,6 @@
       '<button class="quiz-btn" type="button" data-quiz-reset disabled>清空</button>' +
       "</p>" +
       '<pre class="quiz-md" data-quiz-md hidden></pre>';
-    quiz.appendChild(bar);
     return bar;
   }
 
@@ -126,8 +142,13 @@
     var correct = 0;
     var picks = [];
     var run = null;
-    var startRef = Date.now();
+    var started = false;
+    var startAt = 0;
+    var lastAt = 0;
+    var total = 0;
 
+    var gate = null;
+    var startBtn = null;
     var bar = null;
     var statusEl = null;
     var copyBtn = null;
@@ -135,9 +156,36 @@
     var mdEl = null;
     var canStore = false;
 
+    function allOpts() {
+      return Array.prototype.slice.call(quiz.querySelectorAll(".opt"));
+    }
+
+    function lockOpts() {
+      allOpts().forEach(function (o) {
+        o.disabled = true;
+      });
+    }
+
+    function unlockOpts() {
+      allOpts().forEach(function (o) {
+        o.disabled = false;
+      });
+    }
+
     if (id) {
       canStore = storageAvailable();
-      bar = buildBar(quiz);
+
+      gate = buildGate();
+      startBtn = gate.querySelector("[data-quiz-start]");
+      if (questions.length) {
+        quiz.insertBefore(gate, questions[0]);
+      } else {
+        quiz.appendChild(gate);
+      }
+      lockOpts();
+
+      bar = buildBar();
+      quiz.appendChild(bar);
       statusEl = bar.querySelector("[data-quiz-status]");
       copyBtn = bar.querySelector("[data-quiz-copy]");
       resetBtn = bar.querySelector("[data-quiz-reset]");
@@ -156,21 +204,32 @@
           var right = run.picks.filter(function (p) {
             return p.ok;
           }).length;
-          statusEl.textContent =
-            "上次记录：" + run.at + " · 答对 " + right + " / " + run.picks.length + " 题";
+          var note = "上次记录：" + run.at + " · 答对 " + right + " / " + run.picks.length + " 题";
+          if (typeof run.total === "number") {
+            note += " · 总用时 " + run.total + " 秒";
+          }
+          statusEl.textContent = note;
           copyBtn.disabled = false;
           resetBtn.disabled = false;
         }
       } else {
         statusEl.textContent = "此浏览器不允许本地保存，作答记录刷新后会丢";
       }
+
+      startBtn.addEventListener("click", function () {
+        started = true;
+        startAt = Date.now();
+        lastAt = startAt;
+        gate.hidden = true;
+        unlockOpts();
+      });
     }
 
     function save() {
       if (!id || !canStore) {
         return;
       }
-      run = { at: stamp(), picks: picks };
+      run = { at: stamp(), picks: picks, total: total };
       try {
         window.localStorage.setItem(PREFIX + id, JSON.stringify(run));
       } catch (err) {
@@ -188,6 +247,9 @@
       opts.forEach(function (opt, index) {
         opt.addEventListener("click", function () {
           if (q.getAttribute("data-done")) {
+            return;
+          }
+          if (id && !started) {
             return;
           }
           q.setAttribute("data-done", "1");
@@ -211,18 +273,25 @@
           }
 
           if (id) {
-            picks[qi] = {
-              c: index,
-              ok: index === answer,
-              sec: Math.max(1, Math.round((Date.now() - startRef) / 1000)),
-            };
-            startRef = Date.now();
+            var now = Date.now();
+            var sec = Math.max(1, Math.round((now - lastAt) / 1000));
+            lastAt = now;
+            picks[qi] = { c: index, ok: index === answer, sec: sec };
+
+            if (answered === questions.length) {
+              total = Math.max(1, Math.round((now - startAt) / 1000));
+            }
             save();
           }
 
           if (scoreEl && answered === questions.length) {
             scoreEl.textContent =
-              "本轮答对 " + correct + " / " + questions.length + " 题";
+              "本轮答对 " +
+              correct +
+              " / " +
+              questions.length +
+              " 题" +
+              (id ? " · 总用时 " + total + " 秒" : "");
             scoreEl.hidden = false;
           }
         });
@@ -257,15 +326,16 @@
       picks = [];
       answered = 0;
       correct = 0;
-      startRef = Date.now();
+      started = false;
+      total = 0;
       copyBtn.disabled = true;
       resetBtn.disabled = true;
       mdEl.hidden = true;
-      statusEl.textContent = "已清空记录，刷新页面即可重答";
+      statusEl.textContent = "已清空记录，重新点「开始答题」即可";
+      gate.hidden = false;
       Array.prototype.forEach.call(quiz.querySelectorAll(".q"), function (q) {
         q.removeAttribute("data-done");
         Array.prototype.forEach.call(q.querySelectorAll(".opt"), function (o) {
-          o.disabled = false;
           o.classList.remove("correct", "wrong");
         });
         var explain = q.querySelector(".explain");
@@ -273,6 +343,7 @@
           explain.hidden = true;
         }
       });
+      lockOpts();
       if (scoreEl) {
         scoreEl.hidden = true;
       }
@@ -280,10 +351,7 @@
   }
 
   function boot() {
-    Array.prototype.forEach.call(
-      document.querySelectorAll("[data-quiz]"),
-      initQuiz
-    );
+    Array.prototype.forEach.call(document.querySelectorAll("[data-quiz]"), initQuiz);
   }
 
   if (document.readyState === "loading") {
