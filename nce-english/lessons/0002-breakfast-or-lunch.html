@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 2 · Breakfast or Lunch</title>
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<main class="wrap">
+
+  <p class="backlink"><a href="../index.html">← 课程总目录</a></p>
+
+  <p class="kicker">新概念英语 第二册 · Lesson 2 / 96</p>
+  <h1>Breakfast or Lunch</h1>
+  <p class="subtitle">早餐还是午餐</p>
+  <ul class="meta">
+    <li>技能：找动词辨时间</li>
+    <li>语法：一般现在时 vs 现在进行时</li>
+    <li>8 个核心词</li>
+    <li>3 个生活场景</li>
+    <li>4 句真实 Spring Boot 文档</li>
+  </ul>
+
+  <div class="goal">
+    <p><strong>本课唯一的收获：</strong>看到动词先问一句——<b>这是习惯，还是此刻？</b>
+    一般现在时说「一直如此」，现在进行时说「现在正在」。
+    技术文档用前者写默认行为，故障现场用后者写当前状态；分不清这两者，就会把一次临时故障读成设计缺陷，或者把设计缺陷读成临时故障。
+    学完还要能在一条状态更新里，把「平时怎样」和「此刻怎样」分开说清。</p>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span>今天的技能</h2>
+    <div class="skill">
+      <p><strong>找动词，辨时间：一般现在时说习惯，现在进行时说此刻。</strong></p>
+      <p class="why">为什么这是读技术资料的关键一步：同一个服务，
+      文档里写 <code>The service starts in 3 seconds.</code>（它一贯如此），
+      值班时却说 <code>The service is starting.</code>（此刻正在启动）。
+      动词形态一变，你判断的是「设计如此」还是「正在发生」——这直接决定你是去改配置，还是再等两秒。
+      中文没有这种动词变形，所以这是中国学习者读英文技术文本时最容易漏掉的信息。</p>
+    </div>
+    <p>先看一句真的。这是 Spring Boot 官方参考文档里的原句，一句话里同时出现了两种时间：</p>
+    <div class="bridge">
+      <p class="bridge-en">The “Liveness” state of an application <b>tells</b> whether its internal state <b>allows</b> it to work correctly, or recover by itself if it <b>is currently failing</b>.</p>
+      <p class="bridge-zh">应用的“Liveness”状态说明其内部状态是否允许它正常工作，或在当前发生故障时自行恢复。</p>
+      <p class="bridge-why"><code>tells</code> / <code>allows</code> 是一般现在时——文档在给这个状态<strong>下定义</strong>，讲它一贯是什么意思；
+      <code>is currently failing</code> 是现在进行时——指应用<strong>此刻正在</strong>失败。
+      前半句是常态，后半句是现场。这一课学完，你就能一眼把这两层分开。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>最小装备</h2>
+    <p>只给这课必需的。八个词，加两张表。<strong>不要背</strong>——第 03、04 节会在真句子里反复撞见它们，撞几次就记住了。</p>
+
+    <div class="words">
+      <div class="word">
+        <p class="word-head"><span class="word-term">never</span><span class="word-phon">/ˈnevə/</span><span class="word-pos">adv.</span></p>
+        <p class="word-mean">从不；一次也不（频率副词）</p>
+        <p class="word-ex">I never get up early on Sundays. 我星期天从不早起。</p>
+        <p class="word-use"><b>搭配：</b>never mind（没关系）· never again（再也不）</p>
+        <p class="word-bad"><b>误用：</b><code>I never am late</code> ×——频率副词放 be 动词后：<code>I am never late</code>。</p>
+      </div>
+      <div class="word">
+        <p class="word-head"><span class="word-term">sometimes</span><span class="word-phon">/ˈsʌmtaɪmz/</span><span class="word-pos">adv.</span></p>
+        <p class="word-mean">有时（频率副词，位置在实义动词前）</p>
+        <p class="word-ex">I sometimes stay in bed until lunchtime. 我有时一直躺到午饭时间。</p>
+        <p class="word-use"><b>搭配：</b>sometimes ... sometimes ...（有时……有时……）</p>
+        <p class="word-bad"><b>误用：</b><code>at sometime</code> ×——「有时」是 <code>sometimes</code>；<code>sometime</code> 指「某个时候」。</p>
+      </div>
+      <div class="word">
+        <p class="word-head"><span class="word-term">always</span><span class="word-phon">/ˈɔːlweɪz/</span><span class="word-pos">adv.</span></p>
+        <p class="word-mean">总是；一直（频率副词）</p>
+        <p class="word-ex">Do you always get up so late? 你总是起得这么晚吗？</p>
+        <p class="word-use"><b>搭配：</b>always on time（总是准时）· as always（一如既往）</p>
+        <p class="word-bad"><b>误用：</b><code>I always am late</code> ×——放 be 动词后：<code>I am always late</code>。</p>
+      </div>
+      <div class="word">
+        <p class="word-head"><span class="word-term">stay</span><span class="word-phon">/steɪ/</span><span class="word-pos">v.</span></p>
+        <p class="word-mean">停留；待（stay in bed = 待在床上）</p>
+        <p class="word-ex">I sometimes stay in bed until lunchtime. 我有时一直躺到午饭时间。</p>
+        <p class="word-use"><b>搭配：</b>stay in bed（待在床上）· stay at home（待在家）</p>
+        <p class="word-bad"><b>误用：</b><code>stay in the bed</code> 通常指某张具体的床；「赖床」说 <code>stay in bed</code>。</p>
+      </div>
+      <div class="word">
+        <p class="word-head"><span class="word-term">until</span><span class="word-phon">/ənˈtɪl/</span><span class="word-pos">prep.</span></p>
+        <p class="word-mean">直到……为止（后面接时间点）</p>
+        <p class="word-ex">I sometimes stay in bed until lunchtime. 我有时一直躺到午饭时间。</p>
+        <p class="word-use"><b>搭配：</b>until lunchtime（直到午饭时间）· not ... until ...（直到……才……）</p>
+        <p class="word-bad"><b>误用：</b><code>until three hours</code> ×——<code>until</code> 后接时间点；接时间段用 <code>for three hours</code>。</p>
+      </div>
+      <div class="word">
+        <p class="word-head"><span class="word-term">lunchtime</span><span class="word-phon">/ˈlʌntʃtaɪm/</span><span class="word-pos">n.</span></p>
+        <p class="word-mean">午餐时间（一个词，不拆开写）</p>
+        <p class="word-ex">I sometimes stay in bed until lunchtime. 我有时一直躺到午饭时间。</p>
+        <p class="word-use"><b>搭配：</b>at lunchtime（在午饭时间）· by lunchtime（到午饭时间为止）</p>
+        <p class="word-bad"><b>误用：</b><code>in lunchtime</code> ×——具体时段前的介词用 <code>at</code>。</p>
+      </div>
+      <div class="word">
+        <p class="word-head"><span class="word-term">rain</span><span class="word-phon">/reɪn/</span><span class="word-pos">v.</span></p>
+        <p class="word-mean">下雨（也可作 n. 雨）</p>
+        <p class="word-ex">It’s raining again. 又下雨了。</p>
+        <p class="word-use"><b>搭配：</b>it’s raining（正在下雨）· rain heavily（雨下得大）</p>
+        <p class="word-bad"><b>误用：</b><code>It is rain</code> ×——说「正在下雨」用 <code>It is raining</code>，或用动词 <code>It rains</code>。</p>
+      </div>
+      <div class="word">
+        <p class="word-head"><span class="word-term">arrive</span><span class="word-phon">/əˈraɪv/</span><span class="word-pos">v.</span></p>
+        <p class="word-mean">到达（arrive by train = 坐火车到达）</p>
+        <p class="word-ex">I’ve just arrived by train. 我刚下火车。</p>
+        <p class="word-use"><b>搭配：</b>arrive at the station（到车站）· arrive in Beijing（到北京）</p>
+        <p class="word-bad"><b>误用：</b><code>arrive to the station</code> ×——小地点用 <code>at</code>，大地点用 <code>in</code>，不用 <code>to</code>。</p>
+      </div>
+    </div>
+
+    <h3>第一张表：两种现在时，各管什么</h3>
+    <table>
+      <thead>
+        <tr><th>用法</th><th>结构</th><th>时间信号</th><th>本课例子</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>习惯、反复发生</td><td>主语 + 动词原形（三单加 <code>-s</code>）</td><td><code>every day</code>、<code>on Sundays</code>、<code>always</code>、<code>usually</code>、<code>sometimes</code>、<code>never</code></td><td>I <code>never get up</code> early on Sundays.</td></tr>
+        <tr><td>此刻正在进行</td><td>主语 + <code>am / is / are</code> + 动词 <code>-ing</code></td><td><code>now</code>、<code>at the moment</code>、<code>still</code>、<code>Look!</code>、<code>Listen!</code></td><td>I <code>’m having</code> breakfast.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>第二张表：频率副词放在哪里</h3>
+    <table>
+      <thead>
+        <tr><th>位置</th><th>结构</th><th>例子</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>实义动词<strong>前</strong></td><td>主语 + <code>never / sometimes / always</code> + 动词</td><td>I <code>never get</code> up early. / I <code>sometimes stay</code> in bed.</td></tr>
+        <tr><td>be 动词<strong>后</strong></td><td>主语 + <code>be</code> + 频率副词 + 形容词</td><td>He <code>is always</code> late.</td></tr>
+        <tr><td>助动词<strong>后</strong>、主动词<strong>前</strong></td><td>主语 + <code>be</code> + <code>still</code> + 动词 <code>-ing</code></td><td>I <code>’m still having</code> breakfast.</td></tr>
+      </tbody>
+    </table>
+    <p class="note"><code>still</code> 不是频率副词，但位置规律一样：站在 be 动词后面、主动词前面。
+    <code>-ing</code> 拼写顺手记四个：<code>stay → staying</code>（直接加）、<code>rain → raining</code>（直接加）、
+    <code>have → having</code>（去 e 再加）、<code>get → getting</code>（双写末尾辅音）。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>拆解示范：我做给你看</h2>
+    <p>三句，每句走同样的三步。第一句先回头补上次的缺口——<strong>复数主语 + 过去时</strong>；
+    后两句才是今天的「习惯 vs 此刻」。点「逐步演示」，看我是怎么想的。</p>
+
+    <div class="sent" data-sent-demo>
+      <p class="sent-label">回看 · Lesson 1 第 03 节第 2 句</p>
+      <p class="sent-text">
+        <span class="tok">A</span>
+        <span class="tok">young</span>
+        <span class="tok" data-step="3" data-role="subj">man</span>
+        <span class="tok">and</span>
+        <span class="tok">a</span>
+        <span class="tok">young</span>
+        <span class="tok" data-step="3" data-role="subj">woman</span>
+        <span class="tok" data-step="1" data-role="aux">were</span>
+        <span class="tok" data-step="1" data-role="verb">sitting</span>
+        <span class="tok" data-step="3" data-role="adv">behind</span>
+        <span class="tok" data-step="3" data-role="obj">me.</span>
+      </p>
+      <ol class="steps">
+        <li data-step="1"><b>找动词</b>：<code>were sitting</code> 是一个整体。<code>were</code> 是助动词，扛时间和单复数；
+        <code>sitting</code> 才是动作。</li>
+        <li data-step="2"><b>定时间</b>：<code>were</code> 是 <code>are</code> 的过去式，所以是「过去那一刻正坐着」。
+        这一句没有时间状语，但 <code>were</code> 自己就把时间说清楚了。</li>
+        <li data-step="3"><b>切主干</b>：谁（<code>A young man and a young woman</code>，两个人 = 复数）
+        + 做什么（<code>were sitting</code>）+ 在哪（<code>behind me</code>）。
+        两个人配 <code>were</code>，不配 <code>was</code>——这就是上次那道缺口。</li>
+      </ol>
+      <button class="sent-play" type="button">逐步演示</button>
+    </div>
+
+    <div class="sent" data-sent-demo>
+      <p class="sent-text">
+        <span class="tok" data-step="3" data-role="subj">I</span>
+        <span class="tok" data-step="2" data-role="adv">never</span>
+        <span class="tok" data-step="1" data-role="verb">get</span>
+        <span class="tok" data-step="1">up</span>
+        <span class="tok" data-step="3" data-role="adv">early</span>
+        <span class="tok" data-step="2">on</span>
+        <span class="tok" data-step="2">Sundays.</span>
+      </p>
+      <ol class="steps">
+        <li data-step="1"><b>找动词</b>：动作是 <code>get</code>。<code>get up</code> 是短语动词「起床」，
+        <code>up</code> 跟着 <code>get</code> 一起记，但真正的动词是 <code>get</code>。</li>
+        <li data-step="2"><b>定时间</b>：<code>get</code> 是原形，主语 <code>I</code> 不是三单；
+        再加上 <code>never</code> 和 <code>on Sundays</code>（每逢星期天），整句在讲<strong>习惯</strong>——用一般现在时。</li>
+        <li data-step="3"><b>切主干</b>：谁（<code>I</code>）+ 从不做什么（<code>never get up</code>）+ 什么时候（<code>early on Sundays</code>）。
+        <code>never</code> 站在实义动词 <code>get</code> 前面，不能写成 <code>I get never up</code>。</li>
+      </ol>
+      <button class="sent-play" type="button">逐步演示</button>
+    </div>
+
+    <div class="sent" data-sent-demo>
+      <p class="sent-text">
+        <span class="tok" data-step="3" data-role="subj">I</span>
+        <span class="tok" data-step="1" data-role="aux">’m</span>
+        <span class="tok" data-step="2" data-role="adv">still</span>
+        <span class="tok" data-step="1" data-role="verb">having</span>
+        <span class="tok" data-step="3" data-role="obj">breakfast.</span>
+      </p>
+      <ol class="steps">
+        <li data-step="1"><b>找动词</b>：<code>’m having</code> 是一个整体。<code>’m</code> = <code>am</code>，是助动词；
+        <code>having</code> 才是主动词。</li>
+        <li data-step="2"><b>定时间</b>：<code>am + having</code> = 现在进行时，表示「此刻正在吃」。
+        <code>still</code> = 仍然，站在 be 动词后、主动词前，强调这个动作还没结束。</li>
+        <li data-step="3"><b>切主干</b>：谁（<code>I</code>）+ 正在做什么（<code>am still having</code>）+ 吃什么（<code>breakfast</code>）。
+        不能写成 <code>I am have breakfast</code>——be 动词后面必须是 <code>-ing</code>。</li>
+      </ol>
+      <button class="sent-play" type="button">逐步演示</button>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span>你来拆</h2>
+    <p>同样的三步，现在你来。<strong>点击句子里的词</strong>，点错会标红并告诉你它其实是什么成分——
+    标红的地方就是还没分清的地方，比点对更有价值。</p>
+    <p>这五句之外的课文全文和逐句批注，在
+    <a href="../reference/lesson-02-text.html">Lesson 2 课文全文批注</a>，读完这一节再去翻。</p>
+
+    <div class="sent" data-sent-find="verb">
+      <p class="sent-label">第 1 句 · 点击句中的主动词</p>
+      <p class="sent-text">
+        <button class="tok" type="button" data-role="subj">I</button>
+        <button class="tok" type="button" data-role="adv">never</button>
+        <button class="tok" type="button" data-role="verb">get</button>
+        <button class="tok" type="button">up</button>
+        <button class="tok" type="button" data-role="adv">early</button>
+        <button class="tok" type="button">on</button>
+        <button class="tok" type="button">Sundays.</button>
+      </p>
+      <p class="sent-fb" hidden data-text="get 是主动词，up 是短语动词的一部分；never 是频率副词，放在 get 前面。on Sundays 用复数，表示「每逢星期天」，和 Last Sunday（某一个星期天）不同。"></p>
+    </div>
+
+    <div class="sent" data-sent-find="verb">
+      <p class="sent-label">第 2 句 · 点击句中的主动词</p>
+      <p class="sent-text">
+        <button class="tok" type="button">Last</button>
+        <button class="tok" type="button">Sunday</button>
+        <button class="tok" type="button" data-role="subj">I</button>
+        <button class="tok" type="button" data-role="verb">got</button>
+        <button class="tok" type="button">up</button>
+        <button class="tok" type="button" data-role="adv">very</button>
+        <button class="tok" type="button" data-role="adv">late.</button>
+      </p>
+      <p class="sent-fb" hidden data-text="got 是 get 的过去式。Last Sunday 是过去时间信号，和第 1 句的 on Sundays（习惯）正好相反。这句是复习第 1 课的过去时，不是今天的新语法。"></p>
+    </div>
+
+    <div class="sent" data-sent-find="verb">
+      <p class="sent-label">第 3 句 · 点击句中的主动词（缩写里藏着助动词）</p>
+      <p class="sent-text">
+        <button class="tok" type="button" data-role="aux">“It’s</button>
+        <button class="tok" type="button" data-role="verb">raining</button>
+        <button class="tok" type="button" data-role="adv">again.”</button>
+      </p>
+      <p class="sent-fb" hidden data-text="raining 是主动词；It’s = It is，is 是助动词。is + raining = 现在进行时，表示「此刻正在下雨」。again = 又，说明这不是第一次。"></p>
+    </div>
+
+    <div class="sent" data-sent-find="aux">
+      <p class="sent-label">第 4 句 · 换个角度：点击句中的助动词（不是主动词）</p>
+      <p class="sent-text">
+        <button class="tok" type="button" data-role="obj">“What</button>
+        <button class="tok" type="button" data-role="aux">are</button>
+        <button class="tok" type="button" data-role="subj">you</button>
+        <button class="tok" type="button" data-role="verb">doing?”</button>
+      </p>
+      <p class="sent-fb" hidden data-text="are 是助动词，doing 是主动词。现在进行时的疑问句把 be 动词提到主语前：What are you doing? 不能写成 What you are doing? are 只扛时间和人称，不表示动作。"></p>
+    </div>
+
+    <div class="sent" data-sent-find="verb">
+      <p class="sent-label">第 5 句 · 点击句中的主动词（句首有个助动词干扰）</p>
+      <p class="sent-text">
+        <button class="tok" type="button" data-role="aux">Do</button>
+        <button class="tok" type="button" data-role="subj">you</button>
+        <button class="tok" type="button" data-role="adv">always</button>
+        <button class="tok" type="button" data-role="verb">get</button>
+        <button class="tok" type="button">up</button>
+        <button class="tok" type="button" data-role="adv">so</button>
+        <button class="tok" type="button" data-role="adv">late?</button>
+      </p>
+      <p class="sent-fb" hidden data-text="get 是主动词；Do 是助动词，帮一般现在时构成疑问句。always 放在实义动词 get 前面。这是习惯问句，不是「此刻正在起床」。"></p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span>中译英回译</h2>
+    <p>这一步比选择题难，也<strong>比选择题有用得多</strong>。选择题只要「认得出」，回译要你把骨架从记忆里重建出来——
+    这正是读技术资料时真实发生的动作：你脑子里得先有骨架，才能在陌生句子里认出它。</p>
+    <p>规则：<strong>先写完，再展开对照</strong>。写在输入框里会自动存草稿，刷新不丢，三天后回来还能看见自己当时错在哪。</p>
+
+    <div class="tr" data-translate="l2-tr-1">
+      <p class="tr-zh">1. 我星期天从不早起。</p>
+      <textarea class="tr-input" rows="2" placeholder="在这里写英文，写完再展开下面的原文"></textarea>
+      <p class="tr-state" data-tr-state></p>
+      <p class="tr-tools"><button class="tr-clear" type="button" data-tr-clear>清空</button></p>
+      <details class="tr-ans">
+        <summary>对照原文</summary>
+        <p class="tr-en">I never get up early on Sundays.</p>
+        <p class="tr-note"><code>never</code> 放在实义动词 <code>get</code> 前；<code>on Sundays</code> 用复数，表示每逢星期天。
+        主语 <code>I</code> 配动词原形，不用三单。</p>
+      </details>
+    </div>
+
+    <div class="tr" data-translate="l2-tr-2">
+      <p class="tr-zh">2. 有时我一直躺到午饭时间。</p>
+      <textarea class="tr-input" rows="2" placeholder="在这里写英文，写完再展开下面的原文"></textarea>
+      <p class="tr-state" data-tr-state></p>
+      <p class="tr-tools"><button class="tr-clear" type="button" data-tr-clear>清空</button></p>
+      <details class="tr-ans">
+        <summary>对照原文</summary>
+        <p class="tr-en">I sometimes stay in bed until lunchtime.</p>
+        <p class="tr-note"><code>sometimes</code> 在 <code>stay</code> 前；<code>stay in bed</code> 整体记；
+        <code>until</code> 后面直接接时间点 <code>lunchtime</code>。整句没有 <code>-ing</code>，因为讲的是习惯。</p>
+      </details>
+    </div>
+
+    <div class="tr" data-translate="l2-tr-3">
+      <p class="tr-zh">3. 天又在下雨了。</p>
+      <textarea class="tr-input" rows="2" placeholder="在这里写英文，写完再展开下面的原文"></textarea>
+      <p class="tr-state" data-tr-state></p>
+      <p class="tr-tools"><button class="tr-clear" type="button" data-tr-clear>清空</button></p>
+      <details class="tr-ans">
+        <summary>对照原文</summary>
+        <p class="tr-en">It’s raining again.</p>
+        <p class="tr-note">「此刻正在下雨」必须用现在进行时 <code>is raining</code>，不能写成 <code>It rains again</code>。
+        <code>It’s</code> = <code>It is</code>；<code>rain</code> 这里作动词。</p>
+      </details>
+    </div>
+
+    <div class="tr" data-translate="l2-tr-4">
+      <p class="tr-zh">4. 我正在吃早饭。</p>
+      <textarea class="tr-input" rows="2" placeholder="在这里写英文，写完再展开下面的原文"></textarea>
+      <p class="tr-state" data-tr-state></p>
+      <p class="tr-tools"><button class="tr-clear" type="button" data-tr-clear>清空</button></p>
+      <details class="tr-ans">
+        <summary>对照原文</summary>
+        <p class="tr-en">I’m having breakfast.</p>
+        <p class="tr-note">「正在吃」= <code>am + having</code>，两部分缺一不可。<code>I am have breakfast</code> 是典型错误。
+        对比：<code>I have breakfast at seven every day.</code>（习惯）——同一个动词，时间不同，形态就不同。</p>
+      </details>
+    </div>
+
+    <p style="margin-top:1.2rem">四句都写完了？先自己对照原文，再复制下面的提示词，让 AI 当批改员。
+    它一次只改一个毛病——别让它一口气列十条，那只会让你更乱。</p>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>让 AI 当批改员。</strong>复制这段，粘进任意 AI 对话，再把你的四句译文发给它。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l2-corrector">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l2-corrector">
+        <p>你是我的英文批改员。我在练一般现在时和现在进行时的回译，核心区别是「平时习惯」和「此刻正在发生」。下面四句是课文原句，请以它们为标准：</p>
+        <p>1. I never get up early on Sundays.<br>2. I sometimes stay in bed until lunchtime.<br>3. It’s raining again.<br>4. I’m having breakfast.</p>
+        <p>我会发给你我的英文译文。请按三条标准逐句打分（每条 1–5 分）：准确（意思没丢）、时态（习惯用一般现在时，此刻用 am / is / are + -ing）、地道（频率副词位置与搭配）。</p>
+        <p>输出顺序固定：先给一句总评，指出我最系统的那一个毛病；再只挑一处最重要的错误讲清原因；最后给我一个升级版，保留我的原意，用更自然的英文重写。</p>
+        <p>不要一次列出所有错误，也不要把四句全部重写。</p>
+      </template>
+    </div>
+    <p class="note">考官与陪练两个角色的提示词，以及后续课程的模板，都在
+    <a href="../reference/ai-prompts.html">AI 提示词库</a>。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span>混合检索</h2>
+    <p>六题，<strong>类型故意打乱</strong>：找错、词义、句型、理解、词性、搭配混着出，顺序也不按课文走。
+    打乱是有意的——现实中不会有「接下来五题都考现在进行时」的提示，交错练习才练得出「自己判断该用哪招」。</p>
+    <p>不计时、不记录，答完看解析就行。但<strong>不要往回翻</strong>，凭记忆答——
+    第一遍的直觉比查完答案的正确率更有参考价值。</p>
+
+    <section class="quiz">
+      <div class="q" data-answer="2">
+        <p class="q-text"><span class="q-no">1</span>下面哪一句是<strong>错的</strong>？</p>
+        <div class="opts">
+          <button class="opt" type="button">I never get up early on Sundays.</button>
+          <button class="opt" type="button">I sometimes stay in bed until lunchtime.</button>
+          <button class="opt" type="button">I am get up early on Sundays.</button>
+          <button class="opt" type="button">I always get up early on Sundays.</button>
+        </div>
+        <p class="explain" hidden>第三句错在 <code>am get</code>：be 动词和实义动词不能这样叠用。
+        要么说 <code>I get up early</code>（习惯），要么说 <code>I am getting up</code>（此刻正在起）。
+        其余三句语法都成立。</p>
+      </div>
+
+      <div class="q" data-answer="0">
+        <p class="q-text"><span class="q-no">2</span>until lunchtime 的意思是：</p>
+        <div class="opts">
+          <button class="opt" type="button">直到午饭时间</button>
+          <button class="opt" type="button">恰在午饭时间</button>
+          <button class="opt" type="button">午饭时间之后</button>
+          <button class="opt" type="button">午饭时间之前</button>
+        </div>
+        <p class="explain" hidden><code>until</code> = 直到……为止，强调动作一直持续到那个时间点。
+        <code>stay in bed until lunchtime</code> = 一直躺到午饭时间。</p>
+      </div>
+
+      <div class="q" data-answer="1">
+        <p class="q-text"><span class="q-no">3</span>She ___ breakfast at seven every day.</p>
+        <div class="opts">
+          <button class="opt" type="button">have</button>
+          <button class="opt" type="button">has</button>
+          <button class="opt" type="button">is having</button>
+          <button class="opt" type="button">having</button>
+        </div>
+        <p class="explain" hidden><code>every day</code> 是习惯信号，用一般现在时；主语 she 是三单，所以用 <code>has</code>。
+        <code>is having</code> 是「此刻正在吃」，和 every day 冲突。</p>
+      </div>
+
+      <div class="q" data-answer="3">
+        <p class="q-text"><span class="q-no">4</span>根据课文，姑母露西打电话时是什么情况？</p>
+        <div class="opts">
+          <button class="opt" type="button">已到他家，正在吃早饭</button>
+          <button class="opt" type="button">每天一点，才刚刚起床</button>
+          <button class="opt" type="button">想知道天气，才打电话</button>
+          <button class="opt" type="button">刚下火车，正要来看他</button>
+        </div>
+        <p class="explain" hidden>课文里她说 <code>I’ve just arrived by train</code>（我刚下火车）和
+        <code>I’m coming to see you</code>（我这就来看你）。吃早饭的是作者，不是姑母；
+        「一点钟」是她感叹作者起得太晚。</p>
+      </div>
+
+      <div class="q" data-answer="1">
+        <p class="q-text"><span class="q-no">5</span>still 在 I’m still having breakfast 中是什么词性？</p>
+        <div class="opts">
+          <button class="opt" type="button">形容词（adj.）</button>
+          <button class="opt" type="button">副词（adv.）</button>
+          <button class="opt" type="button">介词（prep.）</button>
+          <button class="opt" type="button">连词（conj.）</button>
+        </div>
+        <p class="explain" hidden><code>still</code> 在这里修饰 <code>having</code>，表示「仍然」，是副词。
+        位置规律：be 动词后、主动词前。</p>
+      </div>
+
+      <div class="q" data-answer="2">
+        <p class="q-text"><span class="q-no">6</span>just then 的意思是：</p>
+        <div class="opts">
+          <button class="opt" type="button">过了不久</button>
+          <button class="opt" type="button">从那以后</button>
+          <button class="opt" type="button">正在这时</button>
+          <button class="opt" type="button">在此之前</button>
+        </div>
+        <p class="explain" hidden><code>just then</code> = 正在这时、就在那一刻，用来把叙述推进到下一个动作。
+        课文里 <code>Just then, the telephone rang.</code> 就是「正在这时，电话铃响了」。</p>
+      </div>
+
+      <p class="score" data-score hidden></p>
+    </section>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span>生活场景：今天就说得出口</h2>
+    <p>课文讲的是一个赖床的星期天，但骨架是通用的：<strong>平时怎样用一般现在时，此刻怎样用现在进行时</strong>。
+    下面三个场景都是上班族每天会遇到的对话，每个都配一条「别这么说」——先看别人错在哪，自己说的时候才不会踩。</p>
+
+    <div class="scene">
+      <p class="scene-head"><span class="scene-tag">同事闲聊</span>早上在办公室，你比平时晚到</p>
+      <p class="scene-en">A: You’re late again. What’s happening?<br>B: Sorry. I usually leave home at eight, but I’m waiting for a delivery this morning.</p>
+      <p class="scene-zh">A：你又迟到了，怎么回事？ B：抱歉。我平时八点出门，但今天早上在等一个快递。</p>
+      <p class="scene-note"><code>usually leave</code> 是平时的习惯，用一般现在时；<code>am waiting</code> 是此刻正在等，两部分缺一不可。</p>
+      <p class="scene-bad"><b>别这么说：</b><code>I usually am leaving home at eight.</code> 有 <code>usually</code> 就说明是习惯，动词用原形，不要加 <code>am</code>。</p>
+    </div>
+
+    <div class="scene">
+      <p class="scene-head"><span class="scene-tag">电话</span>同事打电话问你现在在做什么</p>
+      <p class="scene-en">A: What are you doing now?<br>B: I’m working on the report. I always check my email before lunch, but today I’m writing the summary first.</p>
+      <p class="scene-zh">A：你现在在做什么？ B：我在写报告。我平时午饭前都会查邮件，但今天我先写摘要。</p>
+      <p class="scene-note">问「此刻」用 <code>What are you doing</code>；<code>always check</code> 讲习惯，<code>am writing</code> 讲今天此刻在做的事。</p>
+      <p class="scene-bad"><b>别这么说：</b><code>What do you do now?</code> 问的是职业或长期习惯；问此刻正在做什么，要用 <code>What are you doing?</code></p>
+    </div>
+
+    <div class="scene">
+      <p class="scene-head"><span class="scene-tag">日常安排</span>同事问你要不要一起去食堂</p>
+      <p class="scene-en">A: Do you always eat at your desk?<br>B: No, I usually go to the canteen. But today I’m eating here because I have a deadline.</p>
+      <p class="scene-zh">A：你总是在工位上吃饭吗？ B：不，我平时去食堂。但今天截止时间紧，我就在这儿吃。</p>
+      <p class="scene-note"><code>usually go</code> 与 <code>today ... am eating</code> 形成对照：一个是长期习惯，一个是今天的临时状态。</p>
+      <p class="scene-bad"><b>别这么说：</b><code>I am usually go to the canteen.</code> <code>usually</code> 后面接动词原形，<code>am</code> 和 <code>go</code> 不能叠在一起。</p>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>让 AI 当陪练。</strong>复制这段，粘进任意 AI 对话，它会扮演同事，用英文带你走这三个场景。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l2-partner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l2-partner">
+        <p>你是我的英语陪练，扮演我的同事。场景：早上在办公室走廊碰到，聊今天怎么还没吃早饭。</p>
+        <p>规则：你用英文提问，一次只问一句，等我回答后再问下一句；我卡住时给我一个关键词提示，不要替我说完整句。</p>
+        <p>这一轮只练现在进行时：问我此刻在做什么、今天上午在忙什么、什么时候能去吃饭。</p>
+        <p>如果我用一般现在时讲此刻正在发生的事，停下来让我重说，并告诉我该用 am / is / are + -ing。</p>
+        <p>先开始：用一句英文跟我打招呼，然后问第一个问题。</p>
+      </template>
+    </div>
+    <p class="note">想换场景，改提示词里的「场景：……」那一句即可。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">08</span>桥接：真实的技术英语长这样</h2>
+    <p>四句全部来自 Spring Boot 官方参考文档的<strong>同一页</strong>，一字未改。
+    它们的骨架，和露西姑母那通电话里的一模一样：一般现在时讲常态，现在进行时讲此刻。</p>
+
+    <div class="bridge">
+      <p class="bridge-en">The <code>SpringApplication</code> class <b>provides</b> a convenient way to bootstrap a Spring application that <b>is started</b> from a <code>main()</code> method.</p>
+      <p class="bridge-zh">SpringApplication 类提供了一种便捷方式，用来引导一个从 main() 方法启动的 Spring 应用。</p>
+      <p class="bridge-why">骨架 = 第 03 节第 2 句。<code>provides</code> / <code>is started</code> 都是一般现在时：
+      文档在讲这个类<strong>一贯如此</strong>的职责，不是此刻正在发生。
+      <code>is started</code> 还是一般现在时被动（<code>is</code> + 过去分词），主语 application 是「被启动」的。
+      主动讲能力、被动讲承受者，这是读 API 文档最常见的两种形态。</p>
+      <p class="bridge-src">来源：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application">Spring Boot Reference · SpringApplication</a></p>
+    </div>
+
+    <div class="bridge">
+      <p class="bridge-en">The “Liveness” state of an application <b>tells</b> whether its internal state <b>allows</b> it to work correctly, or recover by itself if it <b>is currently failing</b>.</p>
+      <p class="bridge-zh">应用的“Liveness”状态说明其内部状态是否允许它正常工作，或在当前发生故障时自行恢复。</p>
+      <p class="bridge-why">骨架 = 第 03 节第 3 句。一句话里两种时间并存：<code>tells</code> / <code>allows</code> 是一般现在时，给定义、讲常态；
+      <code>is currently failing</code> 是现在进行时，指「此刻正在失败」。
+      读文档时把后半句误读成常态，就会以为应用总是失败；反过来把前半句误读成此刻，就会以为这只是临时现象。</p>
+      <p class="bridge-src">来源：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.application-availability.liveness">Spring Boot Reference · SpringApplication · Liveness State</a></p>
+    </div>
+
+    <div class="bridge">
+      <p class="bridge-en">This typically <b>happens</b> during startup, while <code>CommandLineRunner</code> and <code>ApplicationRunner</code> components <b>are being processed</b>, or at any time if the application <b>decides</b> that it <b>is</b> too busy for additional traffic.</p>
+      <p class="bridge-zh">这通常发生在启动期间，也就是 CommandLineRunner 和 ApplicationRunner 组件正在被处理的时候；或者发生在应用认为自己太忙、无法再接更多流量的时候。</p>
+      <p class="bridge-why">骨架 = 第 03 节第 3 句的 <code>am + -ing</code>，但这里多了被动：
+      <code>are being processed</code> = <code>are</code> + <code>being</code> + 过去分词，「正在被处理」。
+      <code>happens</code> / <code>decides</code> / <code>is</code> 是一般现在时，讲通常规律；
+      <code>are being processed</code> 是现在进行时被动，讲启动那一刻正在发生的事。
+      技术文档里「通常」和「此刻」经常挤在同一句，靠动词形态分开。</p>
+      <p class="bridge-src">来源：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.application-availability.readiness">Spring Boot Reference · SpringApplication · Readiness State</a></p>
+    </div>
+
+    <div class="bridge">
+      <p class="bridge-en">If you <b>are using</b> Spring Boot’s “actuator” support then these states <b>are exposed</b> as health endpoint groups.</p>
+      <p class="bridge-zh">如果你正在使用 Spring Boot 的“actuator”支持，那么这些状态会以健康端点组的形式暴露出来。</p>
+      <p class="bridge-why">骨架 = 第 03 节第 2、3 句合起来。条件从句用现在进行时 <code>are using</code>（如果你现在正在用），
+      主句用一般现在时被动 <code>are exposed</code>（这些状态会被暴露——文档描述的默认行为）。
+      条件句用现在时表一般条件，是英文的硬规则；这里再用进行时，强调「你当前正在使用」这个前提。</p>
+      <p class="bridge-src">来源：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.application-availability">Spring Boot Reference · SpringApplication · Application Availability</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">09</span>产出与收口</h2>
+
+    <div class="task">
+      <p><strong>现实任务：给同事写一条状态更新。</strong>同事在群里问「报告今天能发吗？」。
+      用 2–3 句回复：一句平时习惯、一句此刻状态、一句什么时候能发。</p>
+      <p>先用中文列要点：① 我平时怎么安排这项工作；② 我现在做到哪一步；③ 今天什么时候能交。再翻成英文。</p>
+      <ol>
+        <li>第一句用 <code>usually / always / never</code> 讲习惯，动词用一般现在时。</li>
+        <li>第二句用 <code>am / is / are + -ing</code> 讲此刻，带上 <code>now</code> 或 <code>at the moment</code>。</li>
+        <li>第三句交代时间，例如 <code>I’m finishing it this afternoon.</code>——用进行时表示已经安排好的事。</li>
+      </ol>
+      <ul class="checklist">
+        <li>一般现在时里，主语是 he / she / it 时，动词加 <code>-s</code> 了吗？</li>
+        <li><code>never / sometimes / always</code> 放在实义动词<strong>前</strong>了吗？</li>
+        <li>现在进行时是不是 <code>am / is / are + 动词 -ing</code>，两部分都在？</li>
+        <li>有没有写出 <code>I am get up</code> 这种 be + 原形？</li>
+        <li>这条更新里，「平时」和「此刻」分得清吗？有没有一句话同时想表达两种时间？</li>
+      </ul>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>让 AI 当考官。</strong>先自己过清单，再复制这段。它会出三句中文让你回译，答完才公布参考答案。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l2-examiner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l2-examiner">
+        <p>你是我的英语考官，只考「平时习惯」和「此刻正在发生」的区别。</p>
+        <p>请按顺序做三件事：第一，给我三句中文，让我翻成英文——一句讲平时的习惯、一句讲此刻正在做的事、一句带频率副词。第二，等我全部答完再公布参考答案：I never get up early on Sundays. / I’m having breakfast. / I sometimes stay in bed until lunchtime. 第三，按准确、时态、地道三条标准各给 1–5 分，先总评，再只指出一处最该改的地方，最后给我的句子一个升级版。</p>
+        <p>不要在我回答前给提示，也不要问完就立刻公布答案。</p>
+      </template>
+    </div>
+
+    <details class="recall">
+      <summary>收口 · 60 秒默写（先合上页面，再点开对照）</summary>
+      <p>不要往回滚。凭记忆在心里或纸上写出这四样，写完再展开下面的答案。</p>
+      <ol>
+        <li>一般现在时和现在进行时的骨架分别是什么？</li>
+        <li><code>I’m still having breakfast.</code> 里 <code>still</code> 放在哪？为什么？</li>
+        <li>本课的三个新词，以及它们各自的词性。</li>
+        <li>给同事的状态更新里，哪一句用一般现在时、哪一句用现在进行时？</li>
+      </ol>
+      <p><strong>1.</strong> 一般现在时：主语 + 动词原形（三单加 <code>-s</code>）；现在进行时：主语 + <code>am / is / are</code> + 动词 <code>-ing</code>。</p>
+      <p><strong>2.</strong> 放在 be 动词后、主动词前：<code>am still having</code>。它修饰整个进行中的动作，表示「仍然、还没结束」。</p>
+      <p><strong>3.</strong> 参考：<code>never</code>（adv. 从不）、<code>stay</code>（v. 停留）、<code>arrive</code>（v. 到达）。
+      你写出别的也算对，只要词性标对了。</p>
+      <p><strong>4.</strong> 讲平时习惯的句子用一般现在时；讲此刻做到哪一步、今天什么时候交的句子用现在进行时。
+      两句的动词形态必须不同，否则读者分不清哪句是常态、哪句是当下。</p>
+      <p>想不起来哪一条，就说明那一条还没进长期记忆——明天开课前来
+      <a href="../reference/review.html">已学骨架总表</a>过一遍。</p>
+    </details>
+  </section>
+
+  <footer>
+    <h2>来源、延伸与下一步</h2>
+    <p><strong>课文原文</strong>据教材《新概念英语》第二册（外研社 / Longman），并与
+    <a href="http://www.zshunj.cn/minishow.asp?id=1498">高中英语教学交流网</a>、
+    <a href="https://www.hujiang.com/c/xgnyydec/p989168/">沪江网 · Lesson 2 深度解析</a>、
+    <a href="https://m.hujiang.com/c/nceer/p1148716/">沪江网 · 新概念第二册 30 篇课文</a> 三处文本交叉核对。</p>
+    <p><strong>桥接句</strong>取自 Spring Boot 官方参考文档
+    <a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html">SpringApplication</a> 的
+    SpringApplication、Application Availability、Liveness State、Readiness State 四节，逐字摘录，未作改写。</p>
+    <p><strong>本课首选精读源</strong>：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html">Spring Boot Reference · SpringApplication</a>。
+    它把「类是什么」「什么时候算活着 / 就绪」「组件正在被处理」写在同一页里，
+    正好是本课两种时态的交界，也是你未来读框架文档最常遇到的结构。</p>
+    <p><strong>延伸</strong>：
+    <a href="../reference/lesson-02-text.html">Lesson 2 课文全文批注</a> ·
+    <a href="../reference/ai-prompts.html">AI 提示词库</a> ·
+    <a href="../reference/review.html">已学骨架总表</a> ·
+    <a href="../reference/past-simple.html">一般过去时速查</a> ·
+    <a href="../index.html">← 课程总目录</a></p>
+    <div class="ask">
+      <p><strong>有任何不清楚的地方，直接问 agent。</strong>
+      比如「I’m coming 为什么不是『我正在来』」「on Sundays 和 on Sunday 有什么区别」
+      「are being processed 为什么不能写成 are processing」——
+      把你卡住的点说出来，比再读一遍课文有用得多。</p>
+    </div>
+  </footer>
+
+</main>
+<script src="../assets/quiz.js"></script>
+<script src="../assets/sentence.js"></script>
+<script src="../assets/translate.js"></script>
+<script src="../assets/prompt.js"></script>
+</body>
+</html>

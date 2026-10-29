@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>速查 · AI 提示词库</title>
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<main class="wrap">
+
+  <p class="backlink"><a href="../index.html">← 课程总目录</a></p>
+
+  <p class="kicker">速查文档 · AI 练习</p>
+  <h1>AI 提示词库</h1>
+  <p class="subtitle">Three Roles, One Habit</p>
+  <ul class="meta">
+    <li>3 个角色</li>
+    <li>9 条提示词</li>
+    <li>只复制，不调接口</li>
+  </ul>
+
+  <div class="goal">
+    <p><strong>怎么用：</strong>先自己写完答案，再点「复制提示词」，粘到任意 AI 对话里，
+    最后把你的答案发过去。顺序不能反——先让 AI 给答案，练的就不是你，是它。</p>
+    <p>三条评分标准贯穿全部提示词：<strong>准确</strong>（意思没丢）、
+    <strong>时态</strong>（时间关系对）、<strong>地道</strong>（搭配和语序自然）。
+    输出契约也统一：<strong>先总评、只改一处、再给升级版</strong>。</p>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span>三个角色</h2>
+    <table>
+      <thead>
+        <tr><th>角色</th><th>什么时候用</th><th>它做什么</th><th>它不做什么</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>考官</td>
+          <td>第 09 节，产出之后</td>
+          <td>出中文让你回译，答完再公布参考答案并打分</td>
+          <td>不在你回答前给提示</td>
+        </tr>
+        <tr>
+          <td>批改员</td>
+          <td>第 05 节，回译写完之后</td>
+          <td>按三条标准批改，指出最该改的一处</td>
+          <td>不一次列出所有错误</td>
+        </tr>
+        <tr>
+          <td>陪练</td>
+          <td>第 07 节，生活场景</td>
+          <td>扮演同事，用英文一问一答</td>
+          <td>不替你说完整句</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">提示词本身是中文指令，角色扮演部分要求 AI 说英文。
+    这样既不会误解任务，又能保证你读到的是真实英语。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>通用提示词</h2>
+    <p>换课以后仍然能用。想调整难度，只改「最近两课」那一行。</p>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>通用 · 考官。</strong>五题回译，答完再公布答案。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-gen-examiner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-gen-examiner">
+        <p>你是我的英语考官。我最近两课学的骨架在下面。</p>
+        <p>请一次只出一道中文句子让我翻成英文，等我答完再出下一题，共五题。我全部答完之前不要给答案、不要提示。</p>
+        <p>五题答完后按顺序做三件事：先给一句总评；再只指出我最系统的一处错误并讲清原因；最后把我的五个句子改写成升级版。</p>
+        <p>评分只看三条：准确（意思没丢）、时态（时间关系对）、地道（搭配和语序自然）。</p>
+        <p>最近两课的骨架：Lesson 1：一般过去时、过去进行时、could + 原形。Lesson 2：一般现在时（习惯）、现在进行时（此刻）、频率副词位置。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>通用 · 批改员。</strong>先自己写，再让它只改一处。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-gen-corrector">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-gen-corrector">
+        <p>你是我的英文批改员。我会把中文原句和我的英文译文一起发给你。</p>
+        <p>请按三条标准打分（每条 1–5 分）：准确（意思没丢）、时态（时间关系对）、地道（搭配和语序自然）。</p>
+        <p>输出顺序固定：先一句总评，指出我最系统的一个毛病；再只挑一处最重要的错误讲清原因；最后给我一个升级版，保留我的原意，用更自然的英文重写。</p>
+        <p>不要一次列出所有错误，也不要把所有句子重写。我一次只改一个毛病。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>通用 · 陪练。</strong>场景由你指定，AI 只负责对话。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-gen-partner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-gen-partner">
+        <p>你是我的英语陪练，扮演我的同事。场景由我指定。</p>
+        <p>规则：你用英文提问，一次只问一句，等我回答后再问下一句；我卡住时给一个关键词提示，不要替我说完整句。</p>
+        <p>对话中如果我用错时态，先让我重说一遍，再告诉我该用哪个形式。</p>
+        <p>开始前先用一句英文确认场景，然后问第一个问题。</p>
+      </template>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>Lesson 1 · A Private Conversation</h2>
+    <p>本课只练一件事：讲已经发生的事，动词要用过去式。</p>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>批改员。</strong>配合第 05 节的四句回译。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l1-corrector">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l1-corrector">
+        <p>你是我的英文批改员。我在练一般过去时的回译。下面四句是课文原句，请以它们为标准：</p>
+        <p>1. Last week I went to the theatre.<br>2. I did not enjoy it.<br>3. They were talking loudly.<br>4. In the end, I could not bear it.</p>
+        <p>我会发给你我的英文译文。请按三条标准逐句打分（每条 1–5 分）：准确（意思没丢）、时态（过去的事是否用过去式，did 后是否用原形）、地道（搭配和语序是否自然）。</p>
+        <p>输出顺序固定：先给一句总评，指出我最系统的那一个毛病；再只挑一处最重要的错误讲清原因；最后给我一个升级版，保留我的原意，用更自然的英文重写。</p>
+        <p>不要一次列出所有错误，也不要把四句全部重写。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>陪练。</strong>配合第 07 节的「周一聊周末」。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l1-partner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l1-partner">
+        <p>你是我的英语陪练，扮演我的同事。场景：周一午饭时聊上周的一次外出。</p>
+        <p>规则：你用英文提问，一次只问一句，等我回答后再问下一句；我卡住时给我一个关键词提示，不要替我说完整句。</p>
+        <p>这一轮只练一般过去时：问我去了哪、看到了什么、喜不喜欢、最后怎么处理。</p>
+        <p>如果我用现在时讲过去的事，停下来让我重说一遍，并告诉我该用哪个过去式。</p>
+        <p>先开始：用一句英文跟我打招呼，然后问第一个问题。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>考官。</strong>配合第 09 节的产出任务。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l1-examiner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l1-examiner">
+        <p>你是我的英语考官，只考一般过去时，不考别的。</p>
+        <p>请按顺序做三件事：第一，给我三句中文，让我翻成英文——一句肯定、一句否定、一句过去进行时。第二，等我全部答完再公布参考答案，参考答案用课文骨架：Last week I went to the theatre. / I did not enjoy it. / They were talking loudly. 第三，按准确、时态、地道三条标准各给 1–5 分，先总评，再只指出一处最该改的地方，最后给我的句子一个升级版。</p>
+        <p>不要在我回答前给提示，也不要问完就立刻公布答案。</p>
+      </template>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span>Lesson 2 · Breakfast or Lunch</h2>
+    <p>本课只练一件事：分清「平时习惯」和「此刻正在发生」。</p>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>批改员。</strong>配合第 05 节的四句回译。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l2-corrector">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l2-corrector">
+        <p>你是我的英文批改员。我在练一般现在时和现在进行时的回译，核心区别是「平时习惯」和「此刻正在发生」。下面四句是课文原句，请以它们为标准：</p>
+        <p>1. I never get up early on Sundays.<br>2. I sometimes stay in bed until lunchtime.<br>3. It’s raining again.<br>4. I’m having breakfast.</p>
+        <p>我会发给你我的英文译文。请按三条标准逐句打分（每条 1–5 分）：准确（意思没丢）、时态（习惯用一般现在时，此刻用 am / is / are + -ing）、地道（频率副词位置与搭配）。</p>
+        <p>输出顺序固定：先给一句总评，指出我最系统的那一个毛病；再只挑一处最重要的错误讲清原因；最后给我一个升级版，保留我的原意，用更自然的英文重写。</p>
+        <p>不要一次列出所有错误，也不要把四句全部重写。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>陪练。</strong>配合第 07 节的「早上解释迟到」。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l2-partner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l2-partner">
+        <p>你是我的英语陪练，扮演我的同事。场景：早上在办公室走廊碰到，聊今天怎么还没吃早饭。</p>
+        <p>规则：你用英文提问，一次只问一句，等我回答后再问下一句；我卡住时给我一个关键词提示，不要替我说完整句。</p>
+        <p>这一轮只练现在进行时：问我此刻在做什么、今天上午在忙什么、什么时候能去吃饭。</p>
+        <p>如果我用一般现在时讲此刻正在发生的事，停下来让我重说，并告诉我该用 am / is / are + -ing。</p>
+        <p>先开始：用一句英文跟我打招呼，然后问第一个问题。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>考官。</strong>配合第 09 节的状态更新任务。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l2-examiner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p-l2-examiner">
+        <p>你是我的英语考官，只考「平时习惯」和「此刻正在发生」的区别。</p>
+        <p>请按顺序做三件事：第一，给我三句中文，让我翻成英文——一句讲平时的习惯、一句讲此刻正在做的事、一句带频率副词。第二，等我全部答完再公布参考答案：I never get up early on Sundays. / I’m having breakfast. / I sometimes stay in bed until lunchtime. 第三，按准确、时态、地道三条标准各给 1–5 分，先总评，再只指出一处最该改的地方，最后给我的句子一个升级版。</p>
+        <p>不要在我回答前给提示，也不要问完就立刻公布答案。</p>
+      </template>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span>使用建议</h2>
+    <ul class="steps">
+      <li>一次只用一个角色。考官、批改员、陪练同时上，只会收到一堆泛泛的反馈。</li>
+      <li>先写后复制。提示词里已经放了课文原句，先看原文再动笔，等于抄答案。</li>
+      <li>AI 说「很好」不算反馈。要看它有没有指出具体一处错误；没有就再问一次「只挑一个最该改的地方」。</li>
+      <li>陪练超过十轮就停。口语练习靠高频短时，不靠一次聊很久。</li>
+      <li>批改结果只记一条：这次最系统的毛病是什么。下一课写之前先想它。</li>
+    </ul>
+    <p class="note">提示词库随课程累积。新增一课时，在对应小节追加三条：批改员、陪练、考官。</p>
+  </section>
+
+  <footer>
+    <h2>相关</h2>
+    <ul class="link-list">
+      <li><a href="review.html">已学骨架总表</a><span>先复习，再开新课</span></li>
+      <li><a href="../lessons/0001-a-private-conversation.html">Lesson 1 · A Private Conversation</a><span>练场</span></li>
+      <li><a href="../lessons/0002-breakfast-or-lunch.html">Lesson 2 · Breakfast or Lunch</a><span>练场</span></li>
+      <li><a href="../index.html">课程总目录</a><span>全部课程与速查</span></li>
+    </ul>
+    <p class="ask">提示词不生效、AI 输出跑偏，把那段对话贴给 agent，我们一起改提示词。</p>
+  </footer>
+
+</main>
+<script src="../assets/prompt.js"></script>
+</body>
+</html>

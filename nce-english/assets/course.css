@@ -290,6 +290,27 @@ td code {
   font-style: italic;
 }
 
+.word-use {
+  margin: 0.35rem 0 0;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.word-use b {
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+
+.word-bad {
+  margin: 0.2rem 0 0;
+  font-size: 0.86rem;
+  color: var(--bad);
+}
+
+.word-bad b {
+  font-weight: 600;
+}
+
 /* ---------- 测验 ---------- */
 
 .quiz {
@@ -704,7 +725,7 @@ span.tok {
   color: var(--ink-soft);
 }
 
-/* ---------- 真实技术句桥接（07 节） ---------- */
+/* ---------- 真实技术句桥接（08 节） ---------- */
 
 .bridge {
   margin: 0 0 1.2rem;
@@ -746,7 +767,134 @@ span.tok {
   font-size: 0.74rem;
 }
 
-/* ---------- 自检清单与默写（08 节） ---------- */
+/* ---------- 生活场景（07 节） ---------- */
+
+.scene {
+  margin: 0 0 1.2rem;
+  padding: 1rem 1.15rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+}
+
+.scene-head {
+  margin: 0 0 0.6rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.scene-tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.08rem 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 2px;
+}
+
+.scene-en {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.scene-zh {
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.scene-note {
+  margin: 0.5rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--rule);
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.scene-bad {
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  background: var(--bad-soft);
+  border-radius: 3px;
+}
+
+.scene-bad b {
+  color: var(--bad);
+}
+
+.scene-bad code {
+  font-size: 0.86rem;
+  color: var(--bad);
+  background: transparent;
+}
+
+/* ---------- 提示词复制（05 / 07 / 09 节） ---------- */
+
+.prompt {
+  margin: 1.1rem 0 0;
+  padding: 1rem 1.15rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+}
+
+.prompt-lead {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.prompt-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.65rem 0 0;
+}
+
+.prompt-btn {
+  padding: 0.35rem 0.8rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: var(--paper);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.prompt-btn:hover {
+  background: var(--accent-soft);
+}
+
+.prompt-state {
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+}
+
+.prompt-fallback {
+  margin: 0.7rem 0 0;
+  padding: 0.7rem 0.9rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  white-space: pre-wrap;
+  background: var(--paper);
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+}
+
+/* ---------- 自检清单与默写（09 节） ---------- */
 
 .checklist {
   margin: 0.8rem 0 0;
