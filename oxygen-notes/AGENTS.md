@@ -9,7 +9,7 @@ index.html              总入口：分类筛选 + 模块卡片，点击卡片�
 modules/<id>.html       每个模块一个独立页面（骨架固定，内容由 module.js 渲染）
 data/modules.js         唯一数据源
 assets/style.css        共享样式
-assets/app.js           入口页：渲染卡片网格
+assets/app.js           入口页：渲染卡片网格、模块 id 对照表、一键复制 id
 assets/module.js        模块页：左侧导航 + 锚点滚动 + 图片缩放
 screenshots/            示意图
 ```
@@ -17,6 +17,18 @@ screenshots/            示意图
 模块页布局：左侧固定导航（本页章节 + 图片索引 + 来源链接），右侧纵向排列各章节。图片点击后进入全屏查看器，支持滚轮缩放和拖动平移，便于查看管道、电线、液门等细节。
 
 新增模块时，除了在 `modules.js` 加数据，还需要复制一份 `modules/<id>.html`（复制现有任意模块页，改 `data-module-id` 即可，页面主体由 JS 渲染）。
+
+## 模块 id 与维护规则
+
+`index.html` 上的每张模块卡片都带一个稳定 id，卡片底部显示 id 并提供「复制」按钮；页面顶部的「模块 ID 对照表」由 `data/modules.js` 自动生成，不手工维护。
+
+- id 直接复用 `data/modules.js` 中模块的 `id` 字段，同时也是 `modules/<id>.html` 的文件名，全站只保留这一套命名。
+- 命名规范：小写 kebab-case，`<功能或设备>-<形态或方案>`，例如 `electrolyzer-high-pressure`；语义清晰、可读、可口头传达，禁止序号式命名（`module-1`、`m01`）。
+- 新增模块必须分配全新 id，禁止复用已删除模块的 id。
+- 已发布的 id 永久不变：改标题、换方案、重排章节都不改 id。
+- 模块合并或拆分时不得静默改名：合并要保留旧 id 作为跳转锚点（指向新模块页），拆分则新旧 id 并存，并在对照表中注明。
+- 页面结构锚点（`page-header`、`category-filter`、`card-grid`、`page-footer`、`module-id-index`）同样保持稳定。
+- 需要助手定位模块时，复制卡片上的 id 发过去即可：id 对应 `data/modules.js` 的模块对象与 `modules/<id>.html` 页面。
 
 ## 数据结构
 
