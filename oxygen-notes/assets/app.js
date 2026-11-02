@@ -81,6 +81,10 @@ function openDetail(m) {
       }).join('')
     : '<div class="screenshot-area">📷 截图占位 · 游戏内截图放入 screenshots/ 目录后在此显示</div>';
 
+  const creditHtml = m.imageCredit && m.screenshots && m.screenshots.length
+    ? `<p class="image-credit">${m.imageCredit}</p>`
+    : '';
+
   const html = `
     <h2 class="detail-title">${m.name}</h2>
     <span class="detail-cat-tag">${catName} · ${m.phase || ''} · 难度 ${diffStr}</span>
@@ -129,6 +133,7 @@ function openDetail(m) {
     <div class="detail-section">
       <h3>截图 / 示意图</h3>
       ${shotsHtml}
+      ${creditHtml}
     </div>
 
     <div style="color:var(--text-dim);font-size:12px;text-align:right;margin-top:16px">

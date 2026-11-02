@@ -331,6 +331,15 @@ html, body {
   text-align: center;
 }
 
+.image-credit {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
 /* 图片放大层 */
 .lightbox {
   position: fixed;

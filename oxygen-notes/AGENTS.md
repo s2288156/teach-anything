@@ -24,6 +24,7 @@
 | `pipes_wiring` | string | 管道、水门、走线说明 |
 | `automation` | string | 自动化逻辑描述 |
 | `screenshots` | array | 示意图（存放在 `screenshots/` 目录）。可写文件名字符串，或 `{ "file": "x.jpeg", "desc": "整体布局图" }` 对象；页面内点击可放大查看细节 |
+| `imageCredit` | string | 图片来源与版权说明（可选）。引用他人的图时必须填写，会在示意图下方显示 |
 | `inputs_per_cycle` | array | 每周期资源消耗：资源名 + 消耗量 |
 | `outputs_per_cycle` | array | 每周期资源产出：资源名 + 产出量 |
 | `notes` | array | 注意事项、避坑点（每条一个字符串） |

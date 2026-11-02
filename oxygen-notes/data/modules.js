@@ -85,6 +85,7 @@ window.ONI_DATA = {
         { "file": "bristle-sleet-overview.jpeg", "desc": "整体布局图：21×11，上下互为镜像，含建筑位置与管道走向" },
         { "file": "bristle-sleet-detail.jpeg", "desc": "细节标注图：温控阈值、过滤门、液门、气体与管路布置" }
       ],
+      "imageCredit": "示意图取自「大叔追云彩」的语雀文档《缺氧各种常用模块及数据大全》，版权归原作者所有，仅作个人学习记录使用。",
       "inputs_per_cycle": [
         { "resource": "水", "amount": "440 kg（毛刺花 12×20 + 冰霜小麦 10×20）" },
         { "resource": "泥土", "amount": "50 kg（冰霜小麦 10×5）" },
