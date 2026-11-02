@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>oxygen-notes · 《缺氧》建造笔记</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="logo">O₂</span>
+      <div>
+        <h1>oxygen-notes</h1>
+        <p class="tagline">《缺氧》建造模块笔记</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span id="module-count">--</span> 个模块
+    </div>
+  </div>
+</header>
+
+<nav class="filter-bar">
+  <button class="filter-btn active" data-cat="all">全部</button>
+  <button class="filter-btn" data-cat="oxygen">氧气</button>
+  <button class="filter-btn" data-cat="power">电力</button>
+  <button class="filter-btn" data-cat="farming">农业/食物</button>
+  <button class="filter-btn" data-cat="industry">工业</button>
+  <button class="filter-btn" data-cat="energy">能源/燃料</button>
+  <button class="filter-btn" data-cat="temperature">温控</button>
+  <button class="filter-btn" data-cat="storage">高压存储</button>
+  <button class="filter-btn" data-cat="habitat">生活区</button>
+  <button class="filter-btn" data-cat="recreation">娱乐区</button>
+  <button class="filter-btn" data-cat="rocket">火箭</button>
+  <button class="filter-btn" data-cat="geothermal">地热</button>
+</nav>
+
+<main class="card-grid" id="card-grid">
+  <!-- JS 渲染模块卡片 -->
+</main>
+
+<!-- 详情弹窗 -->
+<div class="modal-overlay" id="modal" hidden>
+  <div class="modal-content" id="modal-content">
+    <button class="modal-close" id="modal-close" aria-label="关闭">×</button>
+    <!-- JS 填充详情 -->
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>数据来源：<code>data/modules.json</code> · 编辑 JSON → commit → push 即可更新</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
