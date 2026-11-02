@@ -39,7 +39,8 @@ html, body {
   justify-content: space-between;
   align-items: center;
 }
-.brand { display: flex; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 16px; max-width: 100%; }
+.brand > div { min-width: 0; }
 .logo {
   background: var(--accent-oxygen);
   color: #0e1419;
@@ -253,6 +254,20 @@ html, body {
 .copy-id-btn.failed {
   color: var(--accent-danger);
   border-color: var(--accent-danger);
+}
+
+/* 详情页头部：模块 id + 复制 */
+.header-id-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  min-width: 0;
+}
+.header-id-row .card-id {
+  flex: 0 1 auto;
+  max-width: 100%;
 }
 
 /* 弹窗遮罩 */

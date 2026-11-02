@@ -19,8 +19,15 @@ function esc(s) {
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function getPageModuleId() {
+  const fromBody = document.body.dataset.moduleId;
+  if (fromBody) return fromBody;
+  const file = decodeURIComponent(location.pathname.split('/').pop() || '');
+  return file.replace(/\.html$/, '');
+}
+
 function init() {
-  const id = document.body.dataset.moduleId;
+  const id = getPageModuleId();
   const data = window.ONI_DATA;
   if (!data) {
     document.getElementById('module-main').innerHTML =
@@ -38,6 +45,7 @@ function init() {
   renderHeader(m);
   renderNav(m);
   renderMain(m);
+  if (window.ONI_ID_COPY) window.ONI_ID_COPY.bindCopyButtons();
   bindLightbox();
   bindScrollSpy();
 }
@@ -47,6 +55,28 @@ function renderHeader(m) {
   const cat = CATEGORY_NAMES[m.category] || m.category;
   document.getElementById('module-sub').textContent =
     cat + ' · ' + (m.phase || '未标阶段') + ' · 难度 ' + (DIFFICULTY_STARS[m.difficulty] || '');
+  renderHeaderId(m.id);
+}
+
+function renderHeaderId(id) {
+  const sub = document.getElementById('module-sub');
+  if (!sub) return;
+  let row = document.getElementById('module-header-id-row');
+  if (!row) {
+    row = document.createElement('div');
+    row.className = 'header-id-row';
+    row.id = 'module-header-id-row';
+    row.innerHTML = '<code class="card-id"></code>' +
+      '<button class="copy-id-btn" type="button">复制</button>';
+    sub.insertAdjacentElement('afterend', row);
+  }
+  const code = row.querySelector('.card-id');
+  const btn = row.querySelector('.copy-id-btn');
+  if (code) code.textContent = id;
+  if (btn) {
+    btn.dataset.copyId = id;
+    btn.setAttribute('aria-label', '复制模块 id ' + id);
+  }
 }
 
 function renderNav(m) {
