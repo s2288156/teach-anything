@@ -71,7 +71,14 @@ function openDetail(m) {
     : '';
   const notesHtml = (m.notes || []).map(n => `<li>${n}</li>`).join('') || '<li style="color:var(--text-dim)">暂无注意事项</li>';
   const shotsHtml = m.screenshots && m.screenshots.length
-    ? m.screenshots.map(s => `<img src="screenshots/${s}" alt="截图">`).join('')
+    ? m.screenshots.map((s, i) => {
+        const file = typeof s === 'string' ? s : s.file;
+        const desc = typeof s === 'string' ? `示意图 ${i + 1}` : (s.desc || `示意图 ${i + 1}`);
+        return `<figure class="shot">
+          <img src="screenshots/${file}" alt="${m.name} ${desc}" data-zoom="1">
+          <figcaption>${desc} · 点击放大查看细节</figcaption>
+        </figure>`;
+      }).join('')
     : '<div class="screenshot-area">📷 截图占位 · 游戏内截图放入 screenshots/ 目录后在此显示</div>';
 
   const html = `
@@ -133,6 +140,20 @@ function openDetail(m) {
 
   document.getElementById('modal-content').innerHTML = html;
   document.getElementById('modal').hidden = false;
+
+  // 示意图点击放大
+  document.querySelectorAll('#modal-content img[data-zoom]').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+}
+
+function openLightbox(src, alt) {
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.innerHTML = `<img src="${src}" alt="${alt}">
+    <span class="lightbox-hint">点击任意处关闭</span>`;
+  box.addEventListener('click', () => box.remove());
+  document.body.appendChild(box);
 }
 
 function closeModal() {
