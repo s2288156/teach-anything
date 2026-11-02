@@ -35,10 +35,18 @@
   // ──────────────────────────── Validator ────────────────────────────────
 
   const REQUIRED_FIELDS = ['id', 'name', 'category', 'phase', 'difficulty',
-    'materials', 'inputs_per_cycle', 'outputs_per_cycle'];
+    'materials', 'materials_note', 'screenshots', 'inputs_per_cycle', 'outputs_per_cycle'];
 
-  const IMAGE_INDEX_FORBIDDEN_FIELDS = [
-    'layout', 'pipes_wiring', 'automation', 'notes', 'specs'
+  // 任何模块对象中都不得出现的字段
+  const FORBIDDEN_FIELDS = [
+    'layoutMode', 'layout', 'pipes_wiring', 'automation', 'notes', 'specs'
+  ];
+
+  // 白名单：normalizeModule 只拷贝这些字段 + 派生字段
+  const KNOWN_FIELDS = [
+    'id', 'name', 'category', 'phase', 'difficulty', 'source',
+    'materials', 'materials_note', 'screenshots', 'imageCredit',
+    'inputs_per_cycle', 'outputs_per_cycle', 'dlc', 'updated'
   ];
 
   function kebabCaseId(id) {
@@ -70,21 +78,16 @@
       errors.push('difficulty 应在 1-5 之间，当前：' + raw.difficulty);
     }
 
-    // image-index 专属检查
-    if (raw.layoutMode === 'image-index') {
-      IMAGE_INDEX_FORBIDDEN_FIELDS.forEach(key => {
-        if (key in raw) errors.push(
-          'image-index 模块不得包含 ' + key + ' 字段（写进 screenshot 的 note 里）'
-        );
-      });
-      if (!('materials_note' in raw)) errors.push(
-        'image-index 模块应包含 materials_note'
-      );
-    }
+    // 禁止字段（无条件，全站唯一渲染模式）
+    FORBIDDEN_FIELDS.forEach(key => {
+      if (key in raw) errors.push('模块不得包含 ' + key + ' 字段');
+    });
 
-    // screenshots：image-index 下必填且 shape 必须是 object
+    // screenshots：必填且每张图必须是 object shape
     const shots = raw.screenshots;
-    if (Array.isArray(shots)) {
+    if (!Array.isArray(shots)) {
+      errors.push('screenshots 必须是数组');
+    } else {
       shots.forEach((s, i) => {
         if (typeof s === 'string') {
           errors.push('screenshots[' + i + '] 是字符串，应升级为 object shape');
@@ -125,13 +128,15 @@
   function normalizeModule(raw, categories) {
     if (!raw || typeof raw !== 'object') return null;
     const catName = resolveCategory(raw.category, categories);
-    return Object.assign({}, raw, {
-      _categoryName: catName,
-      _difficultyStars: difficultyStars(raw.difficulty),
-      screenshots: Array.isArray(raw.screenshots)
-        ? raw.screenshots.map(normalizeShot).filter(Boolean)
-        : []
-    });
+    // 白名单拷贝：禁止字段（layout / automation 等）自动丢弃
+    const out = {};
+    KNOWN_FIELDS.forEach(k => { if (k in raw) out[k] = raw[k]; });
+    out._categoryName = catName;
+    out._difficultyStars = difficultyStars(raw.difficulty);
+    out.screenshots = Array.isArray(raw.screenshots)
+      ? raw.screenshots.map(normalizeShot).filter(Boolean)
+      : [];
+    return out;
   }
 
   function normalizeAll(data) {

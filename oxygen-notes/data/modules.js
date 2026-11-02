@@ -22,7 +22,6 @@ window.ONI_DATA = {
       "category": "farming",
       "phase": "中期",
       "difficulty": 4,
-      "layoutMode": "image-index",
       "source": "https://www.yuque.com/u25332524/ftq4u7/ztbrcd",
       "materials": [
         { "building": "液温调节器", "count": 2, "material": "钢" },
@@ -134,7 +133,6 @@ window.ONI_DATA = {
       "category": "energy",
       "phase": "中期",
       "difficulty": 3,
-      "layoutMode": "image-index",
       "source": "https://www.yuque.com/u25332524/ftq4u7/llxcdt",
       "materials": [
         { "building": "油井", "count": 1, "material": "金属矿石" },
