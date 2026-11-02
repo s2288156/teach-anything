@@ -346,17 +346,53 @@ html, body {
   inset: 0;
   z-index: 200;
   background: rgba(0, 0, 0, 0.94);
+  display: flex;
+  flex-direction: column;
+}
+.lightbox-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(22, 32, 41, 0.96);
+  border-bottom: 1px solid var(--border);
+}
+.lightbox-toolbar button {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.lightbox-toolbar button:hover {
+  border-color: var(--accent-oxygen);
+  color: var(--accent-oxygen);
+}
+.zoom-val {
+  color: var(--text-secondary);
+  font-size: 13px;
+  min-width: 48px;
+  text-align: center;
+}
+.lightbox-stage {
+  flex: 1 1 auto;
   overflow: auto;
-  padding: 40px;
+  cursor: grab;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  cursor: zoom-out;
+  padding: 24px;
 }
-.lightbox img {
+.lightbox-stage img {
   max-width: none;
+  transform-origin: top center;
   border-radius: 6px;
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7);
+  user-select: none;
 }
 .lightbox-hint {
   position: fixed;
@@ -407,4 +443,227 @@ html, body {
   .section-split { grid-template-columns: 1fr; }
   .card-grid { grid-template-columns: 1fr; }
   .header-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+
+/* ================= 模块独立页 ================= */
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+}
+.back-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.back-link:hover {
+  color: var(--accent-oxygen);
+  border-color: var(--accent-oxygen);
+}
+
+.module-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 32px 48px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 32px;
+}
+
+.side-nav {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding-right: 8px;
+}
+.nav-head {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 16px 0 8px;
+  padding-left: 10px;
+}
+.nav-head:first-child { margin-top: 0; }
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list li { margin: 2px 0; }
+.nav-list a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  border-left: 2px solid transparent;
+  transition: background 0.12s, color 0.12s;
+}
+.nav-list a:hover {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+.nav-list a.active {
+  background: var(--bg-panel);
+  color: var(--accent-oxygen);
+  border-left-color: var(--accent-oxygen);
+}
+.nav-shots a { font-size: 12px; }
+.nav-source {
+  display: block;
+  margin-top: 20px;
+  padding: 9px 12px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--accent-oxygen);
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+}
+.nav-source:hover { border-color: var(--accent-oxygen); }
+
+.module-main {
+  min-width: 0;
+}
+.module-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  scroll-margin-top: 20px;
+}
+.module-section h2 {
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--accent-oxygen);
+}
+.module-section h3 {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 18px 0 10px;
+}
+.module-section h4 {
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+.module-section h4.input { color: var(--accent-orange, #e8a33d); }
+.module-section h4.output { color: var(--accent-green); }
+.module-section p {
+  margin: 0 0 10px;
+  line-height: 1.75;
+  font-size: 14px;
+}
+.module-section p:last-child { margin-bottom: 0; }
+
+.material-list,
+.note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+.material-list li,
+.note-list li {
+  padding: 7px 0 7px 16px;
+  position: relative;
+  border-bottom: 1px dashed rgba(42, 62, 77, 0.5);
+  line-height: 1.6;
+}
+.material-list li:last-child,
+.note-list li:last-child { border-bottom: none; }
+.material-list li::before,
+.note-list li::before {
+  content: "·";
+  position: absolute;
+  left: 4px;
+  color: var(--accent-oxygen);
+}
+.mat-count {
+  color: var(--accent-green);
+  font-weight: 600;
+  margin-right: 4px;
+}
+.mat-material { color: var(--text-dim); }
+
+.updated-line {
+  text-align: right;
+  color: var(--text-dim);
+  font-size: 12px;
+  margin-top: 8px;
+}
+.error-msg {
+  color: #e85d5d;
+  padding: 24px;
+}
+.muted { color: var(--text-dim); font-size: 13px; }
+
+.shot-view {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--accent-green);
+  background: rgba(80, 200, 120, 0.1);
+  border: 1px solid rgba(80, 200, 120, 0.3);
+  border-radius: 4px;
+  padding: 2px 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.shot-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.shot-tag {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 3px 10px;
+}
+
+/* 卡片上的示意图数量 */
+.card-shots {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+@media (max-width: 860px) {
+  .module-layout {
+    grid-template-columns: 1fr;
+    padding: 16px 18px 40px;
+    gap: 18px;
+  }
+  .side-nav {
+    position: static;
+    max-height: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .nav-list a {
+    border-left: none;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 12px;
+  }
 }

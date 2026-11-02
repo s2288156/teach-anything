@@ -2,6 +2,22 @@
 
 《缺氧》（Oxygen Not Included）建造模块笔记系统。记录游玩过程中喜欢的各种模块的建造方法、注意事项、投入产出数据，方便随时查阅更新。
 
+## 页面架构
+
+```text
+index.html              总入口：分类筛选 + 模块卡片，点击卡片跳转独立模块页
+modules/<id>.html       每个模块一个独立页面（骨架固定，内容由 module.js 渲染）
+data/modules.js         唯一数据源
+assets/style.css        共享样式
+assets/app.js           入口页：渲染卡片网格
+assets/module.js        模块页：左侧导航 + 锚点滚动 + 图片缩放
+screenshots/            示意图
+```
+
+模块页布局：左侧固定导航（本页章节 + 图片索引 + 来源链接），右侧纵向排列各章节。图片点击后进入全屏查看器，支持滚轮缩放和拖动平移，便于查看管道、电线、液门等细节。
+
+新增模块时，除了在 `modules.js` 加数据，还需要复制一份 `modules/<id>.html`（复制现有任意模块页，改 `data-module-id` 即可，页面主体由 JS 渲染）。
+
 ## 数据结构
 
 所有模块数据存放在 `data/modules.js`（以 `window.ONI_DATA = { ... }` 形式包裹 JSON 数据），页面通过 `<script>` 标签加载后动态渲染。**新增/更新模块 = 编辑该文件 → 保存刷新**。
@@ -23,7 +39,7 @@
 | `layout` | string | 建造布局描述（文字 + 示意图） |
 | `pipes_wiring` | string | 管道、水门、走线说明 |
 | `automation` | string | 自动化逻辑描述 |
-| `screenshots` | array | 示意图（存放在 `screenshots/` 目录）。可写文件名字符串，或 `{ "file": "x.jpeg", "desc": "整体布局图" }` 对象；页面内点击可放大查看细节 |
+| `screenshots` | array | 示意图（存放在 `screenshots/` 目录）。可写文件名字符串，或对象：`{ "file", "desc", "view", "shows" }`。`view` 是视图类型标签（如"全景视图"），`shows` 是这张图能看到的内容标签（如"液体管道""电线""液门"），用于图片索引 |
 | `imageCredit` | string | 图片来源与版权说明（可选）。引用他人的图时必须填写，会在示意图下方显示 |
 | `inputs_per_cycle` | array | 每周期资源消耗：资源名 + 消耗量 |
 | `outputs_per_cycle` | array | 每周期资源产出：资源名 + 产出量 |
