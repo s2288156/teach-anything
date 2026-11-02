@@ -4,9 +4,11 @@
 
 ## 数据结构
 
-所有模块数据存放在 `data/modules.json`，页面通过 JS 动态渲染。**新增/更新模块 = 编辑 JSON → commit → push**。
+所有模块数据存放在 `data/modules.js`（以 `window.ONI_DATA = { ... }` 形式包裹 JSON 数据），页面通过 `<script>` 标签加载后动态渲染。**新增/更新模块 = 编辑该文件 → 保存刷新**。
 
-### modules.json 字段说明
+> 为什么不用 `.json`：浏览器在 `file://` 协议下会阻止 `fetch()` 读取本地 JSON，导致本地双击打开页面时数据加载失败。改用 `.js` 数据文件后，本地双击和线上 GitHub Pages 都能正常加载。
+
+### modules.js 字段说明
 
 | 字段 | 类型 | 说明 |
 | --- | --- | --- |
@@ -45,11 +47,12 @@
 ## 更新流程
 
 ```text
-1. 打开 data/modules.json
-2. 找到对应模块 → 编辑字段，或追加新模块
-3. git commit -m "notes: 更新/添加 XXX 模块"
-4. git push
-5. GitHub Pages 自动刷新
+1. 打开 data/modules.js
+2. 找到对应模块 → 编辑字段，或追加新模块（注意 JSON 逗号语法）
+3. 本地刷新页面确认效果
+4. git commit -m "notes: 更新/添加 XXX 模块"
+5. git push
+6. GitHub Pages 自动刷新
 ```
 
 ## 截图存放

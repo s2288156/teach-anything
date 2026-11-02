@@ -3,17 +3,13 @@
 const CATEGORY_NAMES = {};
 const DIFFICULTY_STARS = ['', '★', '★★', '★★★', '★★★★', '★★★★★'];
 
-async function loadData() {
-  try {
-    const res = await fetch('data/modules.json');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return await res.json();
-  } catch (e) {
-    console.error('Failed to load modules.json:', e);
+function loadData() {
+  if (!window.ONI_DATA) {
     document.getElementById('card-grid').innerHTML =
-      '<p style="color:#ff6b6b;padding:40px;text-align:center">数据加载失败，请检查 modules.json 文件</p>';
+      '<p style="color:#ff6b6b;padding:40px;text-align:center">数据加载失败，请检查 data/modules.js 文件</p>';
     return null;
   }
+  return window.ONI_DATA;
 }
 
 function buildCategoryMap(categories) {
@@ -131,8 +127,8 @@ function closeModal() {
   document.getElementById('modal').hidden = true;
 }
 
-async function init() {
-  const data = await loadData();
+function init() {
+  const data = loadData();
   if (!data) return;
 
   buildCategoryMap(data.categories || []);

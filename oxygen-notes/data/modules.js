@@ -1,4 +1,7 @@
-{
+// oxygen-notes · 模块数据（双击本地 HTML 也能加载，不受 file:// CORS 限制）
+// 编辑说明：直接改下面对象里的内容，保存后刷新页面即可看到效果。
+
+window.ONI_DATA = {
   "categories": [
     { "id": "oxygen", "name": "氧气系统" },
     { "id": "power", "name": "电力系统" },
@@ -196,4 +199,4 @@
       "updated": "2026-11-02"
     }
   ]
-}
+};
