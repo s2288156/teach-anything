@@ -57,9 +57,18 @@ function openDetail(m) {
   const outputsHtml = (m.outputs_per_cycle || []).map(x =>
     `<li><strong>${x.resource}</strong> — ${x.amount}</li>`
   ).join('') || '<li style="color:var(--text-dim)">暂无数据</li>';
-  const materialsHtml = (m.materials || []).map(x =>
-    `<li><span class="mat-count">×${x.count}</span>${x.building}${x.material ? ' <span style="color:var(--text-dim)">(' + x.material + ')</span>' : ''}</li>`
-  ).join('') || '<li style="color:var(--text-dim)">暂无数据</li>';
+  const materialsHtml = (m.materials || []).map(x => {
+    const countHtml = typeof x.count === 'number' ? `<span class="mat-count">×${x.count}</span>` : '';
+    return `<li>${countHtml}${x.building}${x.material ? ' <span style="color:var(--text-dim)">(' + x.material + ')</span>' : ''}</li>`;
+  }).join('') || '<li style="color:var(--text-dim)">暂无数据</li>';
+  const specsHtml = (m.specs || []).length
+    ? `<div class="detail-section">
+        <h3>关键参数</h3>
+        <table class="spec-table"><tbody>
+          ${m.specs.map(s => `<tr><th>${s.key}</th><td>${s.value}</td></tr>`).join('')}
+        </tbody></table>
+      </div>`
+    : '';
   const notesHtml = (m.notes || []).map(n => `<li>${n}</li>`).join('') || '<li style="color:var(--text-dim)">暂无注意事项</li>';
   const shotsHtml = m.screenshots && m.screenshots.length
     ? m.screenshots.map(s => `<img src="screenshots/${s}" alt="截图">`).join('')
@@ -68,6 +77,8 @@ function openDetail(m) {
   const html = `
     <h2 class="detail-title">${m.name}</h2>
     <span class="detail-cat-tag">${catName} · ${m.phase || ''} · 难度 ${diffStr}</span>
+
+    ${specsHtml}
 
     <div class="detail-section">
       <h3>建造布局</h3>
@@ -116,6 +127,7 @@ function openDetail(m) {
     <div style="color:var(--text-dim);font-size:12px;text-align:right;margin-top:16px">
       ${m.dlc ? '适用: ' + m.dlc + ' · ' : ''}
       更新于 ${m.updated || '未知'}
+      ${m.source ? `<div style="margin-top:6px"><a class="source-link" href="${m.source}" target="_blank" rel="noopener">来源文档 ↗</a></div>` : ''}
     </div>
   `;
 

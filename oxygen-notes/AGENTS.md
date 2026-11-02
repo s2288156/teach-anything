@@ -17,7 +17,9 @@
 | `category` | string | 所属功能分类（见下方分类表） |
 | `phase` | string | 推荐游戏阶段（早期/中期/晚期） |
 | `difficulty` | number | 搭建难度 1-5 |
-| `materials` | array | 所需建筑清单：建筑名 + 数量 + 建议材料 |
+| `source` | string | 参考来源链接（可选，如语雀 / 论坛方案原文） |
+| `specs` | array | 关键参数表：`key` + `value`，如尺寸、供应人数、温度阈值等 |
+| `materials` | array | 所需建筑清单：建筑名 + 数量 + 建议材料（数量可为数字或"按布局"） |
 | `layout` | string | 建造布局描述（文字 + 示意图） |
 | `pipes_wiring` | string | 管道、水门、走线说明 |
 | `automation` | string | 自动化逻辑描述 |

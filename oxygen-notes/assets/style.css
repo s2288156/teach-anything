@@ -280,6 +280,36 @@ html, body {
   border-bottom: 1px solid rgba(42, 62, 77, 0.4);
 }
 
+/* 关键参数表 */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.spec-table th {
+  text-align: left;
+  width: 110px;
+  padding: 7px 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(42, 62, 77, 0.6);
+  white-space: nowrap;
+}
+.spec-table td {
+  padding: 7px 12px;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(42, 62, 77, 0.6);
+}
+.spec-table tr:last-child th,
+.spec-table tr:last-child td { border-bottom: none; }
+.source-link {
+  color: var(--accent-oxygen);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(77, 184, 255, 0.4);
+}
+.source-link:hover { color: var(--accent-green); }
+
 /* 截图区 */
 .screenshot-area {
   background: var(--bg-deep);
