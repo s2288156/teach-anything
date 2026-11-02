@@ -79,25 +79,116 @@ function renderHeaderId(id) {
   }
 }
 
+function isImageIndex(m) {
+  return m.layoutMode === 'image-index';
+}
+
+function shotTitle(s, i) {
+  if (typeof s === 'string') return `示意图 ${i + 1}`;
+  return s.title || s.desc || `示意图 ${i + 1}`;
+}
+
+function materialsListHtml(m) {
+  return (m.materials || []).length
+    ? `<ul class="material-list">${(m.materials || []).map(x => {
+        const count = typeof x.count === 'number' ? `<span class="mat-count">×${x.count}</span>` : '';
+        const mat = x.material ? ` <span class="mat-material">(${esc(x.material)})</span>` : '';
+        return `<li>${count}${esc(x.building)}${mat}</li>`;
+      }).join('')}</ul>`
+    : '<p class="muted">暂无数据</p>';
+}
+
+function ioSectionHtml(m) {
+  const inputsHtml = (m.inputs_per_cycle || []).length
+    ? `<ul>${(m.inputs_per_cycle || []).map(x => `<li><strong>${esc(x.resource)}</strong> — ${esc(x.amount)}</li>`).join('')}</ul>`
+    : '<p class="muted">暂无数据</p>';
+  const outputsHtml = (m.outputs_per_cycle || []).length
+    ? `<ul>${(m.outputs_per_cycle || []).map(x => `<li><strong>${esc(x.resource)}</strong> — ${esc(x.amount)}</li>`).join('')}</ul>`
+    : '<p class="muted">暂无数据</p>';
+  return `
+    <section class="module-section" id="io">
+      <h2>投入产出</h2>
+      <div class="section-split">
+        <div><h4 class="input">📥 消耗</h4>${inputsHtml}</div>
+        <div><h4 class="output">📤 产出</h4>${outputsHtml}</div>
+      </div>
+    </section>`;
+}
+
+function materialsSectionHtml(m) {
+  const note = m.materials_note
+    ? `<p class="material-note">${esc(m.materials_note)}</p>` : '';
+  return `
+    <section class="module-section" id="materials">
+      <h2>建筑材料要求</h2>
+      ${materialsListHtml(m)}
+      ${note}
+    </section>`;
+}
+
+function renderImageIndexMain(m) {
+  const sections = (m.screenshots || []).map((s, i) => {
+    const file = typeof s === 'string' ? s : s.file;
+    const title = shotTitle(s, i);
+    const desc = typeof s === 'string' ? '' : (s.desc || '');
+    const view = typeof s === 'string' ? '' : (s.view || '');
+    const note = typeof s === 'string' ? '' : (s.note || '');
+    const shows = typeof s === 'string' ? [] : (s.shows || []);
+    const viewTag = view ? `<span class="shot-view">${esc(view)}</span>` : '';
+    const tags = shows.length
+      ? `<div class="shot-tags">${shows.map(t => `<span class="shot-tag">${esc(t)}</span>`).join('')}</div>`
+      : '';
+    return `
+      <section class="module-section image-entry" id="shot-${i}">
+        <h2><span class="shot-num">${String(i + 1).padStart(2, '0')}</span>${esc(title)}</h2>
+        ${viewTag}
+        <figure class="shot">
+          <img src="../screenshots/${esc(file)}" alt="${esc(m.name + ' · ' + (desc || title))}" data-zoom="1">
+        </figure>
+        ${note ? `<p class="image-note">${esc(note)}</p>` : ''}
+        ${tags}
+      </section>`;
+  }).join('');
+
+  const credit = m.imageCredit
+    ? `<p class="image-credit">${esc(m.imageCredit)}</p>` : '';
+
+  document.getElementById('module-main').innerHTML = `
+    ${sections}
+    ${ioSectionHtml(m)}
+    ${materialsSectionHtml(m)}
+    ${credit}
+    <p class="updated-line">更新于 ${esc(m.updated || '未知')}</p>`;
+}
+
 function renderNav(m) {
   const nav = document.getElementById('side-nav');
-  let html = '<p class="nav-head">本页导航</p><ul class="nav-list">';
-  SECTIONS.forEach(s => {
-    if (s.id === 'specs' && !(m.specs || []).length) return;
-    if (s.id === 'shots' && !(m.screenshots || []).length) return;
-    html += `<li><a href="#${s.id}" data-nav="${s.id}">${s.label}</a></li>`;
-  });
-  html += '</ul>';
+  let html = '';
 
-  if ((m.screenshots || []).length) {
+  if (isImageIndex(m)) {
     html += '<p class="nav-head">图片索引</p><ul class="nav-list nav-shots">';
-    m.screenshots.forEach((s, i) => {
-      const file = typeof s === 'string' ? s : s.file;
-      const desc = typeof s === 'string' ? `示意图 ${i + 1}` : (s.desc || `示意图 ${i + 1}`);
-      html += `<li><a href="#shot-${i}" data-nav="shot-${i}">${esc(desc)}</a></li>`;
-      void file;
+    (m.screenshots || []).forEach((s, i) => {
+      html += `<li><a href="#shot-${i}" data-nav="shot-${i}">${String(i + 1).padStart(2, '0')} · ${esc(shotTitle(s, i))}</a></li>`;
+    });
+    html += '</ul><p class="nav-head">文字数据</p><ul class="nav-list">'
+      + '<li><a href="#io" data-nav="io">投入产出</a></li>'
+      + '<li><a href="#materials" data-nav="materials">建筑材料要求</a></li></ul>';
+  } else {
+    html += '<p class="nav-head">本页导航</p><ul class="nav-list">';
+    SECTIONS.forEach(s => {
+      if (s.id === 'specs' && !(m.specs || []).length) return;
+      if (s.id === 'shots' && !(m.screenshots || []).length) return;
+      html += `<li><a href="#${s.id}" data-nav="${s.id}">${s.label}</a></li>`;
     });
     html += '</ul>';
+
+    if ((m.screenshots || []).length) {
+      html += '<p class="nav-head">图片索引</p><ul class="nav-list nav-shots">';
+      m.screenshots.forEach((s, i) => {
+        html += `<li><a href="#shot-${i}" data-nav="shot-${i}">${esc(shotTitle(s, i))}</a></li>`;
+      });
+      html += '</ul>';
+    }
   }
 
   if (m.source) {
@@ -107,6 +198,10 @@ function renderNav(m) {
 }
 
 function renderMain(m) {
+  if (isImageIndex(m)) {
+    renderImageIndexMain(m);
+    return;
+  }
   const cat = CATEGORY_NAMES[m.category] || m.category;
 
   const specsHtml = (m.specs || []).length

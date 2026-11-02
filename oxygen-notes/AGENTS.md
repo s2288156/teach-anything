@@ -11,13 +11,20 @@ data/modules.js         唯一数据源
 assets/style.css        共享样式
 assets/app.js           入口页：渲染卡片网格、模块 id 对照表
 assets/id-copy.js       共享：模块 id 复制（列表卡片 + 详情页头部）
-assets/module.js        模块页：左侧导航 + 锚点滚动 + 图片缩放
+assets/module.js        模块页：两种内容模式（分节文字 / 图片索引）+ 左侧导航 + 锚点滚动 + 图片缩放
 screenshots/            示意图
 ```
 
-模块页布局：左侧固定导航（本页章节 + 图片索引 + 来源链接），右侧纵向排列各章节。图片点击后进入全屏查看器，支持滚轮缩放和拖动平移，便于查看管道、电线、液门等细节。
+模块页布局：左侧固定导航（按内容模式显示章节或图片索引，加来源链接），右侧纵向排列各条目。图片点击后进入全屏查看器，支持滚轮缩放和拖动平移，便于查看管道、电线、液门等细节。
 
 新增模块时，除了在 `modules.js` 加数据，还需要复制一份 `modules/<id>.html`（复制现有任意模块页，改 `data-module-id` 即可，页面主体由 JS 渲染）。
+
+## 详情页内容模式
+
+- 默认（不设 `layoutMode`）：左侧按固定章节导航，正文依次是概览、关键参数、建造布局、管道、自动化、投入产出、注意事项、示意图。
+- `layoutMode: "image-index"`：以图为主。正文不再按主题分节写文字，每张图一个条目（编号 + 标题 + 图 + 一到两句说明），左侧导航按图片条目加「投入产出」「建筑材料要求」组织；纯文字只保留这两块。
+- 图片说明要写清「这张图在看什么、关键点是什么」，不要复述图上已经明示的参数；没有对应图片的主题并入相邻图片说明，或极简一两句带过，不要为了凑结构硬开一节。
+- 样板：`modules/bristle-sleet-wheat-sludge.html`。新增模块若截图已能覆盖布局、管线与自动化，优先采用图片索引模式。
 
 ## 模块 id 与维护规则
 
@@ -47,19 +54,23 @@ screenshots/            示意图
 | `category` | string | 所属功能分类（见下方分类表） |
 | `phase` | string | 推荐游戏阶段（早期/中期/晚期） |
 | `difficulty` | number | 搭建难度 1-5 |
+| `layoutMode` | string | 详情页内容模式；设 `image-index` 时以图为主（可选，缺省为分节文字模式） |
 | `source` | string | 参考来源链接（可选，如语雀 / 论坛方案原文） |
 | `specs` | array | 关键参数表：`key` + `value`，如尺寸、供应人数、温度阈值等 |
 | `materials` | array | 所需建筑清单：建筑名 + 数量 + 建议材料（数量可为数字或"按布局"） |
+| `materials_note` | string | 建筑材料的额外约束（如禁用材料），可选；图片索引模式显示在「建筑材料要求」末尾 |
 | `layout` | string | 建造布局描述（文字 + 示意图） |
 | `pipes_wiring` | string | 管道、水门、走线说明 |
 | `automation` | string | 自动化逻辑描述 |
-| `screenshots` | array | 示意图（存放在 `screenshots/` 目录）。可写文件名字符串，或对象：`{ "file", "desc", "view", "shows" }`。`view` 是视图类型标签（如"全景视图"），`shows` 是这张图能看到的内容标签（如"液体管道""电线""液门"），用于图片索引 |
+| `screenshots` | array | 示意图（存放在 `screenshots/` 目录）。可写文件名字符串，或对象：`{ "file", "title", "desc", "view", "note", "shows" }`。`title` 是图片索引条目标题，`view` 是视图类型标签（如"全景视图"），`note` 是图片索引模式下的说明（一到两句），`shows` 是这张图能看到的内容标签（如"液体管道""电线""液门"） |
 | `imageCredit` | string | 图片来源与版权说明（可选）。引用他人的图时必须填写，会在示意图下方显示 |
 | `inputs_per_cycle` | array | 每周期资源消耗：资源名 + 消耗量 |
 | `outputs_per_cycle` | array | 每周期资源产出：资源名 + 产出量 |
 | `notes` | array | 注意事项、避坑点（每条一个字符串） |
 | `dlc` | string | 适用 DLC |
 | `updated` | string | 最后更新日期 YYYY-MM-DD |
+
+`specs`、`layout`、`pipes_wiring`、`automation`、`notes` 只在默认模式下渲染；`layoutMode: "image-index"` 时这些内容要改写进每张图的 `note` 与 `materials_note`，不要保留与图片重复的纯文字。
 
 ## 功能分类
 
@@ -88,6 +99,10 @@ screenshots/            示意图
 6. GitHub Pages 自动刷新
 ```
 
+## 本地草稿区
+
+`temp/` 是本地草稿区，用来放截图、参考笔记等临时资料，只用于给助手补充上下文。该目录已在根 `.gitignore` 中排除，不提交、不纳入版本控制，Pages 发布时也会剔除。
+
 ## 截图存放
 
-游戏截图放入 `screenshots/` 目录，文件名建议 `<模块id>-<序号>.png`，在 JSON 的 `screenshots` 字段填入文件名即可。
+游戏截图放入 `screenshots/` 目录，文件名建议 `<模块id>-<序号>.png`，在 JSON 的 `screenshots` 字段填入文件名即可。图片索引模式还要给每张图补 `title` 与 `note`，否则导航只能用 `desc` 兜底。

@@ -763,6 +763,39 @@ html, body {
   padding: 3px 10px;
 }
 
+/* 图片索引模式：每张图一个条目，正文只保留投入产出与建筑材料 */
+.image-entry h2 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.shot-num {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 12px;
+  color: var(--accent-green);
+  letter-spacing: 0.05em;
+}
+.image-entry .shot {
+  margin: 14px 0 0;
+}
+.image-note {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+.material-note {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-left: 2px solid var(--accent-warn);
+  background: rgba(232, 184, 75, 0.08);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
 /* 卡片上的示意图数量 */
 .card-shots {
   display: inline-block;

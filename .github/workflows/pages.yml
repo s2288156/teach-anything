@@ -34,6 +34,7 @@ jobs:
           cp index.html _site/
           cp -r nce-english _site/nce-english
           cp -r oxygen-notes _site/oxygen-notes
+          rm -rf _site/oxygen-notes/temp
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v5
         with:
