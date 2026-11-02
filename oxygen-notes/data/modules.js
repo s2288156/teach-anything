@@ -129,8 +129,8 @@ window.ONI_DATA = {
       "updated": "2026-11-02"
     },
     {
-      "id": "oil-high-pressure-storage",
-      "name": "高压储油 + 油气分离",
+      "id": "oil-reservoir-drilling",
+      "name": "储油石开发模块",
       "category": "energy",
       "phase": "中期",
       "difficulty": 3,
