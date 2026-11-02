@@ -15,3 +15,7 @@ Thumbs.db
 
 # 日志
 *.log
+
+# 本地草稿区：用户临时资料，不入库、不发布
+oxygen-notes/temp/
+temp/
