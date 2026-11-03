@@ -488,9 +488,9 @@ td code {
   margin-bottom: 0.4rem;
 }
 
-/* ---------- 技能框（01 节） ---------- */
+/* ---------- 本课主题框（01 节） ---------- */
 
-.skill {
+.topic {
   margin: 0;
   padding: 1.1rem 1.3rem;
   background: var(--paper-raised);
@@ -499,20 +499,20 @@ td code {
   border-radius: 2px;
 }
 
-.skill p {
+.topic p {
   margin: 0 0 0.6rem;
 }
 
-.skill p:last-child {
+.topic p:last-child {
   margin-bottom: 0;
 }
 
-.skill .why {
+.topic .why {
   font-size: 0.92rem;
   color: var(--ink-soft);
 }
 
-/* ---------- 句子拆解（03 / 04 节） ---------- */
+/* ---------- 句子拆解（03 节） ---------- */
 
 .sent {
   margin: 0 0 1.1rem;
@@ -725,9 +725,9 @@ span.tok {
   color: var(--ink-soft);
 }
 
-/* ---------- 真实技术句桥接（08 节） ---------- */
+/* ---------- 技术文档原句（01 / 05 节） ---------- */
 
-.bridge {
+.docs {
   margin: 0 0 1.2rem;
   padding: 1rem 1.15rem;
   background: #f4f2ee;
@@ -735,7 +735,7 @@ span.tok {
   border-radius: 4px;
 }
 
-.bridge-en {
+.docs-en {
   margin: 0;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.9rem;
@@ -744,32 +744,32 @@ span.tok {
   word-break: break-word;
 }
 
-.bridge-en b {
+.docs-en b {
   color: var(--accent);
   font-weight: 600;
 }
 
-.bridge-zh {
+.docs-zh {
   margin: 0.5rem 0 0;
   font-size: 0.92rem;
   color: var(--ink-soft);
 }
 
-.bridge-why {
+.docs-why {
   margin: 0.45rem 0 0;
   font-size: 0.86rem;
   color: var(--ink-faint);
 }
 
-.bridge-src {
+.docs-src {
   margin: 0.45rem 0 0;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
   font-size: 0.74rem;
 }
 
-/* ---------- 生活场景（07 节） ---------- */
+/* ---------- 聊天场景（04 节） ---------- */
 
-.scene {
+.chat {
   margin: 0 0 1.2rem;
   padding: 1rem 1.15rem;
   background: var(--paper-raised);
@@ -778,14 +778,14 @@ span.tok {
   border-radius: 4px;
 }
 
-.scene-head {
+.chat-head {
   margin: 0 0 0.6rem;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
   font-size: 0.86rem;
   color: var(--ink-soft);
 }
 
-.scene-tag {
+.chat-tag {
   display: inline-block;
   margin-right: 0.5rem;
   padding: 0.08rem 0.4rem;
@@ -796,19 +796,19 @@ span.tok {
   border-radius: 2px;
 }
 
-.scene-en {
+.chat-en {
   margin: 0;
   font-size: 1rem;
   line-height: 1.9;
 }
 
-.scene-zh {
+.chat-zh {
   margin: 0.4rem 0 0;
   font-size: 0.9rem;
   color: var(--ink-soft);
 }
 
-.scene-note {
+.chat-note {
   margin: 0.5rem 0 0;
   padding-left: 0.85rem;
   border-left: 2px solid var(--rule);
@@ -816,7 +816,7 @@ span.tok {
   color: var(--ink-soft);
 }
 
-.scene-bad {
+.chat-bad {
   margin: 0.5rem 0 0;
   padding: 0.5rem 0.7rem;
   font-size: 0.86rem;
@@ -825,17 +825,69 @@ span.tok {
   border-radius: 3px;
 }
 
-.scene-bad b {
+.chat-bad b {
   color: var(--bad);
 }
 
-.scene-bad code {
+.chat-bad code {
   font-size: 0.86rem;
   color: var(--bad);
   background: transparent;
 }
 
-/* ---------- 提示词复制（05 / 07 / 09 节） ---------- */
+/* ---------- 工作口语（06 节） ---------- */
+
+.speaking {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.speaking > li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.speaking > li:last-child {
+  border-bottom: 0;
+}
+
+.speaking-zh {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.speaking-tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.08rem 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 2px;
+}
+
+.speaking-en {
+  margin: 0.3rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.speaking-en b {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.speaking-note {
+  margin: 0.35rem 0 0;
+  font-size: 0.84rem;
+  color: var(--ink-faint);
+}
+
+/* ---------- 提示词复制（07 节） ---------- */
 
 .prompt {
   margin: 1.1rem 0 0;

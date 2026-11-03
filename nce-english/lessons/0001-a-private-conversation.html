@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lesson 1 · A Private Conversation</title>
+<title>Lesson 1 · 课程页 · A Private Conversation</title>
 <link rel="stylesheet" href="../assets/course.css">
 </head>
 <body>
@@ -11,359 +11,348 @@
 
   <p class="backlink"><a href="../index.html">← 课程总目录</a></p>
 
-  <p class="kicker">新概念英语 第二册 · Lesson 1 / 96</p>
-  <h1>A Private Conversation</h1>
-  <p class="subtitle">私人谈话</p>
+  <p class="kicker">课程页 · 七个环节</p>
+  <h1>Lesson 1 · A Private Conversation</h1>
+  <p class="subtitle">一次私人的谈话</p>
   <ul class="meta">
-    <li>技能：拆句子骨架</li>
-    <li>语法：一般过去时</li>
-    <li>8 个词卡</li>
-    <li>3 句逐句示范</li>
-    <li>3 个生活场景</li>
-    <li>4 句真实 Gradle 文档</li>
-    <li>3 个 AI 提示词</li>
+    <li>教材第二册第 1 课</li>
+    <li>约 19 分钟 · 七个环节</li>
+    <li>精读：<a href="../reference/lesson-01-text.html">全文批注版</a></li>
   </ul>
 
   <div class="goal">
-    <p><strong>本课唯一的收获：</strong>拿到一个陌生英文句子，你能自己走完三步——
-    <b>找动词 → 定时间 → 切主干</b>——并说清这个句子讲的是「已经发生的事」还是「一直如此的事」。
-    这是读懂报错信息和官方文档的第一个动作。本课只把这一句技能讲清楚，
-    做题与背课文在纸质教材和视频课里；想开口时，用第 06 节的三个 AI 提示词。</p>
+    <p><strong>这一课的唯一收获：动词变了，时间就变了。</strong>
+    看到 <code>go → went</code>、<code>fail → failed</code>，就知道事情已经结束了。
+    剩下的都是细节。</p>
   </div>
 
   <section>
-    <h2><span class="num">01</span>今天的技能</h2>
-    <div class="skill">
-      <p><strong>拆句子骨架：找动词 → 定时间 → 切主干。</strong></p>
-      <p class="why">为什么这是读技术资料的第一步：英文句子的时间信息<strong>全长在动词上</strong>。
-      动词形态一变，整句的含义就从「一直如此」变成「已经出过事了」。
-      报错信息几乎全在讲「刚才发生了什么」，所以全是一般过去时；
-      而 API 文档在讲「这个方法是干什么的」，所以全是一般现在时。
-      分不清这两者，你就会把文档里的描述误读成一次故障，或者把一次故障误读成常态。</p>
+    <h2><span class="num">01</span>这一课学什么</h2>
+    <div class="topic">
+      <p><strong>本课句型：一般过去时（主语 + 动词过去式）。</strong></p>
+      <p class="why">「句子骨架」说的是一个句子的固定搭法：谁 + 做了什么 + 发生在什么时候。
+      读技术文档时，第一个要认出来的就是它。因为文档里最要命的一句话往往是——
+      <b>这次到底发生了什么，还是它一直都会这样？</b>
+      报错日志、issue、release notes 全在讲已经发生的事，动词一变，意思就完全不同。
+      这一课让你看见过去式就知道：这事已经结束了，是既成事实。</p>
     </div>
-    <p>先看一句真的。这是 Gradle 官方故障排查文档里的原句：</p>
-    <div class="bridge">
-      <p class="bridge-en">If you <b>didn’t find</b> a fix for your issue here, please reach out to the Gradle community.</p>
-      <p class="bridge-zh">如果你在这里没找到解决办法，请去 Gradle 社区求助。</p>
-      <p class="bridge-why"><code>didn’t find</code> 而不是 <code>don’t find</code>——因为它指的是「你<strong>已经</strong>读完这一页了，
-      而且<strong>没</strong>找到」，是一件已完成的失败。这一课学完，你就能自己解释这句话为什么长这样。</p>
+
+    <p><strong>先看一句真的。</strong>下面是 Gradle 官方故障排查指南里的一句：</p>
+    <div class="docs">
+      <p class="docs-en">If you <b>didn’t find</b> a fix for your issue here, please <b>reach out</b> to the Gradle community on the help forum.</p>
+      <p class="docs-zh">如果你在这里没找到解决办法，请到 Gradle 社区的求助论坛发帖。</p>
+      <p class="docs-why">整句只有一个动词带了时间信息：<code>didn’t find</code>。<code>find</code> 是原形，时间全由前面的 <code>didn’t</code> 承担——这就是英语的做法，一个句子只让一个词变。
+      你以后在文档结尾会反复读到这句。</p>
+      <p class="docs-src">来源：<a href="https://docs.gradle.org/current/userguide/troubleshooting.html#sec:getting_additional_help">Gradle 官方 User Guide · Troubleshooting builds · Getting additional help</a></p>
     </div>
+
+    <p><strong>为什么从这一课开始：</strong>课文第 1 句就是标准样板——主语 + 动词过去式，什么都不多。</p>
+    <pre><code>I <b>went</b> to the theatre <b>last week</b>.
+<span class="zh">我上周去剧院看戏了。</span></code></pre>
   </section>
 
   <section>
-    <h2><span class="num">02</span>最小装备</h2>
-    <p>只给这课必需的。八个词，加一张表。<strong>不要背</strong>——下面第 03、04 节会在真句子里反复撞见它们，撞几次就记住了。</p>
+    <h2><span class="num">02</span>生词和搭配</h2>
+    <p>单词不单独记，记「和谁一起出现」。这一课只给四组。</p>
 
     <div class="words">
-      <div class="word">
-        <p class="word-head"><span class="word-term">theatre</span><span class="word-phon">/ˈθɪətə/</span><span class="word-pos">n.</span></p>
-        <p class="word-mean">剧院；戏院（美式拼作 theater）</p>
-        <p class="word-ex">I went to the theatre. 我去了剧院。</p>
-        <p class="word-use"><b>搭配：</b>go to the theatre（去剧院看戏）· at the theatre（在剧院）</p>
-        <p class="word-bad"><b>误用：</b><code>go to theatre</code> ×——指去剧院看戏时，<code>theatre</code> 前要加 <code>the</code>。</p>
-      </div>
-      <div class="word">
-        <p class="word-head"><span class="word-term">seat</span><span class="word-phon">/siːt/</span><span class="word-pos">n.</span></p>
-        <p class="word-mean">座位（名词，不是动词「坐」，那是 sit）</p>
-        <p class="word-ex">I had a very good seat. 我的座位非常好。</p>
-        <p class="word-use"><b>搭配：</b>have a good seat（座位好）· take a seat（请坐）</p>
-        <p class="word-bad"><b>误用：</b><code>sit a seat</code> ×——<code>sit</code> 不带宾语，说「坐下」用 <code>take a seat</code> 或 <code>sit down</code>。</p>
-      </div>
-      <div class="word">
-        <p class="word-head"><span class="word-term">play</span><span class="word-phon">/pleɪ/</span><span class="word-pos">n.</span></p>
-        <p class="word-mean">戏剧；剧本（也可作动词「玩」）</p>
-        <p class="word-ex">The play was very interesting. 那出戏非常有趣。</p>
-        <p class="word-use"><b>搭配：</b>see a play（看一出戏）· put on a play（上演一出戏）</p>
-        <p class="word-bad"><b>误用：</b><code>I went to see play</code> ×——可数名词单数前要加 <code>a</code>：<code>see a play</code>。</p>
-      </div>
-      <div class="word">
-        <p class="word-head"><span class="word-term">enjoy</span><span class="word-phon">/ɪnˈdʒɔɪ/</span><span class="word-pos">v.</span></p>
-        <p class="word-mean">享受；喜欢</p>
-        <p class="word-ex">I did not enjoy it. 我并不喜欢它。</p>
-        <p class="word-use"><b>搭配：</b>enjoy doing sth（喜欢做某事）· enjoy oneself（玩得开心）</p>
-        <p class="word-bad"><b>误用：</b><code>enjoy to read</code> ×——<code>enjoy</code> 后接动名词：<code>enjoy reading</code>。</p>
-      </div>
-      <div class="word">
-        <p class="word-head"><span class="word-term">loudly</span><span class="word-phon">/ˈlaʊdli/</span><span class="word-pos">adv.</span></p>
-        <p class="word-mean">大声地（-ly 结尾是副词，修饰动作）</p>
-        <p class="word-ex">They were talking loudly. 他们大声说着话。</p>
-        <p class="word-use"><b>搭配：</b>talk loudly（大声说话）· speak loudly（高声讲话）</p>
-        <p class="word-bad"><b>误用：</b><code>a loudly voice</code> ×——修饰名词要用形容词：<code>a loud voice</code>。</p>
-      </div>
-      <div class="word">
-        <p class="word-head"><span class="word-term">angrily</span><span class="word-phon">/ˈæŋɡrəli/</span><span class="word-pos">adv.</span></p>
-        <p class="word-mean">愤怒地（形容词是 angry）</p>
-        <p class="word-ex">I looked at them angrily. 我生气地看着他们。</p>
-        <p class="word-use"><b>搭配：</b>look at sb angrily（生气地看某人）· say angrily（生气地说）</p>
-        <p class="word-bad"><b>误用：</b><code>an angrily man</code> ×——修饰名词用形容词：<code>an angry man</code>。</p>
-      </div>
-      <div class="word">
-        <p class="word-head"><span class="word-term">bear</span><span class="word-phon">/beə/</span><span class="word-pos">v.</span></p>
-        <p class="word-mean">忍受（也可作名词「熊」，同一个拼写）</p>
-        <p class="word-ex">I could not bear it. 我受不了了。</p>
-        <p class="word-use"><b>搭配：</b>can’t bear sth（受不了某事）· can’t bear to do（不忍心做某事）</p>
-        <p class="word-bad"><b>误用：</b><code>I can’t bear to it</code> ×——<code>bear</code> 表「忍受」时直接跟宾语：<code>can’t bear it</code>。</p>
-      </div>
-      <div class="word">
-        <p class="word-head"><span class="word-term">private</span><span class="word-phon">/ˈpraɪvət/</span><span class="word-pos">adj.</span></p>
-        <p class="word-mean">私人的；私密的（反义 public 公开的）</p>
-        <p class="word-ex">This is a private conversation. 这是私人谈话。</p>
-        <p class="word-use"><b>搭配：</b>a private conversation（私人谈话）· private information（私人信息）</p>
-        <p class="word-bad"><b>误用：</b><code>This is private conversation</code> ×——可数名词单数前要加 <code>a</code>。</p>
-      </div>
+      <h3>1. 先找动词，时态就藏在动词上</h3>
+      <p class="zh">中文意图：想说一件已经发生完的事——上周去了、昨天跑了、当时失败了。</p>
+      <p class="en">find → found ｜ fail → failed ｜ run → ran ｜ go → went</p>
+      <p class="note"><strong>怎么用：</strong>拿到任何一个英文句子，第一件事永远是找动词。
+      动词的形态一变，整句的时间就变了。</p>
+      <p class="en"><span class="bad">The build <s>fail</s> yesterday.</span> → The build <b>failed</b> yesterday.</p>
+      <p class="note">中文的「昨天」靠副词，英文的「昨天」必须同时改动词。
+      写了 <code>yesterday</code> 却留着原形，是中式英语最常见的一处。</p>
     </div>
 
-    <h3>一张表：动词怎么变成过去式</h3>
+    <div class="words">
+      <h3>2. 过去式不是加 -ed 就完事</h3>
+      <p class="zh">中文意图：说「去了」「玩得开心」——两个最高频的过去动作。</p>
+      <p class="en">go → <b>went</b> ｜ enjoy → enjoyed</p>
+      <p class="note"><strong>怎么用：</strong>规则动词加 <code>-ed</code>，不规则动词只能一个个撞见。
+      <code>go → went</code> 是完全变形，看不出一点原样的痕迹。</p>
+      <p class="en"><span class="bad">I <s>goed</s> to the office.</span> → I <b>went</b> to the office.</p>
+      <p class="note"><code>goed</code> 不存在。不规则动词表见
+      <a href="../reference/review.html">已学骨架总表</a> 第 04 节，撞到一次记一行。</p>
+    </div>
+
+    <div class="words">
+      <h3>3. 一个句子只有一个真正的动词</h3>
+      <p class="zh">中文意图：连着说两个动作——去了并且看了、跑挂了并且报错了。</p>
+      <p class="en">I <b>went</b> to <b>see</b> a play. ｜ The job <b>failed</b> and <b>threw</b> an error.</p>
+      <p class="note"><strong>怎么用：</strong>第二个动作要么用 <code>to + 原形</code> 挂在后面，
+      要么用 <code>and</code> 接一个同样变过形的动词。</p>
+      <p class="en"><span class="bad">I <s>went to saw</s> a play.</span> → I <b>went to see</b> a play.</p>
+      <p class="note"><code>to</code> 后面必须是原形。时间信息已经由 <code>went</code> 表达过了，
+      <code>saw</code> 是重复标记，英文不接受。</p>
+    </div>
+
+    <div class="words">
+      <h3>4. 时间用 in，具体某天用 on</h3>
+      <p class="zh">中文意图：交代事情发生在什么时候——上周、周日、上周日。</p>
+      <p class="en"><b>in</b> the morning ｜ <b>on</b> Sunday ｜ <b>last week</b>（不加介词）</p>
+      <p class="note"><strong>怎么用：</strong>时间段用 <code>in</code>，具体某一天用 <code>on</code>，
+      带 <code>last / next / this</code> 的一律不加介词。</p>
+      <p class="en"><span class="bad">I saw it <s>on last week</s>.</span> → I saw it <b>last week</b>.</p>
+      <p class="note"><code>last week</code> 自己就是时间状语。多写一个 <code>on</code> 是中文「在上周」直译的结果。</p>
+    </div>
+
+    <p class="note"><strong>不要背单词表。</strong>下面这 5 个词只要求「看见能认出来」，
+    拼写交给教材。完整词表在<a href="../reference/lesson-01-text.html">全文批注版</a>。</p>
     <table>
       <thead>
-        <tr><th>类型</th><th>变化方式</th><th>本课例子</th></tr>
+        <tr><th>单词</th><th>音标</th><th>词性</th><th>中文</th><th>记什么</th></tr>
       </thead>
       <tbody>
-        <tr><td>be 动词</td><td>am / is → <code>was</code>；are → <code>were</code></td><td><code>was</code> interesting</td></tr>
-        <tr><td>规则动词</td><td>原形 + <code>-ed</code></td><td><code>turned</code>、<code>looked</code>、<code>enjoyed</code></td></tr>
-        <tr><td>不规则动词</td><td>没有规律，只能一个个记</td><td><code>go → went</code>、<code>have → had</code>、<code>get → got</code>、<code>say → said</code></td></tr>
+        <tr><td><code>theatre</code></td><td>/ˈθɪətə/</td><td>n.</td><td>剧院</td><td>英式拼法，美式写 <code>theater</code></td></tr>
+        <tr><td><code>seat</code></td><td>/siːt/</td><td>n.</td><td>座位</td><td>和 <code>sit</code> 同源，一个是名词一个是动词</td></tr>
+        <tr><td><code>angry</code></td><td>/ˈæŋɡri/</td><td>adj.</td><td>生气的</td><td>形容词，前面要有 <code>be</code> 或 <code>get</code></td></tr>
+        <tr><td><code>loudly</code></td><td>/ˈlaʊdli/</td><td>adv.</td><td>大声地</td><td><code>-ly</code> 结尾修饰动词</td></tr>
+        <tr><td><code>bear</code></td><td>/beə/</td><td>vt.</td><td>容忍</td><td>过去式 <code>bore</code>，不规则</td></tr>
       </tbody>
     </table>
-
-    <h3>一句警告：否定句里动词要退回原形</h3>
-    <table>
-      <thead>
-        <tr><th>错误</th><th>正确</th><th>为什么</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>I did not enjoyed it.</code></td><td><code>I did not enjoy it.</code></td><td><code>did</code> 已表过去，<code>enjoy</code> 用原形</td></tr>
-        <tr><td><code>They did not paid attention.</code></td><td><code>They did not pay attention.</code></td><td>同上</td></tr>
-        <tr><td><code>I could not heard them.</code></td><td><code>I could not hear them.</code></td><td>情态动词后永远跟原形</td></tr>
-      </tbody>
-    </table>
-    <p>完整的语法速查在 <a href="../reference/past-simple.html">一般过去时速查</a>，忘了直接翻那份。</p>
   </section>
 
   <section>
-    <h2><span class="num">03</span>逐句示范：我做给你看</h2>
-    <p>三句，每句走同样的三步。跟着看我是怎么一步一步想的——
-    <strong>重点不是答案，是找的顺序</strong>。这个顺序后面 95 课都不变。</p>
-    <p>三句之外，课文全文和逐句批注在
-    <a href="../reference/lesson-01-text.html">Lesson 1 课文全文批注</a>，读完这一节再去翻。</p>
+    <h2><span class="num">03</span>一句一句拆开看</h2>
+    <p>四句核心句，每句都走同样三步：<strong>找动词 → 定时间 → 切主干</strong>。
+    重点是看清「我在哪一步看出了什么」。</p>
 
-    <div class="sent">
-      <p class="sent-label">第 1 句</p>
-      <p class="sent-text">
-        <span class="tok">Last</span>
-        <span class="tok">week</span>
-        <span class="tok">I</span>
-        <span class="tok">went</span>
-        <span class="tok">to</span>
-        <span class="tok">the</span>
-        <span class="tok">theatre.</span>
-      </p>
-      <p class="note"><b>第一步 · 找动词</b>：一句英文通常只有一个核心动作，先把它揪出来。这句的动作是 <code>went</code>——
-      <code>go</code> 的过去式，不规则，必须记。</p>
-      <p class="note"><b>第二步 · 定时间</b>：动词长什么样，就告诉你事情发生在什么时候。<code>went</code> 是过去式，说明这事<strong>已经结束</strong>。
-      句首的 <code>Last week</code> 是时间状语，印证了这一点。</p>
-      <p class="note"><b>第三步 · 切主干</b>：谁（<code>I</code>）+ 做了什么（<code>went</code>）+ 到哪（<code>to the theatre</code>）。
-      主干抓到了，剩下的词都是修饰，读不懂也不影响你理解这句在说什么。</p>
+    <div class="sentences">
+      <div class="sent">
+        <p class="sent-en">Last week I <b>went</b> to the theatre.</p>
+        <p class="sent-zh">上周我去剧院看戏了。</p>
+        <p class="why"><strong>我是这么想的：</strong>先找动词——<code>went</code>，它是 <code>go</code> 的过去式，所以时间已经定了：过去、结束了。
+        再切主干：<code>I</code>（谁）+ <code>went</code>（做了什么）+ <code>to the theatre</code>（去哪儿）。
+        <code>Last week</code> 只是补充说明，删掉句子照样成立。
+        所以这一句真正的信息只有三个字：我去了。</p>
+      </div>
+
+      <div class="sent">
+        <p class="sent-en">I <b>did not enjoy</b> it.</p>
+        <p class="sent-zh">我并没有欣赏到这场戏。</p>
+        <p class="why"><strong>我是这么想的：</strong>找动词——看见 <code>did not</code>，就知道整句是否定，而且是过去。
+        关键点：后面那个 <code>enjoy</code> 是<b>原形</b>，不是 <code>enjoyed</code>。
+        因为时间已经由 <code>did</code> 承担过一次了，一个句子只让一个词变——这正是英文和中文最不一样的地方。
+        主干：<code>I</code> + <code>did not enjoy</code> + <code>it</code>。</p>
+      </div>
+
+      <div class="sent">
+        <p class="sent-en">They <b>were talking</b> loudly.</p>
+        <p class="sent-zh">他们当时正大声地说话。</p>
+        <p class="why"><strong>我是这么想的：</strong>找动词——<code>were talking</code> 是两个词合起来的一个动词。
+        定时间：<code>were</code> 是过去，<code>-ing</code> 是「正在进行」，合起来就是「过去那个时刻正在做」。
+        为什么要用这个？因为下一句 <code>I got very angry</code> 是在这个背景里发生的——
+        一个是持续的背景，一个是突然的结果。看到 <code>-ing</code> 就想：这是背景，不是重点。</p>
+      </div>
+
+      <div class="sent">
+        <p class="sent-en"><b>Did</b> you <b>enjoy</b> it?</p>
+        <p class="sent-zh">你玩得开心吗？</p>
+        <p class="why"><strong>我是这么想的：</strong>找动词——句首的 <code>Did</code> 就是信号：这是个一般过去时的疑问句。
+        同样，<code>enjoy</code> 回到原形，因为时间已经被 <code>Did</code> 拿走了。
+        英文的疑问句靠「把助动词提到最前面」，中文靠语气词「吗」。
+        记住这个对应：<code>Did + 主语 + 动词原形</code>，以后在 issue 里看到 <code>Did the test pass?</code> 就是同一个模子。</p>
+      </div>
     </div>
 
-    <div class="sent">
-      <p class="sent-label">第 2 句</p>
-      <p class="sent-text">
-        <span class="tok">A</span>
-        <span class="tok">young</span>
-        <span class="tok">man</span>
-        <span class="tok">and</span>
-        <span class="tok">a</span>
-        <span class="tok">young</span>
-        <span class="tok">woman</span>
-        <span class="tok">were</span>
-        <span class="tok">sitting</span>
-        <span class="tok">behind</span>
-        <span class="tok">me.</span>
-      </p>
-      <p class="note"><b>第一步 · 找动词</b>：这句的动词是<strong>两个词合起来的</strong>——<code>were sitting</code>。
-      <code>were</code> 是助动词，本身没有实义，只负责扛时间和单复数；<code>sitting</code> 才是真正的动作。
-      看到「be 动词 + ing」，就是「当时正在做某事」。</p>
-      <p class="note"><b>第二步 · 定时间</b>：<code>were</code> 是 <code>are</code> 的过去式，所以是「过去那一刻正坐着」——
-      不是现在坐着，也不是坐了一辈子。这叫<strong>过去进行时</strong>。课文后面 <code>They were talking loudly</code> 是同一个骨架。</p>
-      <p class="note"><b>第三步 · 切主干</b>：谁（<code>A young man and a young woman</code>，两个人是复数，所以配 <code>were</code> 不配 <code>was</code>）
-      + 在做什么（<code>were sitting</code>）+ 在哪（<code>behind me</code>）。</p>
-    </div>
-
-    <div class="sent">
-      <p class="sent-label">第 3 句</p>
-      <p class="sent-text">
-        <span class="tok">I</span>
-        <span class="tok">did</span>
-        <span class="tok">not</span>
-        <span class="tok">enjoy</span>
-        <span class="tok">it.</span>
-      </p>
-      <p class="note"><b>第一步 · 找动词</b>：出现两个候选——<code>did</code> 和 <code>enjoy</code>。真正的动作是 <code>enjoy</code>；
-      <code>did</code> 只是被借来表达「过去」的助动词。这个区分是本课最容易错的地方。</p>
-      <p class="note"><b>第二步 · 定时间</b>：<code>did</code> 是 <code>do</code> 的过去式，<strong>它已经把「过去」说完了</strong>，
-      所以后面的 <code>enjoy</code> 必须退回原形。写成 <code>did not enjoyed</code> 是把过去标了两遍，错。</p>
-      <p class="note"><b>第三步 · 切主干</b>：谁（<code>I</code>）+ 没做什么（<code>did not enjoy</code>）+ 对什么（<code>it</code>）。
-      否定句的骨架就是「主语 + did not + 动词原形 + 宾语」。</p>
-    </div>
+    <p class="note">其余课文句子（<code>The play was very interesting</code>、<code>I could not bear it</code>、
+    <code>In a moment</code> 那一整段）见<a href="../reference/lesson-01-text.html">全文批注版</a>。
+    拆句的固定顺序见<a href="../reference/three-step-parsing.html">三步拆句法</a>。</p>
   </section>
 
   <section>
-    <h2><span class="num">04</span>生活场景：今天就说得出口</h2>
-    <p>课文讲的是剧院里的一场冲突，但骨架是通用的：<strong>讲已经发生的事，动词用过去式</strong>。
-    下面三个场景都是上班族每天会遇到的对话，每个都配一条「别这么说」——先看别人错在哪，自己说的时候才不会踩。</p>
+    <h2><span class="num">04</span>平时聊天怎么说</h2>
+    <p>骨架会背还不够，得能在真人对话里说出来。三个场景都来自普通工作日。</p>
 
-    <div class="scene">
-      <p class="scene-head"><span class="scene-tag">同事闲聊</span>周一早上，同事问你周末过得怎么样</p>
-      <p class="scene-en">A: How was your weekend?<br>B: It was great. I went to a new restaurant with my family. The food was good, but it was very loud.</p>
-      <p class="scene-zh">A：周末过得怎么样？ B：挺好的。我和家人去了一家新餐厅。菜不错，但店里很吵。</p>
-      <p class="scene-note">问的是已经过完的周末，所以 be 动词用 <code>was</code>，动作用 <code>went</code>。整段都在讲过去，一句现在时都不该混进来。</p>
-      <p class="scene-bad"><b>别这么说：</b><code>My weekend is great. I go to a restaurant.</code> 讲上周的事却用现在时，听起来像在说「我每个周末都这样」。</p>
+    <div class="chat">
+      <p class="chat-head"><span class="chat-tag">同事闲聊</span>周一早上，同事问你周末干了什么</p>
+      <p class="chat-en">— How <b>was</b> your weekend?<br>— It <b>was</b> great. I <b>went</b> to a new restaurant with my family.</p>
+      <p class="chat-zh">— 周末过得怎么样？<br>— 挺好的，我和家人去了一家新餐厅。</p>
+      <p class="chat-note">问的是已经过完的周末，所以整段都用过去时：<code>was</code>、<code>went</code>。
+      和第 03 节第 1 句是同一个骨架。</p>
+      <p class="chat-bad"><b>别这么说：</b>「How <s>is</s> your weekend?」——周末已经结束了，用 <code>is</code> 会问成「你周末一般怎么样」。</p>
     </div>
 
-    <div class="scene">
-      <p class="scene-head"><span class="scene-tag">电话</span>同事问你昨天为什么没接电话</p>
-      <p class="scene-en">A: I called you yesterday, but you didn’t answer.<br>B: Sorry, I was in a meeting. I didn’t have my phone with me.</p>
-      <p class="scene-zh">A：我昨天给你打电话，你没接。 B：抱歉，我当时在开会，手机没带在身上。</p>
-      <p class="scene-note">「当时在开会」用 <code>was in a meeting</code>；「没带」用 <code>didn’t have</code>，<code>didn’t</code> 后面的 <code>have</code> 是原形。</p>
-      <p class="scene-bad"><b>别这么说：</b><code>I am in a meeting yesterday.</code> 有 <code>yesterday</code> 就不能用 <code>am</code>，要用 <code>was</code>。</p>
+    <div class="chat">
+      <p class="chat-head"><span class="chat-tag">电话</span>回拨一个未接来电</p>
+      <p class="chat-en">Sorry, I <b>was</b> in a meeting. I <b>didn’t have</b> my phone with me.</p>
+      <p class="chat-zh">抱歉，我刚才在开会，手机没带在身上。</p>
+      <p class="chat-note">解释「刚才为什么没接」，说的是那一刻的状态，所以用过去时。
+      <code>didn’t have</code> 就是第 03 节第 2 句的 <code>did not + 原形</code>。</p>
+      <p class="chat-bad"><b>别这么说：</b>「I <s>didn’t had</s> my phone.」——<code>didn’t</code> 后面必须是原形 <code>have</code>。</p>
     </div>
 
-    <div class="scene">
-      <p class="scene-head"><span class="scene-tag">日常安排</span>同事问你报告写完了没有</p>
-      <p class="scene-en">A: Did you finish the report?<br>B: Not yet. I had three meetings yesterday, so I didn’t have time. I started it this morning.</p>
-      <p class="scene-zh">A：报告写完了吗？ B：还没有。我昨天开了三个会，所以没时间。我今天早上才开始。</p>
-      <p class="scene-note">一句里可以同时出现过去和现在：<code>had</code> / <code>didn’t have</code> 讲昨天，<code>started</code> 讲今早——今早也算过去，所以还是过去式。</p>
-      <p class="scene-bad"><b>别这么说：</b><code>I have three meetings yesterday, so I don’t have time.</code> <code>yesterday</code> 锁死过去，两个动词都要变过去式。</p>
+    <div class="chat">
+      <p class="chat-head"><span class="chat-tag">日常安排</span>朋友约你，你说这两天很忙</p>
+      <p class="chat-en">I <b>had</b> three meetings yesterday, so I <b>didn’t have</b> time.</p>
+      <p class="chat-zh">我昨天开了三个会，所以没腾出时间。</p>
+      <p class="chat-note"><code>yesterday</code> 一出现，后面所有动词都得跟着变过去式。
+      这句里 <code>had</code> 和 <code>didn’t have</code> 是同一个动词的两种形态。</p>
+      <p class="chat-bad"><b>别这么说：</b>「I have three meetings yesterday.」——<code>yesterday</code> 和现在时不能同时出现。</p>
     </div>
+
+    <p class="note">这三个场景的英文句已经登记在
+    <a href="../reference/review.html">已学骨架总表</a> 第 02 节，明天开新课前先盖住英文说一遍。</p>
   </section>
 
   <section>
-    <h2><span class="num">05</span>桥接：真实的技术英语长这样</h2>
-    <p>四句全部来自 Gradle 官方文档，一字未改。它们的语法骨架，和你在剧院里读到的那 16 句<strong>完全一样</strong>。
-    这就是这一课的真实用途。</p>
+    <h2><span class="num">05</span>技术文档里怎么写</h2>
+    <p>下面三句是 Gradle 官方故障排查指南开头的原文，<strong>逐字摘录、没有改写</strong>。
+    加粗的是本课句型相关的部分。你以后打开任何一份 troubleshooting 文档，开头几乎都是这个写法。</p>
 
-    <div class="bridge">
-      <p class="bridge-en">Previously, the GradleLifecycle.beforeProject{} callback <b>was executed</b> right before the project evaluation.</p>
-      <p class="bridge-zh">此前，GradleLifecycle.beforeProject{} 回调是在项目求值之前执行的。</p>
-      <p class="bridge-why">骨架 = 第 03 节第 2 句。<code>was executed</code> 是 <code>was</code> + 过去分词，即「过去时的被动语态」：
-      主语不是动作的发出者，而是承受者。句首的 <code>Previously</code>（此前）是时间状语，
-      和课文的 <code>Last week</code> 起完全相同的作用——告诉你这讲的是<strong>旧版本的行为，现在已经变了</strong>。
-      读文档时漏掉这个信号，你就会以为它说的还是当前行为。</p>
-      <p class="bridge-src">来源：<a href="https://docs.gradle.org/8.10/release-notes.html">Gradle 8.10 Release Notes · Build authoring improvements</a></p>
+    <div class="docs">
+      <p class="docs-en">If you <b>followed</b> the installation instructions, and aren’t able to execute your Gradle build, here are some tips that may help.<br><br>
+      If you <b>installed</b> Gradle outside of just invoking the Gradle Wrapper, you can check your Gradle installation by running <code>gradle --version</code> in a terminal.<br><br>
+      You should see something like this:</p>
+      <p class="docs-zh">如果你照着安装说明做了，却还是没法执行 Gradle 构建，下面几条提示也许有用。<br><br>
+      如果你不是只靠 Gradle Wrapper 来跑，而是自己装了 Gradle，可以在终端里执行 <code>gradle --version</code> 检查一下安装情况。<br><br>
+      你应该会看到类似这样的输出：</p>
+      <p class="docs-why"><strong>第 1 句</strong>：<code>you followed</code> 就是「主语 + 动词过去式」，和第 03 节第 1 句 <code>I went to the theatre</code> 一个模子，
+      只是它躲在 <code>if</code> 后面。读故障排查文档时，<code>if</code> 后面那个过去式说的就是「你之前已经做过的事」。<br>
+      <strong>第 2 句</strong>：同一个骨架再来一次——<code>you installed</code>。
+      后半句 <code>you can check</code> 换成了「情态动词 + 原形」，因为这是在给你建议，不是在说已经发生的事。<br>
+      <strong>第 3 句</strong>：<code>should see</code> 也是情态动词 + 原形。文档里这种句子后面一定紧跟一个代码块，
+      看到冒号就知道下面是要贴输出样例了。</p>
+      <p class="docs-src">来源：<a href="https://docs.gradle.org/current/userguide/troubleshooting.html#sec:troubleshooting_installation">Gradle 官方 User Guide · Troubleshooting builds · Troubleshooting the installation</a>（三句连续原文）</p>
     </div>
 
-    <div class="bridge">
-      <p class="bridge-en">Promoted features are features that <b>were incubating</b> in previous versions of Gradle but are now supported and subject to backward compatibility.</p>
-      <p class="bridge-zh">「已转正的特性」指的是：在此前版本中处于孵化状态、但如今已受支持并纳入向后兼容保证的特性。</p>
-      <p class="bridge-why">骨架 = 第 03 节第 2 句的 <code>were sitting</code>，一模一样：<code>were incubating</code> 也是过去进行时，
-      表示「在过去那段时间里一直处于孵化状态」。注意这一句里三种时态并存——
-      <code>are</code>（现在，下定义）、<code>were incubating</code>（过去，那时的状态）、<code>are now supported</code>（现在，已转正）。
-      能同时 hold 住三个时间线，才算真读懂了这句。</p>
-      <p class="bridge-src">来源：<a href="https://docs.gradle.org/8.10/release-notes.html">Gradle 8.10 Release Notes · Promoted features</a></p>
-    </div>
-
-    <div class="bridge">
-      <p class="bridge-en">If you <b>didn’t find</b> a fix for your issue here, please reach out to the Gradle community on the help forum.</p>
-      <p class="bridge-zh">如果你在这里没有找到问题的解决办法，请到帮助论坛向 Gradle 社区求助。</p>
-      <p class="bridge-why">骨架 = 第 03 节第 3 句的 <code>did not enjoy</code>：<code>didn’t</code> 扛过去，<code>find</code> 用原形。
-      如果你写成 <code>didn’t found</code>，就是本课要治的那个病。这里用过去时而非现在时，
-      是因为它假设「你<strong>已经</strong>读完这一页了」——一个已完成的动作。</p>
-      <p class="bridge-src">来源：<a href="https://docs.gradle.org/current/userguide/troubleshooting.html">Gradle User Guide · Troubleshooting builds · Getting additional help</a></p>
-    </div>
-
-    <div class="bridge">
-      <p class="bridge-en">A new daemon <b>was started</b> but <b>could not be connected to</b>: pid=DaemonInfo{...}</p>
-      <p class="bridge-zh">一个新的守护进程已经启动，但无法与之建立连接：pid=DaemonInfo{...}</p>
-      <p class="bridge-why">两个骨架叠在一句里。<code>was started</code> 是过去时被动（和第 1 句同构）；
-      <code>could not be connected to</code> 里的 <code>could not</code> 直接对应课文的 <code>I could not hear the actors</code>——
-      情态动词过去式 + 原形。这是你真正会在终端里撞见的报错，读懂它的时间线（已经启动了 / 但连不上）是排障的第一步。</p>
-      <p class="bridge-src">来源：<a href="https://docs.gradle.org/current/userguide/troubleshooting.html">Gradle User Guide · Troubleshooting daemon connection issues</a></p>
-    </div>
+    <p class="note">注意这三句里没有一句在讲故事，全是在告诉你「如果你之前做了 A，现在就该做 B」。
+    这正是过去时在技术文档里的主要用途：<strong>指你已经做过的那一步。</strong></p>
   </section>
 
   <section>
-    <h2><span class="num">06</span>AI 收尾</h2>
-    <p>这一课的口头练习全部交给 AI：先让陪练扮演同事，用英文和你聊两句上周的事；
-    再把你<strong>自己写的句子</strong>——纸质教材的习题答案、发给同事的消息——交给批改员；
-    最后让考官出三句中文做回译自测。复制下面的提示词，粘进任意 AI 对话就能开始。</p>
+    <h2><span class="num">06</span>开会和演示怎么说</h2>
+    <p>这六句是<strong>我们自己写的练习句</strong>（口语脚本本来就是造出来的，不是文档原文），
+    但每一句都只用本课学过的骨架：主语 + 动词过去式、<code>did not</code> + 原形、
+    <code>was / were</code>、<code>could</code> + 原形、<code>got</code> + 形容词。
+    左边是你想表达的中文，右边是英文。</p>
+
+    <ol class="speaking">
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">演示</span>开场交代这个功能是哪次改动带来的</p>
+        <p class="speaking-en">We <b>shipped</b> this last week. It <b>fixed</b> the timeout on large exports.</p>
+        <p class="speaking-note">用第 03 节第 1 句：主语 + 动词过去式。<code>last week</code> 前面不加介词（第 02 节第 4 组）。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">演示</span>解释改动之前的状况，说明为什么要改</p>
+        <p class="speaking-en">Before this change, the request <b>failed</b> and we <b>did not get</b> any logs.</p>
+        <p class="speaking-note">前半句是第 1 句的骨架，后半句是第 2 句：<code>did not</code> + 原形 <code>get</code>，不是 <code>got</code>。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">演示</span>有人问「你们测过了吗」，你回答</p>
+        <p class="speaking-en">Yes, we <b>ran</b> it on staging yesterday, and it <b>was</b> fine.</p>
+        <p class="speaking-note">第 1 句的骨架（<code>run → ran</code>）加 <code>was</code> + 形容词。
+        <code>yesterday</code> 一出现，两个动词都得是过去式。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">会议</span>没听清，请对方再说一遍</p>
+        <p class="speaking-en">Sorry, I <b>did not catch</b> that. <b>Could</b> you say it again?</p>
+        <p class="speaking-note">第 2 句的骨架：<code>did not</code> + 原形。
+        <code>Could you ...</code> 比 <code>Can you ...</code> 更客气一点，会议上更安全。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">会议</span>复述一遍，确认自己真的听懂了</p>
+        <p class="speaking-en">So we <b>agreed</b> on Tuesday — <b>did</b> I <b>get</b> that right?</p>
+        <p class="speaking-note">前半句是第 1 句，后半句是第 3 句：<code>Did</code> + 主语 + 动词原形。
+        这句是跨国会议里最有用的一句，能把「其实没听懂」变成「我们在对齐」。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">会议</span>不太同意，但不想直接说 no</p>
+        <p class="speaking-en">I <b>was</b> not sure about that one — last time it <b>got</b> worse after the change.</p>
+        <p class="speaking-note"><code>was</code> + 形容词，加 <code>got</code> + 形容词（表示「变得……」）。
+        把不同意挂在「上次的结果」上，比说 <code>I disagree</code> 缓和得多。</p>
+      </li>
+    </ol>
+
+    <p class="note"><strong>练法：</strong>盖住右边的英文，只看中文意图，每句说三遍。
+    说不出来的那句，回第 03 节重看它标的那个骨架。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span>拿去和 AI 练</h2>
+    <p>页面不做练习，练习在 AI 对话里。三个角色各一段提示词，点按钮复制，粘进对应工具即可。
+    三段都已把本课骨架写进去了，<strong>不需要你再手打</strong>。</p>
 
     <div class="prompt">
-      <p class="prompt-lead"><strong>让 AI 当陪练。</strong>复制这段，粘进任意 AI 对话，它会扮演同事，用英文和你一问一答，把第 04 节的场景说一遍。</p>
+      <p class="prompt-lead"><strong>陪练</strong> · 建议用<strong>豆包</strong>（有语音通话，能真的开口说）。
+      让 AI 扮演同事跟你英文对话，把第 04 节的场景和第 06 节的句子用起来。它说英文，你说英文，卡住了才给提示。</p>
       <p class="prompt-tools">
-        <button class="prompt-btn" type="button" data-copy-prompt="p-l1-partner">复制提示词</button>
+        <button class="prompt-btn" type="button" data-copy-prompt="p1-partner">复制陪练提示词</button>
         <span class="prompt-state" data-prompt-state></span>
       </p>
-      <template id="p-l1-partner">
-        <p>你是我的英语陪练，扮演我的同事。场景：周一午饭时聊上周的一次外出。</p>
-        <p>规则：你用英文提问，一次只问一句，等我回答后再问下一句；我卡住时给我一个关键词提示，不要替我说完整句。</p>
-        <p>这一轮只练一般过去时：问我去了哪、看到了什么、喜不喜欢、最后怎么处理。</p>
-        <p>如果我用现在时讲过去的事，停下来让我重说一遍，并告诉我该用哪个过去式。</p>
-        <p>先开始：用一句英文跟我打招呼，然后问第一个问题。</p>
-      </template>
-    </div>
-    <p class="note">想换场景，改提示词里的「场景：……」那一句即可。</p>
-
-    <div class="prompt">
-      <p class="prompt-lead"><strong>让 AI 当批改员。</strong>先做纸质教材的习题，或凭记忆把课文那四句写出来，再把你写的英文发给它。
-      它一次只改一个毛病——别让它一口气列十条，那只会让你更乱。</p>
-      <p class="prompt-tools">
-        <button class="prompt-btn" type="button" data-copy-prompt="p-l1-corrector">复制提示词</button>
-        <span class="prompt-state" data-prompt-state></span>
-      </p>
-      <template id="p-l1-corrector">
-        <p>你是我的英文批改员。我在练一般过去时的回译。下面四句是课文原句，请以它们为标准：</p>
-        <p>1. Last week I went to the theatre.<br>2. I did not enjoy it.<br>3. They were talking loudly.<br>4. In the end, I could not bear it.</p>
-        <p>我会发给你我的英文译文。请按三条标准逐句打分（每条 1–5 分）：准确（意思没丢）、时态（过去的事是否用过去式，did 后是否用原形）、地道（搭配和语序是否自然）。</p>
-        <p>输出顺序固定：先给一句总评，指出我最系统的那一个毛病；再只挑一处最重要的错误讲清原因；最后给我一个升级版，保留我的原意，用更自然的英文重写。</p>
-        <p>不要一次列出所有错误，也不要把四句全部重写。</p>
+      <template id="p1-partner">
+        <p>你是我的英语口语陪练。我的水平：初中基础，正在学《新概念英语》第二册第 1 课，本课句型是一般过去时（主语 + 动词过去式；否定用 did not + 动词原形；疑问用 Did + 主语 + 动词原形）。</p>
+        <p>规则：</p>
+        <p>1. 全程用英文和我对话，一次只问一个问题，句子不要超过 12 个词。</p>
+        <p>2. 场景在「同事闲聊周末」「回拨未接来电」「解释昨天为什么没做完」之间轮换。</p>
+        <p>3. 也带练下面这六句工作口语，逐句让我用英文说，我说完你再给下一句：<br>We shipped this last week. It fixed the timeout on large exports.<br>Before this change, the request failed and we did not get any logs.<br>Yes, we ran it on staging yesterday, and it was fine.<br>Sorry, I did not catch that. Could you say it again?<br>So we agreed on Tuesday — did I get that right?<br>I was not sure about that one — last time it got worse after the change.</p>
+        <p>4. 我的回答如果有错，先总评一句，只挑最严重的那一处改，再给一个更地道的升级版。</p>
+        <p>5. 我如果整句说不出，不要直接给答案，先给主语和动词原形让我自己变。</p>
+        <p>现在开始，用一句英文问我周末做了什么。</p>
       </template>
     </div>
 
     <div class="prompt">
-      <p class="prompt-lead"><strong>让 AI 当考官。</strong>复制这段，它会出三句中文让你回译，等你答完才公布参考答案，并按三条标准打分。</p>
+      <p class="prompt-lead"><strong>批改</strong> · 建议用 <strong>Trae</strong> 或 <strong>codex</strong>（能读本仓库文件）。
+      把你写的句子（教材习题、自己造的、工作消息）丢给它，按三条标准批。</p>
       <p class="prompt-tools">
-        <button class="prompt-btn" type="button" data-copy-prompt="p-l1-examiner">复制提示词</button>
+        <button class="prompt-btn" type="button" data-copy-prompt="p1-check">复制批改提示词</button>
         <span class="prompt-state" data-prompt-state></span>
       </p>
-      <template id="p-l1-examiner">
-        <p>你是我的英语考官，只考一般过去时，不考别的。</p>
-        <p>请按顺序做三件事：第一，给我三句中文，让我翻成英文——一句肯定、一句否定、一句过去进行时。第二，等我全部答完再公布参考答案，参考答案用课文骨架：Last week I went to the theatre. / I did not enjoy it. / They were talking loudly. 第三，按准确、时态、地道三条标准各给 1–5 分，先总评，再只指出一处最该改的地方，最后给我的句子一个升级版。</p>
-        <p>不要在我回答前给提示，也不要问完就立刻公布答案。</p>
+      <template id="p1-check">
+        <p>你是我的英语写作批改助手。我目前的水平：初中基础，正在学《新概念英语》第二册第 1 课，本课句型是一般过去时。</p>
+        <p>我会贴一句或几句我写的英文。请按下面三条标准逐条批改，每条只说最关键的一处问题：</p>
+        <p>1. 准确性：动词形态对不对？否定句是不是 did not + 原形？疑问句是不是 Did + 主语 + 原形？时间状语（last week / yesterday）和动词时态是否一致？</p>
+        <p>2. 时态：这件事到底结束了没有？如果已经结束，动词必须是过去式。</p>
+        <p>3. 地道：母语者会怎么说？给我一个更自然的版本，并说明差别在哪。</p>
+        <p>批改顺序固定：先总评一句、只改一处、再给一个升级版。不要一次列出所有毛病。</p>
+        <p>最后，请用我原句的意思造一个技术场景版本（例如把「我上周去了剧院」换成「构建昨晚失败了」），让我看到同一个句型在技术文档里长什么样。</p>
       </template>
     </div>
 
-    <p class="note">三个角色的通用模板，以及后续课程的提示词，都在
-    <a href="../reference/ai-prompts.html">AI 提示词库</a>。</p>
-    <p class="note">学完这一课，回 <a href="../reference/review.html">已学骨架总表</a> 把本课的骨架和生活句型过一遍——
-    那张表只追加，越攒越有用。</p>
+    <div class="prompt">
+      <p class="prompt-lead"><strong>出题</strong> · 建议用 <strong>Trae</strong> 或 <strong>codex</strong>。
+      替代纸质默写：让它出三句中文，你写英文，再对答案。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p1-quiz">复制出题提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p1-quiz">
+        <p>你是我的英语出题助手。范围限定：《新概念英语》第二册第 1 课的一般过去时——肯定句（主语 + 动词过去式）、否定句（did not + 动词原形）、疑问句（Did + 主语 + 动词原形）、be 动词过去式（was / were）、情态动词（could + 原形）、get + 形容词。</p>
+        <p>请给我三句中文让我翻译成英文，要求：</p>
+        <p>1. 第一句是日常场景（周末、上班、约人）。</p>
+        <p>2. 第二句是技术场景（构建、任务、日志、接口）。</p>
+        <p>3. 第三句是工作口语：演示里的一句，或会议里的请对方重说 / 复述确认 / 委婉不同意。</p>
+        <p>4. 每句都要用一般过去时，其中至少一句要用 did not + 原形。</p>
+        <p>5. 出题之后先停下，不要给答案。</p>
+        <p>等我提交译文，你再逐句批改：先总评、只改一处、再给一个更地道的升级版。</p>
+      </template>
+    </div>
+
+    <p class="note">更多通用提示词见<a href="../reference/ai-prompts.html">AI 提示词库</a>。
+    三个角色的输出契约都一样：<strong>先总评、只改一处、再给升级版。</strong></p>
   </section>
 
-  <footer>
-    <h2>来源、延伸与下一步</h2>
-    <p><strong>课文原文</strong>据教材《新概念英语》第二册（外研社 / Longman），并与
-    <a href="https://www.hqwx.com/legacy_news/html/2008-2/200822792148329.html">环球网校</a>、
-    <a href="http://www.zshunj.cn/minishow.asp?id=1498">高中英语教学交流网</a>、
-    <a href="https://www.51test.net/show/8836692.html">无忧考网</a> 三处文本交叉核对。</p>
-    <p><strong>桥接句</strong>取自 Gradle 官方文档
-    <a href="https://docs.gradle.org/8.10/release-notes.html">8.10 Release Notes</a> 与
-    <a href="https://docs.gradle.org/current/userguide/troubleshooting.html">User Guide · Troubleshooting builds</a>，
-    逐字摘录，未作改写。</p>
-    <p><strong>本课首选精读源</strong>：<a href="https://docs.gradle.org/current/userguide/troubleshooting.html">Gradle 故障排查文档</a>。
-    它是你未来最常读的那类文本——问题描述 + 已发生的事 + 下一步建议，时态切换密集，正好用来练本课的骨架。</p>
-    <p><strong>延伸</strong>：
-    <a href="../reference/lesson-01-text.html">Lesson 1 课文全文批注</a> ·
-    <a href="../reference/past-simple.html">一般过去时速查</a> ·
-    <a href="../reference/ai-prompts.html">AI 提示词库</a> ·
-    <a href="../reference/review.html">已学骨架总表</a> ·
-    <a href="../index.html">← 课程总目录</a></p>
-    <div class="ask">
-      <p><strong>有任何不清楚的地方，直接问 agent。</strong>
-      比如「did 后面为什么不能加 ed」「was executed 和 was executing 有什么区别」「我怎么知道一个词是名词还是动词」——
-      把你卡住的点说出来，比再读一遍课文有用得多。</p>
-    </div>
-  </footer>
+  <section class="sources">
+    <h2>来源</h2>
+    <ul>
+      <li>课文原文：<a href="https://www.ncehub.com/xnce/book2/lesson1.htm">新概念英语第二册 Lesson 1（ncehub）</a></li>
+      <li>课文原文交叉核对：<a href="https://www.en84.com/nce/book2/1.html">新概念英语第二册 Lesson 1（en84）</a></li>
+      <li>第 01 节引子句：<a href="https://docs.gradle.org/current/userguide/troubleshooting.html#sec:getting_additional_help">Gradle 官方 User Guide · Getting additional help</a></li>
+      <li>第 05 节三句：<a href="https://docs.gradle.org/current/userguide/troubleshooting.html#sec:troubleshooting_installation">Gradle 官方 User Guide · Troubleshooting the installation</a></li>
+    </ul>
+  </section>
+
+  <nav class="nav">
+    <p><a href="../index.html">← 课程总目录</a></p>
+    <p><a href="../reference/lesson-01-text.html">全文批注版 →</a></p>
+  </nav>
+
+  <p class="next">读完后有什么想深挖的，直接问 Trae——它可以基于本仓库回答。</p>
 
 </main>
-<script src="../assets/prompt.js"></script>
+<script src="../assets/prompt.js" defer></script>
 </body>
 </html>
