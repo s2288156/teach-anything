@@ -363,11 +363,14 @@ html, body {
   flex: 1 1 auto;
   overflow: auto;
   cursor: grab;
+  /* 触屏拖动看图时不要连带滚动页面 */
+  touch-action: none;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding: 24px;
 }
+.lightbox-stage.dragging { cursor: grabbing; }
 .lightbox-stage img {
   max-width: none;
   transform-origin: top center;

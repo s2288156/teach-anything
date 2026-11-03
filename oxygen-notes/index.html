@@ -23,20 +23,8 @@
   </div>
 </header>
 
-<nav class="filter-bar" id="category-filter">
-  <button class="filter-btn active" data-cat="all">全部</button>
-  <button class="filter-btn" data-cat="oxygen">氧气</button>
-  <button class="filter-btn" data-cat="power">电力</button>
-  <button class="filter-btn" data-cat="farming">农业/食物</button>
-  <button class="filter-btn" data-cat="industry">工业</button>
-  <button class="filter-btn" data-cat="energy">能源/燃料</button>
-  <button class="filter-btn" data-cat="temperature">温控</button>
-  <button class="filter-btn" data-cat="storage">高压存储</button>
-  <button class="filter-btn" data-cat="habitat">生活区</button>
-  <button class="filter-btn" data-cat="recreation">娱乐区</button>
-  <button class="filter-btn" data-cat="rocket">火箭</button>
-  <button class="filter-btn" data-cat="geothermal">地热</button>
-</nav>
+<!-- 分类按钮由 app.js 依据 data/modules.js 的 categories 生成，勿在此硬编码 -->
+<nav class="filter-bar" id="category-filter" aria-label="按分类筛选模块"></nav>
 
 <section class="id-index" id="module-id-index">
   <details>

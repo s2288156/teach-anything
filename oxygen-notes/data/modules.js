@@ -521,6 +521,7 @@ window.ONI_DATA = {
       "category": "storage",
       "phase": "中期",
       "difficulty": 3,
+      "source": "https://www.bilibili.com/video/BV1bLDCBfEuE",
       "materials": [
         { "building": "高压液库", "count": "1~2", "material": "原文档未注明" },
         { "building": "液泵", "count": "1~2", "material": "原文档未注明" },
@@ -536,7 +537,7 @@ window.ONI_DATA = {
           "title": "全景 · 上下两套液泉高压液库",
           "desc": "彩色全景图，黄色虚线框标注「镜像」",
           "view": "全景视图 · 游戏内实际画面",
-          "note": "适用于各种水泉，液体储存在模块内部的高压液库里。上半配污水泉（绿色污染氧气室）、下半为白色气室且左右镜像双泵，两套布局任选。视频讲解见 https://www.bilibili.com/video/BV1bLDCBfEuE 。",
+          "note": "适用于各种水泉，液体储存在模块内部的高压液库里。上半配污水泉（绿色污染氧气室）、下半为白色气室且左右镜像双泵，两套布局任选。配套视频讲解见左侧导航的「来源文档 ↗」。",
           "shows": ["高压液库", "液泵 / 气泵", "房间气体", "镜像布局"]
         },
         {

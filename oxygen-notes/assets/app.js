@@ -54,6 +54,19 @@ function renderIdIndex(modules) {
     '<p class="id-note">页面结构锚点：<code>page-header</code> · <code>category-filter</code> · <code>card-grid</code> · <code>page-footer</code></p>';
 }
 
+// 分类按钮由数据驱动生成，categories 是唯一来源（不再在 index.html 硬编码）
+function renderFilters(categories) {
+  const bar = document.getElementById('category-filter');
+  if (!bar) return;
+  const $ = window.ONI_CORE.esc;
+  bar.innerHTML =
+    '<button class="filter-btn active" type="button" data-cat="all">全部</button>' +
+    (categories || []).map(c =>
+      '<button class="filter-btn" type="button" data-cat="' + $(c.id) + '">' +
+      $(c.name) + '</button>'
+    ).join('');
+}
+
 function init() {
   const data = loadData();
   if (!data) return;
@@ -67,6 +80,7 @@ function init() {
   const modules = normalized.modules;
 
   document.getElementById('module-count').textContent = modules.length;
+  renderFilters(normalized.categories);
   renderIdIndex(modules);
   renderGrid(modules, 'all');
   if (window.ONI_ID_COPY) window.ONI_ID_COPY.bindCopyButtons();

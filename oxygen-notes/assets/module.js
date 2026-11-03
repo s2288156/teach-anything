@@ -99,8 +99,11 @@ function materialsListHtml(m) {
   return (m.materials && m.materials.length)
     ? '<ul class="material-list">' + m.materials.map(x => {
         const $ = window.ONI_CORE.esc;
-        const count = typeof x.count === 'number'
-          ? '<span class="mat-count">×' + x.count + '</span>' : '';
+        // count 允许数字（渲染为 ×N）或字符串（如「按布局」，原样输出）
+        const count = (x.count === 0 || x.count)
+          ? '<span class="mat-count">' +
+            (typeof x.count === 'number' ? '×' + x.count : $(x.count)) +
+            '</span>' : '';
         const mat = x.material ? ' <span class="mat-material">(' + $(x.material) + ')</span>' : '';
         return '<li>' + count + $(x.building) + mat + '</li>';
       }).join('') + '</ul>'
@@ -138,8 +141,9 @@ function renderMain(m) {
   const shotSections = m.screenshots.map((s, i) => {
     const viewTag = s.view
       ? '<span class="shot-view">' + $(s.view) + '</span>' : '';
-    const tags = (s.shows || []).length
-      ? '<div class="shot-tags">' + s.shows.map(t =>
+    const shows = Array.isArray(s.shows) ? s.shows : [];
+    const tags = shows.length
+      ? '<div class="shot-tags">' + shows.map(t =>
           '<span class="shot-tag">' + $(t) + '</span>'
         ).join('') + '</div>' : '';
     const noteHtml = s.note
@@ -149,7 +153,8 @@ function renderMain(m) {
       '</span>' + $(shotTitle(s, i)) + '</h2>' + viewTag +
       '<figure class="shot">' +
         '<img src="../screenshots/' + $(s.file) +
-        '" alt="' + $(m.name + ' · ' + (s.desc || s.title)) + '" data-zoom="1">' +
+        '" alt="' + $(m.name + ' · ' + (s.desc || s.title)) +
+        '" data-zoom="1" loading="lazy" decoding="async">' +
       '</figure>' + noteHtml + tags + '</section>';
   }).join('');
 
@@ -172,23 +177,36 @@ function bindLightbox() {
   });
 }
 
+// 每次打开创建一个 AbortController：关闭时一次性摘掉本实例挂的所有监听，
+// 避免连续翻图时 mouseup / keydown 监听器累积。
 function openLightbox(src, alt) {
+  const ac = new AbortController();
+  const sig = { signal: ac.signal };
+  const prevFocus = document.activeElement;
+
   const box = document.createElement('div');
   box.className = 'lightbox';
+  box.setAttribute('role', 'dialog');
+  box.setAttribute('aria-modal', 'true');
+  box.setAttribute('aria-label', alt || '示意图放大查看');
   box.innerHTML =
     '<div class="lightbox-toolbar">' +
-      '<button data-act="out">−</button>' +
+      '<button type="button" data-act="out" aria-label="缩小">−</button>' +
       '<span class="zoom-val">100%</span>' +
-      '<button data-act="in">+</button>' +
-      '<button data-act="reset">复位</button>' +
-      '<button data-act="close">关闭</button>' +
+      '<button type="button" data-act="in" aria-label="放大">+</button>' +
+      '<button type="button" data-act="reset">复位</button>' +
+      '<button type="button" data-act="close">关闭</button>' +
     '</div>' +
-    '<div class="lightbox-stage"><img src="' + src + '" alt="' + alt + '"></div>' +
+    '<div class="lightbox-stage"></div>' +
     '<span class="lightbox-hint">滚轮缩放 · 拖动查看细节</span>';
 
-  document.body.appendChild(box);
   const stage = box.querySelector('.lightbox-stage');
-  const img = box.querySelector('img');
+  // src / alt 走 DOM 属性赋值，不经 innerHTML 拼接，避免属性被截断
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = alt || '';
+  stage.appendChild(img);
+
   const val = box.querySelector('.zoom-val');
   let zoom = 1;
 
@@ -197,41 +215,67 @@ function openLightbox(src, alt) {
     val.textContent = Math.round(zoom * 100) + '%';
   };
 
+  function close() {
+    ac.abort();
+    box.remove();
+    if (prevFocus && prevFocus.focus) prevFocus.focus();
+  }
+
+  document.body.appendChild(box);
+
   box.querySelector('.lightbox-toolbar').addEventListener('click', e => {
-    const act = e.target.dataset.act;
+    const act = e.target.dataset ? e.target.dataset.act : '';
     if (!act) return;
+    if (act === 'close') { close(); return; }
     if (act === 'in') zoom = Math.min(zoom + 0.25, 5);
     if (act === 'out') zoom = Math.max(zoom - 0.25, 0.5);
     if (act === 'reset') zoom = 1;
-    if (act === 'close') { box.remove(); return; }
     apply();
-  });
+  }, sig);
 
   stage.addEventListener('wheel', e => {
     e.preventDefault();
     zoom = Math.min(Math.max(zoom + (e.deltaY < 0 ? 0.15 : -0.15), 0.5), 5);
     apply();
-  }, { passive: false });
+  }, Object.assign({ passive: false }, sig));
 
-  let dragging = false, sx = 0, sy = 0, sl = 0, st = 0;
-  stage.addEventListener('mousedown', e => {
-    dragging = true;
+  // Pointer Events：鼠标与触屏共用一套拖动逻辑
+  let pid = null, sx = 0, sy = 0, sl = 0, st = 0;
+  stage.addEventListener('pointerdown', e => {
+    pid = e.pointerId;
     sx = e.clientX; sy = e.clientY;
     sl = stage.scrollLeft; st = stage.scrollTop;
-    stage.style.cursor = 'grabbing';
-  });
-  window.addEventListener('mouseup', () => { dragging = false; stage.style.cursor = 'grab'; });
-  stage.addEventListener('mousemove', e => {
-    if (!dragging) return;
+    stage.setPointerCapture(pid);
+    stage.classList.add('dragging');
+  }, sig);
+  stage.addEventListener('pointermove', e => {
+    if (e.pointerId !== pid) return;
     stage.scrollLeft = sl - (e.clientX - sx);
     stage.scrollTop = st - (e.clientY - sy);
-  });
+  }, sig);
+  const endDrag = e => {
+    if (e.pointerId !== pid) return;
+    pid = null;
+    stage.classList.remove('dragging');
+  };
+  stage.addEventListener('pointerup', endDrag, sig);
+  stage.addEventListener('pointercancel', endDrag, sig);
 
-  document.addEventListener('keydown', function onKey(e) {
-    if (e.key === 'Escape') { box.remove(); document.removeEventListener('keydown', onKey); }
-  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.key !== 'Tab') return;
+    // 焦点锁在工具栏内，不让 Tab 跑到背景页面
+    const btns = Array.from(box.querySelectorAll('button'));
+    const first = btns[0], last = btns[btns.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  }, sig);
 
   apply();
+  box.querySelector('[data-act="close"]').focus();
 }
 
 function bindScrollSpy() {

@@ -83,6 +83,13 @@
       if (key in raw) errors.push('模块不得包含 ' + key + ' 字段');
     });
 
+    // 数组类字段：类型错了会让渲染层直接抛异常（整页白屏）
+    ['materials', 'inputs_per_cycle', 'outputs_per_cycle'].forEach(key => {
+      if (key in raw && !Array.isArray(raw[key])) {
+        errors.push(key + ' 必须是数组，当前：' + typeof raw[key]);
+      }
+    });
+
     // screenshots：必填且每张图必须是 object shape
     const shots = raw.screenshots;
     if (!Array.isArray(shots)) {
@@ -100,6 +107,9 @@
         ['file', 'title', 'note'].forEach(k => {
           if (!(k in s)) errors.push('screenshots[' + i + '] 缺少：' + k);
         });
+        if ('shows' in s && !Array.isArray(s.shows)) {
+          errors.push('screenshots[' + i + '].shows 必须是数组，当前：' + typeof s.shows);
+        }
       });
     }
 
