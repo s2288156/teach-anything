@@ -25,7 +25,7 @@
 
 ### 桥接语料（真实技术英语）
 
-课程第 08 节的四句原文逐字摘录、未作改写。
+课程第 05 节的四句原文逐字摘录、未作改写。
 选材标准：挑「已经发生的事」——release notes、升级说明、故障排查。
 这类文本时态切换密集，也正是读 Spring / JDK 文档时最先撞上的那类句子。
 
@@ -53,7 +53,7 @@
 
 #### Lesson 1 已用语料（保留）
 
-第 1 课第 08 节的四句取自下面两处。Gradle 是 Spring Boot 官方支持的构建工具，
+第 1 课第 05 节的四句取自下面两处。Gradle 是 Spring Boot 官方支持的构建工具，
 这四句仍属本技术栈，保留不改；新增课程优先从上面的 Spring / OpenJDK 来源取句。
 
 - [Gradle 8.10 Release Notes](https://docs.gradle.org/8.10/release-notes.html)
@@ -64,12 +64,12 @@
 - [Gradle User Guide · Troubleshooting builds](https://docs.gradle.org/current/userguide/troubleshooting.html)
   官方故障排查文档。**第 1 课首选精读源**——问题描述 + 已发生的事 + 下一步建议，时态切换密集，
   结构正是学习者未来最常读的那类文本。`Getting additional help` 与
-  `Troubleshooting daemon connection issues` 两小节已用于第 08 节。
+  `Troubleshooting daemon connection issues` 两小节已用于第 05 节。
   Use for: 报错语体、情态动词过去式、`did not + 原形` 的真实用例。
 
 #### Lesson 2 已用语料
 
-第 2 课第 08 节的四句同出一页，覆盖一般现在时、现在进行时、现在进行时被动、
+第 2 课第 05 节的四句同出一页，覆盖一般现在时、现在进行时、现在进行时被动、
 一般现在时被动四种骨架：
 
 - [Spring Boot Reference · SpringApplication](https://docs.spring.io/spring-boot/reference/features/spring-application.html)
