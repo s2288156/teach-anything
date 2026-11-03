@@ -221,6 +221,43 @@ window.ONI_DATA = {
       ],
       "dlc": "基础版",
       "updated": "2026-11-02"
+    },
+    {
+      "id": "electrolyzer-high-pressure-multi-level",
+      "name": "电解水高压制氧（分层）",
+      "category": "oxygen",
+      "phase": "中期",
+      "difficulty": 3,
+      "materials": [
+        { "building": "电解器", "count": 6, "material": "钢 / 金汞齐" },
+        { "building": "气泵", "count": 6, "material": "钢 / 金汞齐" },
+        { "building": "机械气闸", "count": 2, "material": "钢 / 花岗岩" },
+        { "building": "隔热砖（腔体与隔层）", "count": "按布局", "material": "火成岩 / 花岗岩" },
+        { "building": "液体管道（供水 + 垫层液体）", "count": "按布局", "material": "花岗岩" },
+        { "building": "电线 / 电线桥", "count": "按布局", "material": "可用铅" },
+        { "building": "自动化线", "count": "按布局", "material": "可用铅" }
+      ],
+      "materials_note": "电解器与气泵用钢或金汞齐，避免产出的高温气体把设备烫坏；腔体砖块用火成岩或花岗岩，不要用沉积岩、砂岩；隔层能用隔热砖就不用普通砖，减少与外界换热。",
+      "screenshots": [
+        {
+          "file": "electrolyzer-high-pressure-multi-level-01.png",
+          "title": "全景 · 分层布置的电解器阵列",
+          "desc": "模块整体布局：上、下两层电解器 + 中间液体隔层",
+          "view": "全景视图",
+          "note": "产出的氢气轻、会往上走，氧气重、留在下层，所以按气体密度把上下两层分开收集；两层之间用液体垫层做气密隔断，气体不互串，因此不接排气口也能持续蓄压。启动时先让液体垫层铺稳、腔体里没有残余杂气，再给电解器通电，否则两层气体混在一起就分离失败。",
+          "shows": ["电解器阵列", "气泵", "液体隔层", "机械气闸", "液体管道", "电线与自动化线"]
+        }
+      ],
+      "inputs_per_cycle": [
+        { "resource": "水", "amount": "1 kg/s · 每台电解器" },
+        { "resource": "电力", "amount": "120 W · 每台电解器；240 W · 每台气泵" }
+      ],
+      "outputs_per_cycle": [
+        { "resource": "氧气", "amount": "888 g/s · 每台电解器（图中 6 台，按台数倍数）" },
+        { "resource": "氢气", "amount": "112 g/s · 每台电解器，需单独引出处理或发电" }
+      ],
+      "dlc": "基础版",
+      "updated": "2026-11-02"
     }
   ]
 };
