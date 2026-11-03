@@ -45,6 +45,7 @@ function init() {
   if (window.ONI_ID_COPY) window.ONI_ID_COPY.bindCopyButtons();
   bindLightbox();
   bindScrollSpy();
+  bindFloatingBack();
 }
 
 // ──────────── Header ────────────
@@ -246,6 +247,25 @@ function bindScrollSpy() {
   }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 
   targets.forEach(t => observer.observe(t));
+}
+
+// ──────────── 悬浮返回按钮 ────────────
+
+function bindFloatingBack() {
+  const link = document.createElement('a');
+  link.className = 'back-float';
+  link.href = '../index.html';
+  link.textContent = '← 返回模块列表';
+  link.setAttribute('aria-label', '返回模块列表');
+  document.body.appendChild(link);
+
+  const header = document.querySelector('.site-header');
+  if (!header) { link.classList.add('visible'); return; }
+
+  // 头部完全滚出视口时显示，回到视野内隐藏
+  new IntersectionObserver(entries => {
+    entries.forEach(e => link.classList.toggle('visible', !e.isIntersecting));
+  }, { threshold: 0 }).observe(header);
 }
 
 init();

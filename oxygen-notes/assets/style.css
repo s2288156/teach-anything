@@ -643,6 +643,44 @@ html, body {
   color: var(--text-dim);
 }
 
+/* 悬浮返回按钮：由 module.js 注入，头部滚出视野后淡入 */
+.back-float {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 150;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(22, 32, 41, 0.92);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, transform 0.2s, color 0.15s, border-color 0.15s;
+}
+.back-float.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-float:hover {
+  color: var(--accent-oxygen);
+  border-color: var(--accent-oxygen);
+}
+
+@media (max-width: 600px) {
+  .back-float {
+    top: 8px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 860px) {
   .module-layout {
     grid-template-columns: 1fr;
