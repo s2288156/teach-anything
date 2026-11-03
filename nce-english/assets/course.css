@@ -11,8 +11,6 @@
   --rule-soft: #ebe4d9;
   --accent: #8a4b2a;
   --accent-soft: #f2e6da;
-  --ok: #2f6b4f;
-  --ok-soft: #e4f0e9;
   --bad: #9b2f3a;
   --bad-soft: #f8e4e6;
   --measure: 42rem;
@@ -238,95 +236,11 @@ td code {
   color: var(--accent);
 }
 
-/* ---------- 词汇卡 ---------- */
+/* ---------- 生词和搭配（02 节） ---------- */
 
 .words {
   display: grid;
   gap: 0.9rem;
-}
-
-.word {
-  padding: 0.85rem 1rem;
-  background: var(--paper-raised);
-  border: 1px solid var(--rule-soft);
-  border-radius: 4px;
-}
-
-.word-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.6rem;
-  margin: 0;
-}
-
-.word-term {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.word-phon {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.85rem;
-  color: var(--ink-faint);
-}
-
-.word-pos {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.75rem;
-  color: var(--accent);
-  letter-spacing: 0.04em;
-}
-
-.word-mean {
-  margin: 0.2rem 0 0;
-  font-size: 0.98rem;
-}
-
-.word-ex {
-  margin: 0.35rem 0 0;
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  font-style: italic;
-}
-
-.word-use {
-  margin: 0.35rem 0 0;
-  font-size: 0.86rem;
-  color: var(--ink-soft);
-}
-
-.word-use b {
-  font-weight: 600;
-  color: var(--ink-faint);
-}
-
-.word-bad {
-  margin: 0.2rem 0 0;
-  font-size: 0.86rem;
-  color: var(--bad);
-}
-
-.word-bad b {
-  font-weight: 600;
-}
-
-/* ---------- 输出任务 ---------- */
-
-.task {
-  padding: 1.1rem 1.3rem;
-  border: 1px dashed var(--accent);
-  border-radius: 4px;
-  background: var(--paper-raised);
-}
-
-.task ol {
-  margin: 0.6rem 0 0;
-  padding-left: 1.3rem;
-}
-
-.task li {
-  margin-bottom: 0.4rem;
 }
 
 /* ---------- 本课主题框（01 节） ---------- */
@@ -363,10 +277,6 @@ td code {
   border-radius: 4px;
 }
 
-.sent.done {
-  border-color: var(--ok);
-}
-
 .sent-en {
   margin: 0;
   font-size: 1.15rem;
@@ -397,20 +307,6 @@ td code {
   color: var(--bad);
 }
 
-.role-tag {
-  position: absolute;
-  bottom: 0.05rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.6rem;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  color: inherit;
-  opacity: 0.85;
-  white-space: nowrap;
-}
-
 .steps {
   margin: 0.9rem 0 0;
   padding-left: 1.3rem;
@@ -424,14 +320,6 @@ td code {
 
 .steps li::marker {
   color: var(--accent);
-}
-
-.sent-fb {
-  margin: 0.8rem 0 0;
-  padding-left: 0.85rem;
-  border-left: 2px solid var(--ok);
-  font-size: 0.88rem;
-  color: var(--ink-soft);
 }
 
 /* ---------- 技术文档原句（01 / 05 节） ---------- */
@@ -655,48 +543,6 @@ td code {
   border-radius: 3px;
 }
 
-/* ---------- 自检清单与默写（09 节） ---------- */
-
-.checklist {
-  margin: 0.8rem 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0.92rem;
-}
-
-.checklist li {
-  padding: 0.3rem 0 0.3rem 1.6rem;
-  position: relative;
-  color: var(--ink-soft);
-}
-
-.checklist li::before {
-  content: "☐";
-  position: absolute;
-  left: 0.2rem;
-  color: var(--accent);
-}
-
-.recall {
-  margin-top: 1.4rem;
-  padding: 1rem 1.15rem;
-  background: var(--accent-soft);
-  border-radius: 4px;
-}
-
-.recall summary {
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent);
-  cursor: pointer;
-}
-
-.recall p {
-  margin: 0.7rem 0 0;
-  font-size: 0.93rem;
-}
-
 /* ---------- 页脚 ---------- */
 
 footer {
@@ -916,14 +762,6 @@ footer h2 {
 
   .wrap {
     max-width: none;
-  }
-
-  .opt {
-    background: #fff;
-  }
-
-  .quiz {
-    break-inside: avoid;
   }
 
   section {
