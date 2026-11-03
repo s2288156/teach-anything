@@ -311,165 +311,6 @@ td code {
   font-weight: 600;
 }
 
-/* ---------- 测验 ---------- */
-
-.quiz {
-  padding: 1.25rem 1.3rem 1.45rem;
-  background: var(--paper-raised);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-}
-
-.quiz .q + .q {
-  margin-top: 1.6rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--rule-soft);
-}
-
-.q-text {
-  margin: 0 0 0.7rem;
-  font-size: 1rem;
-}
-
-.q-no {
-  display: inline-block;
-  min-width: 1.4rem;
-  margin-right: 0.35rem;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.78rem;
-  color: var(--accent);
-}
-
-.opts {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.opt {
-  width: 100%;
-  padding: 0.55rem 0.85rem;
-  text-align: left;
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: var(--ink);
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background 120ms ease, border-color 120ms ease;
-}
-
-.opt:hover:not(:disabled) {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-}
-
-.opt:disabled {
-  cursor: default;
-}
-
-.opt.correct {
-  background: var(--ok-soft);
-  border-color: var(--ok);
-  color: var(--ok);
-}
-
-.opt.wrong {
-  background: var(--bad-soft);
-  border-color: var(--bad);
-  color: var(--bad);
-}
-
-.explain {
-  margin: 0.7rem 0 0;
-  padding-left: 0.85rem;
-  border-left: 2px solid var(--rule);
-  font-size: 0.88rem;
-  color: var(--ink-soft);
-}
-
-.score {
-  margin: 1.4rem 0 0;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule-soft);
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.9rem;
-  color: var(--accent);
-}
-
-/* ---------- 测验开始闸门（仅 data-quiz 的测验会出现） ---------- */
-
-.quiz-gate {
-  margin: 1.1rem 0 0.4rem;
-  padding: 0.7rem 0.9rem;
-  background: var(--accent-soft);
-  border: 1px solid var(--rule-soft);
-  border-radius: 3px;
-}
-
-.quiz-gate-text {
-  margin: 0 0 0.5rem;
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-}
-
-/* ---------- 测验记录条（仅 data-quiz 的测验会出现） ---------- */
-
-.quiz-bar {
-  margin: 1.4rem 0 0;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule-soft);
-}
-
-.quiz-status {
-  margin: 0;
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.78rem;
-  color: var(--ink-faint);
-}
-
-.quiz-tools {
-  display: flex;
-  gap: 0.5rem;
-  margin: 0.55rem 0 0;
-}
-
-.quiz-btn {
-  padding: 0.2rem 0.6rem;
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.76rem;
-  color: var(--ink-faint);
-  background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.quiz-btn:hover:not(:disabled) {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.quiz-btn:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
-
-.quiz-md {
-  margin: 0.7rem 0 0;
-  padding: 0.7rem 0.8rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.78rem;
-  line-height: 1.7;
-  color: var(--ink-soft);
-  background: var(--paper-raised);
-  border: 1px solid var(--rule-soft);
-  border-radius: 3px;
-  white-space: pre;
-  overflow-x: auto;
-}
-
 /* ---------- 输出任务 ---------- */
 
 .task {
@@ -526,65 +367,34 @@ td code {
   border-color: var(--ok);
 }
 
-.sent-label {
-  margin: 0 0 0.7rem;
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.03em;
-  color: var(--ink-faint);
-}
-
-.sent-text {
+.sent-en {
   margin: 0;
   font-size: 1.15rem;
-  line-height: 2.4;
+  line-height: 1.75;
 }
 
-.tok {
-  position: relative;
-  display: inline-block;
-  margin: 0 0.05rem;
-  padding: 0.1rem 0.28rem 0.5rem;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: 1.5;
-  color: var(--ink);
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--rule);
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background 120ms ease, color 120ms ease;
-}
-
-span.tok {
-  cursor: default;
-}
-
-.tok:hover:not(:disabled) {
-  background: var(--accent-soft);
-}
-
-.tok:disabled {
-  cursor: default;
-}
-
-.tok.lit {
-  background: var(--accent-soft);
+.sent-en b {
+  font-weight: 600;
   color: var(--accent);
-  border-bottom-color: var(--accent);
 }
 
-.tok.hit {
-  background: var(--ok-soft);
-  color: var(--ok);
-  border-bottom-color: var(--ok);
+.sent-zh {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
 }
 
-.tok.miss {
-  background: var(--bad-soft);
+.sent .why {
+  margin: 0.7rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--rule);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.bad {
   color: var(--bad);
-  border-bottom-color: var(--bad);
 }
 
 .role-tag {
@@ -616,112 +426,11 @@ span.tok {
   color: var(--accent);
 }
 
-.sent-play {
-  margin-top: 0.9rem;
-  padding: 0.4rem 0.9rem;
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.82rem;
-  color: var(--accent);
-  background: var(--paper);
-  border: 1px solid var(--accent);
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.sent-play:hover {
-  background: var(--accent-soft);
-}
-
 .sent-fb {
   margin: 0.8rem 0 0;
   padding-left: 0.85rem;
   border-left: 2px solid var(--ok);
   font-size: 0.88rem;
-  color: var(--ink-soft);
-}
-
-/* ---------- 回译（05 节） ---------- */
-
-.tr + .tr {
-  margin-top: 1.4rem;
-  padding-top: 1.3rem;
-  border-top: 1px solid var(--rule-soft);
-}
-
-.tr-zh {
-  margin: 0 0 0.5rem;
-  font-size: 1.02rem;
-}
-
-.tr-input {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--ink);
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  resize: vertical;
-}
-
-.tr-input:focus {
-  outline: 0;
-  border-color: var(--accent);
-  background: var(--paper-raised);
-}
-
-.tr-state {
-  margin: 0.4rem 0 0;
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.74rem;
-  color: var(--ink-faint);
-}
-
-.tr-tools {
-  margin: 0.4rem 0 0;
-}
-
-.tr-clear {
-  padding: 0.2rem 0.6rem;
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.76rem;
-  color: var(--ink-faint);
-  background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.tr-clear:hover {
-  color: var(--bad);
-  border-color: var(--bad);
-}
-
-.tr-ans {
-  margin-top: 0.7rem;
-  font-size: 0.95rem;
-}
-
-.tr-ans summary {
-  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.8rem;
-  color: var(--accent);
-  cursor: pointer;
-}
-
-.tr-en {
-  margin: 0.6rem 0 0;
-  padding-left: 0.85rem;
-  border-left: 2px solid var(--rule);
-  font-size: 1.05rem;
-}
-
-.tr-note {
-  margin: 0.35rem 0 0;
-  padding-left: 0.85rem;
-  font-size: 0.86rem;
   color: var(--ink-soft);
 }
 
@@ -1104,6 +813,94 @@ footer h2 {
 }
 
 .link-list span {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+/* ---------- 全文批注版 ---------- */
+
+.text p,
+.anno p {
+  margin: 0 0 0.35rem;
+}
+
+.text b,
+.anno b {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.sn {
+  display: inline-block;
+  min-width: 1.5rem;
+  margin-right: 0.4rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+}
+
+.cn {
+  margin-left: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.anno {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1.05rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+}
+
+.anno .why {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+/* ---------- 来源与页尾导航 ---------- */
+
+.sources {
+  margin-top: 3.5rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.sources h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+}
+
+.sources ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.sources li {
+  margin: 0.25rem 0;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  margin: 2.5rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.92rem;
+}
+
+.nav p {
+  margin: 0;
+}
+
+.next {
+  margin: 1rem 0 0;
   font-size: 0.85rem;
   color: var(--ink-faint);
 }
