@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 3 · 课程页 · Please Send Me a Card</title>
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<main class="wrap">
+
+  <p class="backlink"><a href="../index.html">← 课程总目录</a></p>
+
+  <p class="kicker">课程页 · 七个环节</p>
+  <h1>Lesson 3 · Please Send Me a Card</h1>
+  <p class="subtitle">请给我寄一张明信片</p>
+  <ul class="meta">
+    <li>教材第二册第 3 课</li>
+    <li>约 19 分钟 · 七个环节</li>
+    <li>精读：<a href="../reference/lesson-03-text.html">全文批注版</a></li>
+  </ul>
+
+  <div class="goal">
+    <p><strong>这一课的唯一收获：先说「给谁」，再说「给什么」。</strong>
+    动词后面跟两样东西时，人在前、物在后；物放前面，就用 <code>to</code> 或 <code>for</code> 把人接回来。</p>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span>这一课学什么</h2>
+    <div class="topic">
+      <p><strong>本课句型：一个动词带两样东西——动词 + 人 + 物，或者 动词 + 物 + <code>to</code> / <code>for</code> + 人。</strong></p>
+      <p class="why">前面两课管的是「什么时候」。这一课管的是「给了谁、告诉谁」。
+      中文的「教我几句意大利语」「给他寄张卡片」里，人和物是挤在一起的，顺序靠语感；
+      英文只有两种排法，顺序一乱，句子就不成立。
+      写技术文档、开会同步信息时，这个骨架天天用：把结果交给谁、把日志发给谁、告诉团队什么。</p>
+    </div>
+
+    <p><strong>先看一句真的。</strong>下面是 Spring Boot 官方教程里的一句：</p>
+    <div class="docs">
+      <p class="docs-en">It <b>tells</b> Spring <b>that</b> any HTTP request with the <code>/</code> path should be mapped to the <code>home</code> method.</p>
+      <p class="docs-zh">它告诉 Spring：凡是访问 <code>/</code> 路径的 HTTP 请求，都应该交给 <code>home</code> 方法处理。</p>
+      <p class="docs-why"><code>tells</code> 后面紧跟着的第一样东西是 <code>Spring</code>——收信的一方；第二样是 <code>that</code> 引出的整句内容——收到的信息。
+      中文「告诉 Spring 一件事」的顺序和它一模一样：先人，后内容。这一课要练的就是这个顺序。</p>
+      <p class="docs-src">来源：<a href="https://docs.spring.io/spring-boot/tutorial/first-application/index.html#getting-started.first-application.code.mvc-annotations">Spring Boot 官方教程 · Developing Your First Spring Boot Application · The @RestController and @RequestMapping Annotations</a></p>
+    </div>
+
+    <p><strong>为什么是这一课：</strong>课文里两种排法同时出现，一样东西被给了两次。</p>
+    <pre><code>A friendly waiter <b>taught me</b> a few words of Italian.
+<span class="zh">一位友好的服务员教了我几句意大利语。</span>
+... but I <b>did not send</b> cards <b>to</b> my friends.
+<span class="zh">……可我没有给朋友们寄卡片。</span></code></pre>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>生词和搭配</h2>
+    <p>单词不单独记，记「和谁一起出现」。这一课只给四组。</p>
+
+    <div class="words">
+      <h3>1. 人先物后：动词后面直接跟人</h3>
+      <p class="zh">中文意图：把东西直接交给某人——教谁、给谁、借谁。</p>
+      <p class="en"><b>teach</b> ｜ <b>give</b> ｜ <b>lend</b> ｜ <b>send</b> ｜ <b>buy</b> ｜ <b>get</b> + 人 + 物</p>
+      <p class="note"><strong>怎么用：</strong>人在动词后面紧跟，中间不加 <code>to</code>，物再跟在人后面。
+      这两样东西都叫宾语，所以这种句型习惯上叫「双宾语」。</p>
+      <p class="en"><span class="bad">He <s>gave to me</s> the book.</span> → He <b>gave me</b> the book.</p>
+      <p class="note">中文「给了我一本书」按字序直译，就会把 <code>to</code> 提到人前面。英文里人紧跟动词时，<code>to</code> 不出现。</p>
+    </div>
+
+    <div class="words">
+      <h3>2. 物先人后：用 to 把人接回来</h3>
+      <p class="zh">中文意图：先把东西说出来，再说这东西给了谁。</p>
+      <p class="en"><b>send</b> ｜ <b>give</b> ｜ <b>lend</b> ｜ <b>pass</b> ｜ <b>show</b> ｜ <b>tell</b> + 物 + <b>to</b> + 人</p>
+      <p class="note"><strong>怎么用：</strong><code>to</code> 表示东西真的从一个人手上到了另一个人手上。
+      东西如果很长（一堆修饰语、一个从句），就挪到前面去，人用 <code>to</code> 接回来，句子才不头重脚轻。</p>
+      <p class="en"><span class="bad">I did not send cards <s>for</s> my friends.</span> → I did not send cards <b>to</b> my friends.</p>
+      <p class="note"><code>send for</code> 的意思是「派人去请 / 去取」，不是「寄给」。东西转手，用 <code>to</code>。</p>
+    </div>
+
+    <div class="words">
+      <h3>3. for 是「替谁做」，不是「给谁」</h3>
+      <p class="zh">中文意图：替某人买、拿、留、做一件事——东西不一定经过对方的手。</p>
+      <p class="en"><b>buy</b> ｜ <b>get</b> ｜ <b>make</b> ｜ <b>find</b> + 物 + <b>for</b> + 人</p>
+      <p class="note"><strong>怎么用：</strong>判断用 <code>to</code> 还是 <code>for</code>，问一句：这东西是不是从此归对方了？
+      是就 <code>to</code>（send、give、lend），是替对方跑腿就 <code>for</code>（buy、get、make）。</p>
+      <p class="en"><span class="bad">I bought a card <s>to</s> you.</span> → I bought a card <b>for</b> you.</p>
+      <p class="note">买来的东西是「替」你买的，不是「交给」你的，所以用 <code>for</code>。
+      课文里 <code>taught me a few words</code> 也是同理：知识从此归我。</p>
+    </div>
+
+    <div class="words">
+      <h3>4. 告诉谁一件事：tell 后面先放人</h3>
+      <p class="zh">中文意图：告诉谁发生了什么，或者让谁去做什么。</p>
+      <p class="en"><b>tell</b> + 人 + <code>that</code> 从句 ｜ <b>tell</b> + 人 + <code>to</code> + 动词原形</p>
+      <p class="note"><strong>怎么用：</strong>收信人永远紧跟在 <code>tell</code> 后面，内容放在他后面。
+      但 <code>explain</code>、<code>describe</code>、<code>suggest</code>、<code>say</code> 不能这样用——先说内容，再用 <code>to</code> 把人接回来。</p>
+      <p class="en"><span class="bad">He <s>explained me</s> the error.</span> → He <b>explained the error to me</b>.</p>
+      <p class="note">这是中文母语者最常见的一处错。<code>explain</code> 后面不能直接跟人，
+      只能 <code>explain sth to sb</code>；而 <code>tell</code> 正好相反，人必须在前面。</p>
+    </div>
+
+    <p class="note"><strong>不要背单词表。</strong>下面这 5 个词只要求「看见能认出来」，
+    拼写交给教材。完整词表在<a href="../reference/lesson-03-text.html">全文批注版</a>。</p>
+    <table>
+      <thead>
+        <tr><th>单词</th><th>音标</th><th>词性</th><th>中文</th><th>记什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>spoil</code></td><td>/spɔɪl/</td><td>vt.</td><td>毁掉；扫兴</td><td>「宠坏」也是它，课文里是「搅了假期的兴致」</td></tr>
+        <tr><td><code>lend</code></td><td>/lend/</td><td>vt.</td><td>借出</td><td>过去式 <code>lent</code>；借入是 <code>borrow</code></td></tr>
+        <tr><td><code>teach</code></td><td>/tiːtʃ/</td><td>vt.</td><td>教</td><td>过去式 <code>taught</code>，<code>ea</code> 变 <code>au</code></td></tr>
+        <tr><td><code>decision</code></td><td>/dɪˈsɪʒn/</td><td>n.</td><td>决定</td><td>搭配 <code>make a decision</code>，不用 <code>do</code></td></tr>
+        <tr><td><code>single</code></td><td>/ˈsɪŋɡl/</td><td>adj.</td><td>单一的；一个</td><td><code>not a single</code> = 连一个也没有，加重否定</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>一句一句拆开看</h2>
+    <p>四句核心句，还是那三步：<strong>找动词 → 定时间 → 切主干</strong>。
+    这一课第三步多问一句：<b>动词后面这两样东西，哪个是人、哪个是物？</b></p>
+
+    <div class="sentences">
+      <div class="sent">
+        <p class="sent-en">Postcards always <b>spoil</b> my holidays.</p>
+        <p class="sent-zh">明信片总搅得我假日不得安宁。</p>
+        <p class="why"><strong>我是这么想的：</strong>找动词——<code>spoil</code> 是原形，主语 <code>Postcards</code> 是复数，所以不加 <code>-s</code>。
+        定时间——<code>always</code> 是频率副词，锁死「一贯如此」，这是一般现在时。
+        切主干：<code>Postcards</code> + <code>always spoil</code> + <code>my holidays</code>，动词后面只有一样东西。
+        这一句给整段定调：明信片是我的老毛病；下一句马上转成过去时，讲某一次假期。</p>
+      </div>
+
+      <div class="sent">
+        <p class="sent-en">A friendly waiter <b>taught</b> me a few words of Italian.</p>
+        <p class="sent-zh">一位友好的服务员教了我几句意大利语。</p>
+        <p class="why"><strong>我是这么想的：</strong>找动词——<code>taught</code>，是 <code>teach</code> 的过去式，不规则。
+        定时间——过去式，讲假期里发生的一件事。
+        切主干：<code>A friendly waiter</code> + <code>taught</code> + <code>me</code> + <code>a few words of Italian</code>。
+        动词后面两样东西：<b>me</b> 是人，<b>a few words</b> 是物，顺序是人先物后。
+        把物挪到前面就得改成 <code>taught a few words of Italian to me</code>——语法没错，但别扭。</p>
+      </div>
+
+      <div class="sent">
+        <p class="sent-en">Then he <b>lent</b> me a book.</p>
+        <p class="sent-zh">然后他借给我一本书。</p>
+        <p class="why"><strong>我是这么想的：</strong>动词 <code>lent</code>，是 <code>lend</code> 的过去式。
+        时间和上一句一样，还是假期里。
+        主干：<code>he</code> + <code>lent</code> + <code>me</code> + <code>a book</code>——和上一句同一个骨架，只换了动词和物。
+        注意 <code>lend</code> 是「借出」；「借入」是 <code>borrow</code>，而且 <code>borrow</code> 后面只能跟物，不能跟人。</p>
+      </div>
+
+      <div class="sent">
+        <p class="sent-en">My holidays <b>passed</b> quickly, but I <b>did not send</b> cards <b>to</b> my friends.</p>
+        <p class="sent-zh">假期过得很快，可我没有给朋友们寄卡片。</p>
+        <p class="why"><strong>我是这么想的：</strong>这句有两个分句，各有一个动词组。
+        前半 <code>passed</code> 是规则过去式；后半 <code>did not send</code>，<code>did</code> 承担过去，<code>send</code> 回原形。
+        切主干：<code>My holidays</code> + <code>passed</code>；<code>I</code> + <code>did not send</code> + <code>cards</code> + <code>to my friends</code>。
+        后半句用的正是本课第二种排法：物在前、人用 <code>to</code> 接回来。
+        和上一句比一比：<code>lent me a book</code> / <code>sent cards to my friends</code>，同一个意思的两种顺序。</p>
+      </div>
+    </div>
+
+    <p class="note">其余课文句子（<code>I visited museums and sat in public gardens</code>、
+    <code>I did not understand a word</code>、买 37 张卡片那一段）见<a href="../reference/lesson-03-text.html">全文批注版</a>。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span>平时聊天怎么说</h2>
+    <p>三个场景都来自普通工作日，和前面两课那六个不重复。</p>
+
+    <div class="chat">
+      <p class="chat-head"><span class="chat-tag">同事闲聊</span>临时借东西</p>
+      <p class="chat-en">— Do you have a charger I can borrow?<br>— Sure, I can <b>lend you</b> mine. Just <b>give it back</b> before the standup.</p>
+      <p class="chat-zh">— 你有充电器能借我吗？<br>— 有，我借你我的。站会前还我就行。</p>
+      <p class="chat-note">问「借入」用 <code>borrow</code>，后面跟物；答「借出」用 <code>lend</code>，后面先跟人再跟物。
+      同一件事，两个动词的排法完全不同。</p>
+      <p class="chat-bad"><b>别这么说：</b>「Can you <s>borrow me</s> your charger?」——<code>borrow</code> 是借入，不能带人；借出才用 <code>lend me</code>。</p>
+    </div>
+
+    <div class="chat">
+      <p class="chat-head"><span class="chat-tag">电话</span>没接到电话，回拨前的留言</p>
+      <p class="chat-en">— Sorry, I missed your call. Is everything OK?<br>— Yes, all good. I just wanted to <b>give you</b> a quick update. I <b>sent</b> the deck <b>to</b> the whole team.</p>
+      <p class="chat-zh">— 抱歉没接到你电话，没事吧？<br>— 没事，就是想跟你同步一下。我把幻灯片发给全组了。</p>
+      <p class="chat-note">前一句 <code>give you a quick update</code> 是人先物后；后一句 <code>sent the deck to the whole team</code> 是物先人后。
+      两种排法在同一段话里都用得上，选哪个只看你想先说什么。</p>
+      <p class="chat-bad"><b>别这么说：</b>「I <s>sent to you</s> the deck.」——人紧跟动词时不加 <code>to</code>；要么 <code>sent you the deck</code>，要么 <code>sent the deck to you</code>。</p>
+    </div>
+
+    <div class="chat">
+      <p class="chat-head"><span class="chat-tag">日常安排</span>下午去拿咖啡，顺手帮同事带一杯</p>
+      <p class="chat-en">— I<b>’m getting</b> coffee. Can I <b>get you</b> one?<br>— Yes, thanks. Lunch is <b>on me</b> tomorrow.</p>
+      <p class="chat-zh">— 我去拿咖啡，帮你带一杯？<br>— 好啊，谢了。明天午饭我请。</p>
+      <p class="chat-note"><code>get you one</code> 是「替你做」，人和物都在动词后面；
+      如果要把物提到前面，就得用 <code>for</code>：<code>get one for you</code>。
+      <code>Lunch is on me</code> 是固定说法，意思是「这顿我请」。</p>
+      <p class="chat-bad"><b>别这么说：</b>「Can I <s>get one to you</s>?」——替对方带东西用 <code>for</code>，不用 <code>to</code>。</p>
+    </div>
+
+    <p class="note">这三个场景的英文句已经登记在
+    <a href="../reference/review.html">已学骨架总表</a> 第 02 节，明天开新课前先盖住英文说一遍。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span>技术文档里怎么写</h2>
+    <p>下面三句是 Spring Boot 官方教程里<strong>同一段落</strong>的连续原文，逐字摘录、没有改写。
+    加粗的是本课句型相关的部分。三句里出现了两次 <code>tells</code>，正好看清「先人后内容」的顺序。</p>
+
+    <div class="docs">
+      <p class="docs-en">The <code>@RequestMapping</code> annotation <b>provides</b> “routing” information. It <b>tells</b> Spring that any HTTP request with the <code>/</code> path should be mapped to the <code>home</code> method. The <code>@RestController</code> annotation <b>tells</b> Spring to render the resulting string directly back <b>to</b> the caller.</p>
+      <p class="docs-zh"><code>@RequestMapping</code> 注解提供「路由」信息。它告诉 Spring：凡是访问 <code>/</code> 路径的 HTTP 请求，都应该交给 <code>home</code> 方法。
+      <code>@RestController</code> 注解则告诉 Spring，把处理结果直接返回给调用方。</p>
+      <p class="docs-why"><strong>第 1 句</strong>：<code>provides</code> 后面只有一样东西——<code>information</code>。
+      这是第 02 课的一般现在时骨架，动词三单加 <code>-s</code>，讲的是这个注解一贯的作用。
+      一句话里动词后面只跟一样东西时，不需要考虑顺序。<br>
+      <strong>第 2 句</strong>：<code>tells</code> 后面先接 <b><code>Spring</code></b>（收信的一方），再接 <code>that</code> 引出的整句内容——
+      和第 03 节第 2 句 <code>taught me a few words</code> 是同一个顺序：先人，后东西。
+      <code>with the / path</code> 那段是修饰 <code>request</code> 的，不影响主干。<br>
+      <strong>第 3 句</strong>：还是 <code>tells Spring</code>，但第二样东西换成了 <code>to render ...</code>——不是「给内容」，而是「让谁去做什么」。
+      句尾 <code>back to the caller</code> 又是第 03 节第 4 句的写法：物在前，人用 <code>to</code> 接回来。</p>
+      <p class="docs-src">来源：<a href="https://docs.spring.io/spring-boot/tutorial/first-application/index.html#getting-started.first-application.code.mvc-annotations">Spring Boot 官方教程 · Developing Your First Spring Boot Application · The @RestController and @RequestMapping Annotations</a>（同一段落连续三句）</p>
+    </div>
+
+    <p class="note">读这一段时先问自己：<b>这个动词后面跟了几样东西？第一样是收信的人，还是内容？</b>
+    人紧跟动词就不用 <code>to</code>；物在前、人在后，就得把 <code>to</code> 补回来。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span>开会和演示怎么说</h2>
+    <p>这六句是<strong>我们自己写的练习句</strong>（口语脚本本来就是造出来的，不是文档原文），
+    每一句只用已学过的骨架：本课的双宾语、第 1 课的过去式与 <code>did not</code>、
+    第 2 课的一般现在时与 <code>Do</code> 疑问。左边是你想表达的中文，右边是英文。</p>
+
+    <ol class="speaking">
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">演示</span>介绍这个功能给谁带来什么</p>
+        <p class="speaking-en">This change <b>gives</b> the on-call team a clear error message instead of a stack trace.</p>
+        <p class="speaking-note">用第 03 节第 2 句：<code>give</code> + 人（the on-call team）+ 物（a clear error message）。
+        演示里讲「这个改动让谁受益」，就把受益的人放在动词后面第一位。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">演示</span>解释东西现在送到哪</p>
+        <p class="speaking-en">Every night the job <b>sends</b> the report <b>to</b> the shared drive, and it <b>sends me</b> a short summary.</p>
+        <p class="speaking-note">用第 03 节第 4 句和第 2 句：同一个 <code>send</code>，前半是物先人后，后半是人先物后。
+        一句话里演示两种排法，听众不会觉得重复。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">演示</span>有人问文档在哪</p>
+        <p class="speaking-en">I <b>sent</b> the link <b>to</b> the whole team this morning. <b>Do</b> you <b>want</b> the longer version?</p>
+        <p class="speaking-note">前半句过去时 + 第 03 节第 4 句；后半句是第 02 课的 <code>Do + 主语 + 原形</code>。
+        回答「东西在哪」先讲已经发生的事，再问对方还要不要别的。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">会议</span>没听清一个数字，请对方再说一遍</p>
+        <p class="speaking-en">Sorry, I missed that — could you <b>give me</b> the number again?</p>
+        <p class="speaking-note">用第 03 节第 2 句：<code>give me</code> + 物。
+        比空泛的 <code>say that again</code> 具体——把「再说一遍」变成「再给我一遍那个数字」。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">会议</span>复述一遍，确认自己听懂了</p>
+        <p class="speaking-en">So you <b>are telling me</b> the migration starts on Monday — <b>do</b> I <b>have</b> that right?</p>
+        <p class="speaking-note">用第 03 节第 4 组的 <code>tell</code> + 人 + 从句：<code>telling me</code> 后面接的是整句话。
+        结尾 <code>do I have that right</code> 是第 02 课的 <code>Do</code> 疑问，用来把「没听懂」变成「在对齐」。</p>
+      </li>
+      <li>
+        <p class="speaking-zh"><span class="speaking-tag">会议</span>不太同意，但不想直接说 no</p>
+        <p class="speaking-en">I <b>am</b> not sure that works — the last change <b>gave us</b> more problems than it solved.</p>
+        <p class="speaking-note">用第 03 节第 2 句的过去式：<code>gave us more problems</code>。
+        把不同意挂在上一次的结果上，而不是挂在提出方案的人身上。</p>
+      </li>
+    </ol>
+
+    <p class="note"><strong>练法：</strong>盖住右边的英文，只看中文意图，每句说三遍。
+    说不出来的那句，回第 03 节重看它标的那个骨架。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span>拿去和 AI 练</h2>
+    <p>页面不做练习，练习在 AI 对话里。三个角色各一段提示词，点按钮复制，粘进对应工具即可。</p>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>陪练</strong> · 建议用<strong>豆包</strong>（有语音通话，能真的开口说）。
+      让 AI 扮演同事跟你英文对话，逼你在「人先物后」和「物先人后」之间换排法。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p3-partner">复制陪练提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p3-partner">
+        <p>你是我的英语口语陪练。我的水平：初中基础，正在学《新概念英语》第二册第 3 课，本课句型是一个动词带两样东西：动词 + 人 + 物（teach me a few words），或者 动词 + 物 + to / for + 人（send cards to my friends）。</p>
+        <p>规则：</p>
+        <p>1. 全程用英文和我对话，一次只问一个问题，句子不要超过 12 个词。</p>
+        <p>2. 交替问我两类问题：一类问「你把什么给了谁」（Who did you send it to? / Can you give me the link?），一类问「谁告诉了你什么」（What did your lead tell you? / Did anyone explain the error to you?）。目的是让我在两种排法之间切换。</p>
+        <p>3. 也带练下面这六句工作口语，逐句让我用英文说，我说完你再给下一句：<br>This change gives the on-call team a clear error message instead of a stack trace.<br>Every night the job sends the report to the shared drive, and it sends me a short summary.<br>I sent the link to the whole team this morning. Do you want the longer version?<br>Sorry, I missed that — could you give me the number again?<br>So you are telling me the migration starts on Monday — do I have that right?<br>I am not sure that works — the last change gave us more problems than it solved.</p>
+        <p>4. 我的回答如果有错，先总评一句，只挑最严重的那一处改，再给一个更地道的升级版。</p>
+        <p>5. 我如果整句说不出，不要直接给答案，先问「这句话里谁收东西」，让我先把人找出来。</p>
+        <p>现在开始，先用一句英文问我，今天把什么东西发给了谁。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>批改</strong> · 建议用 <strong>Trae</strong> 或 <strong>codex</strong>（能读本仓库文件）。
+      把你写的句子丢给它，重点看人和物的顺序。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p3-check">复制批改提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p3-check">
+        <p>你是我的英语写作批改助手。我目前的水平：初中基础，正在学《新概念英语》第二册第 3 课，本课句型是一个动词带两样东西（双宾语）。</p>
+        <p>我会贴一句或几句我写的英文。请按下面三条标准逐条批改，每条只说最关键的一处问题：</p>
+        <p>1. 准确性：人和物的顺序对不对？人紧跟动词时有没有多加 to？物在前时有没有漏掉 to / for？该用 to 的地方有没有写成 for？borrow 和 lend 有没有混？explain / describe / suggest 后面是不是直接跟了人？</p>
+        <p>2. 时态：这句话讲的是已经发生的事，还是日常规律？过去的事，动词有没有变过去式，did not 后面是不是原形？</p>
+        <p>3. 地道：母语者会怎么说？给我一个更自然的版本，并说明差别在哪。</p>
+        <p>批改顺序固定：先总评一句、只改一处、再给一个升级版。不要一次列出所有毛病。</p>
+        <p>最后，请用我原句的意思造一个技术场景版本（例如把「借给我一本书」换成「把日志发给了值班同事」），让我看到同一个句型在技术文档里长什么样。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>出题</strong> · 建议用 <strong>Trae</strong> 或 <strong>codex</strong>。
+      替代纸质默写：三句中文，你写英文，再对答案。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p3-quiz">复制出题提示词</button>
+        <span class="prompt-state" data-prompt-state></span>
+      </p>
+      <template id="p3-quiz">
+        <p>你是我的英语出题助手。范围限定：《新概念英语》第二册第 3 课——双宾语（动词 + 人 + 物、动词 + 物 + to / for + 人、tell + 人 + 从句或 to do），以及第 1、2 课已学的过去式与一般现在时。</p>
+        <p>请给我三句中文让我翻译成英文，要求：</p>
+        <p>1. 第一句是日常场景（借东西、带饭、寄东西）。</p>
+        <p>2. 第二句是技术场景（任务、服务、队列、日志、告警）。</p>
+        <p>3. 第三句是工作口语：演示里的一句，或会议里的请对方重说 / 复述确认 / 委婉不同意。</p>
+        <p>4. 三句里至少一句用「人 + 物」的排法，至少一句用「物 + to / for + 人」的排法，至少一句用 tell + 人 + 从句。</p>
+        <p>5. 出题之后先停下，不要给答案。</p>
+        <p>等我提交译文，你再逐句批改：先总评、只改一处、再给一个更地道的升级版。</p>
+      </template>
+    </div>
+
+    <p class="note">更多通用提示词见<a href="../reference/ai-prompts.html">AI 提示词库</a>。
+    三个角色的输出契约都一样：<strong>先总评、只改一处、再给升级版。</strong></p>
+  </section>
+
+  <section class="sources">
+    <h2>来源</h2>
+    <ul>
+      <li>课文原文：<a href="https://m.51test.net/show/7377951.html">新概念英语第二册课文内容及翻译 Lesson 3（无忧考网）</a></li>
+      <li>课文原文交叉核对：<a href="https://m.hujiang.com/c/gyyykw/p1148716/">新概念英语第二册 30 篇课文（沪江网）</a>、<a href="https://m.51test.net/show/6033088.html">新概念英语第二册课文及翻译 Lesson 3（无忧考网）</a></li>
+      <li>第 01 节引子句：<a href="https://docs.spring.io/spring-boot/tutorial/first-application/index.html#getting-started.first-application.code.mvc-annotations">Spring Boot 官方教程 · The @RestController and @RequestMapping Annotations</a></li>
+      <li>第 05 节三句：<a href="https://docs.spring.io/spring-boot/tutorial/first-application/index.html#getting-started.first-application.code.mvc-annotations">Spring Boot 官方教程 · The @RestController and @RequestMapping Annotations</a></li>
+    </ul>
+  </section>
+
+  <nav class="nav">
+    <p><a href="0002-breakfast-or-lunch.html">← 上一课</a></p>
+    <p><a href="../reference/lesson-03-text.html">全文批注版 →</a></p>
+  </nav>
+
+  <p class="next">读完后有什么想深挖的，直接问 Trae——它可以基于本仓库回答。</p>
+
+</main>
+<script src="../assets/prompt.js" defer></script>
+</body>
+</html>
