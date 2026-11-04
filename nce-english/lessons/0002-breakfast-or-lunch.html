@@ -50,19 +50,20 @@
       差别就在动词形态上，一个词之差，处理优先级完全不同。</p>
     </div>
 
-    <p><strong>先看一句真的。</strong>下面是 Spring Boot 官方文档里的一句：</p>
+    <p><strong>先看一句真的。</strong>下面是 Spring Boot 官方参考文档 Startup Failure 小节的一句：</p>
     <div class="docs">
-      <p class="docs-en">Spring Boot startup process will <b>automatically log</b> the corresponding error message and <b>provide</b> tips to resolve the problem.</p>
-      <p class="docs-zh">Spring Boot 的启动过程会自动记录相应的错误信息，并给出解决问题的提示。</p>
-      <p class="docs-why">主句只有一个动词组：<code>will automatically log</code>，中间插了副词 <code>automatically</code>。
-      <code>and</code> 后面的 <code>provide</code> 和 <code>log</code> 并列，共用同一个 <code>will</code>——所以它没有再写一遍。
-      英文文档里这种「一个助动词带两个动词」的写法非常常见，看到第二个动词是原形，就回头找它跟谁共用。</p>
-      <p class="docs-src">来源：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.startup">Spring Boot 官方参考文档 · Spring Boot Startup Process</a></p>
+      <p class="docs-en">If your application <b>fails</b> to start, registered FailureAnalyzer beans <b>get</b> a chance to <b>provide</b> a dedicated error message and a concrete action to fix the problem.</p>
+      <p class="docs-zh">如果你的应用启动失败，已注册的 FailureAnalyzer Bean 会有机会提供一条专门的错误信息和一个具体的修复建议。</p>
+      <p class="docs-why">整句的时间全由三个动词决定：<code>fails</code>（三单加 <code>-s</code>，一般现在时）、
+      <code>get</code>（原形，同样是一般现在时）、<code>provide</code>（<code>to</code> 后面的动词保持原形，时间由前面的 <code>get</code> 承担）。
+      这三个动词都不带时间标记，不是因为省略了 <code>-ed</code>，而是因为它们描述的是 Spring Boot 的<b>一贯行为</b>——
+      任何应用启动失败时，FailureAnalyzer 一贯会被调用，这就是一般现在时的用法。</p>
+      <p class="docs-src">来源：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.startup-failure">Spring Boot 官方参考文档 · SpringApplication · Startup Failure</a></p>
     </div>
 
-    <p><strong>为什么是这一课：</strong>课文通篇就在对照这两种时间——「周日我从不早起」是常态，
-    「此刻我正在吃早饭」是当下。一句话里同时出现，对比最清楚。</p>
-    <pre><code>It <b>is</b> Sunday. I<b>’m still having</b> breakfast.
+    <p><strong>为什么是这一课：</strong>课文通篇就在对照这两种时间——课文讲的是「上一个周日」发生的事（开头用了过去式 <code>It was Sunday</code>），
+    但课文里出现的「我从不早起」（常态）和「我正在吃早饭」（当下）恰好让这两种时间在同一段里碰面。</p>
+    <pre><code>It <b>was</b> Sunday. I<b>’m still having</b> breakfast.
 <span class="zh">今天是星期日。我还在吃早饭呢。</span></code></pre>
   </section>
 
@@ -255,9 +256,10 @@
       </li>
       <li>
         <p class="speaking-zh"><span class="speaking-tag">演示</span>有人问进度到哪了</p>
-        <p class="speaking-en">We <b>are</b> still <b>testing</b> it. The rollout <b>starts</b> next Monday.</p>
+        <p class="speaking-en">We <b>are</b> still <b>testing</b> it. We <b>plan</b> to launch next week.</p>
         <p class="speaking-note">前半句是第 03 节第 4 句：<code>be + still + -ing</code>，意思是「还没完」。
-        后半句回到一般现在时说计划。</p>
+        后半句用一般现在时 <code>plan</code> 陈述我们当前的计划状态——<code>plan</code> 是原形（主语 <code>we</code> 不是三单），
+        完全落在本课教的一般现在时范围内。</p>
       </li>
       <li>
         <p class="speaking-zh"><span class="speaking-tag">会议</span>跟不上对方的话，请他再说一遍</p>
@@ -267,9 +269,9 @@
       </li>
       <li>
         <p class="speaking-zh"><span class="speaking-tag">会议</span>复述一遍，确认自己听懂了</p>
-        <p class="speaking-en">So we <b>are</b> shipping on Friday and the freeze <b>starts</b> today — <b>do</b> I <b>have</b> that right?</p>
-        <p class="speaking-note">前半句此刻用进行时、常态用一般现在时，正是这一课的分界；
-        结尾 <code>do I have that right</code> 是第 03 节第 2 句的 <code>Do + 主语 + 原形</code>。</p>
+        <p class="speaking-en">So we <b>plan</b> to ship on Friday and the freeze <b>starts</b> today — <b>do</b> I <b>have</b> that right?</p>
+        <p class="speaking-note">前半句用一般现在时 <code>plan</code>（主语 <code>we</code> 接原形）说当前的计划；
+        后半句同样是一般现在时三单 <code>starts</code>；结尾 <code>do I have that right</code> 是第 03 节第 2 句的 <code>Do + 主语 + 原形</code>。</p>
       </li>
       <li>
         <p class="speaking-zh"><span class="speaking-tag">会议</span>不太同意，但不想直接说 no</p>
@@ -299,7 +301,7 @@
         <p>规则：</p>
         <p>1. 全程用英文和我对话，一次只问一个问题，句子不要超过 12 个词。</p>
         <p>2. 交替问我两类问题：一类问习惯（What time do you usually ...? / Do you always ...?），一类问此刻（What are you doing now? / Is the build still running?）。目的是让我在原形和 be + -ing 之间切换。</p>
-        <p>3. 也带练下面这六句工作口语，逐句让我用英文说，我说完你再给下一句：<br>This job runs every night at two, and it writes the report to the shared drive.<br>This version retries three times, so the job does not fail on a slow network.<br>We are still testing it. The rollout starts next Monday.<br>Sorry, I am not following you — could you say that again?<br>So we are shipping on Friday and the freeze starts today — do I have that right?<br>I am not sure that works — the queue gets very long at that hour.</p>
+        <p>3. 也带练下面这六句工作口语，逐句让我用英文说，我说完你再给下一句：<br>This job runs every night at two, and it writes the report to the shared drive.<br>This version retries three times, so the job does not fail on a slow network.<br>We are still testing it. We plan to launch next week.<br>Sorry, I am not following you — could you say that again?<br>So we plan to ship on Friday and the freeze starts today — do I have that right?<br>I am not sure that works — the queue gets very long at that hour.</p>
         <p>4. 我的回答如果有错，先总评一句，只挑最严重的那一处改，再给一个更地道的升级版。</p>
         <p>5. 我如果整句说不出，不要直接给答案，先问「这是常态还是此刻」，让我自己选形态。</p>
         <p>现在开始，先用一句英文问我今天正在做什么。</p>
@@ -352,7 +354,7 @@
     <ul>
       <li>课文原文：<a href="https://www.ncehub.com/xnce/book2/lesson2.htm">新概念英语第二册 Lesson 2（ncehub）</a></li>
       <li>课文原文交叉核对：<a href="https://www.en84.com/nce/book2/2.html">新概念英语第二册 Lesson 2（en84）</a></li>
-      <li>第 01 节引子句：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.startup">Spring Boot 官方参考文档 · Spring Boot Startup Process</a></li>
+      <li>第 01 节引子句：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.startup-failure">Spring Boot 官方参考文档 · SpringApplication · Startup Failure</a></li>
       <li>第 05 节三句：<a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.application-availability.readiness">Spring Boot 官方参考文档 · Readiness State</a></li>
     </ul>
   </section>
