@@ -68,8 +68,8 @@
    同步各加一份）。
 6. 写 `reference/lesson-0N-text.html`：全文批注，含全部生词、搭配、文化注释。
 7. 在 `reference/review.html` 按 [NOTES.md](NOTES.md)「lesson 与 reference 的分工」登记本课。
-8. 在 `index.html` 的对应单元课程表追加本课一行（课程页 + 全文批注版）；单元不存在时先加该单元的
-   `h3` 与 `ul`。
+8. 在 `index.html` 的对应单元课程表追加本课一行：标题直接链到课程页，右侧只放「全文批注版」；
+   单元不存在时先加该单元的 `h3` 与 `ul`。
 9. 跑 `npm run lint`；检查 `index.html` 的本地链接：
 
    ```bash

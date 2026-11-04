@@ -4,7 +4,7 @@
 :root {
   --ink: #1f1c18;
   --ink-soft: #5e574e;
-  --ink-faint: #8b8377;
+  --ink-faint: #6f675d;
   --paper: #fbf8f3;
   --paper-raised: #fffdf9;
   --rule: #ded5c7;
@@ -14,6 +14,12 @@
   --bad: #9b2f3a;
   --bad-soft: #f8e4e6;
   --measure: 42rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-body: 1.0625rem;
+  --text-en: 1.15rem;
+  --text-lg: 1.25rem;
+  --text-xl: 2.1rem;
 }
 
 * {
@@ -31,8 +37,9 @@ body {
   color: var(--ink);
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
     "Songti SC", "Noto Serif SC", serif;
-  font-size: 1.0625rem;
+  font-size: var(--text-body);
   line-height: 1.8;
+  font-kerning: normal;
 }
 
 .wrap {
@@ -45,7 +52,7 @@ body {
 .kicker {
   margin: 0 0 0.5rem;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -53,7 +60,7 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 2.1rem;
+  font-size: clamp(1.7rem, 2.2vw + 1rem, var(--text-xl));
   line-height: 1.25;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -61,7 +68,7 @@ h1 {
 
 .subtitle {
   margin: 0.35rem 0 0;
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   color: var(--ink-soft);
 }
 
@@ -73,7 +80,7 @@ h1 {
   padding: 0;
   list-style: none;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   color: var(--ink-faint);
 }
 
@@ -101,15 +108,68 @@ h1 {
   color: var(--accent);
 }
 
+/* ---------- 本页目录 ---------- */
+
+.toc {
+  margin: 1.5rem 0 0;
+  padding: 0.9rem 1.1rem 1rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+}
+
+.toc-title {
+  margin: 0 0 0.4rem;
+  font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 1.6rem;
+}
+
+.toc li {
+  break-inside: avoid;
+}
+
+.toc a {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.25rem 0;
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+.toc .n {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+}
+
 /* ---------- 章节 ---------- */
 
 section {
   margin-top: 3rem;
 }
 
+section[id] {
+  scroll-margin-top: 1.5rem;
+}
+
 h2 {
   margin: 0 0 1rem;
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -117,7 +177,7 @@ h2 {
 h2 .num {
   margin-right: 0.5rem;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   color: var(--accent);
   vertical-align: 0.15em;
 }
@@ -125,7 +185,7 @@ h2 .num {
 h3 {
   margin: 2rem 0 0.6rem;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--ink-soft);
@@ -142,6 +202,11 @@ a {
   text-underline-offset: 2px;
 }
 
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* ---------- 课文逐句 ---------- */
 
 .sentences {
@@ -151,30 +216,9 @@ a {
   counter-reset: sent;
 }
 
-.sentences > li {
-  position: relative;
-  padding: 0.9rem 0 0.9rem 2.2rem;
-  border-bottom: 1px solid var(--rule-soft);
-  counter-increment: sent;
-}
-
-.sentences > li:last-child {
-  border-bottom: 0;
-}
-
-.sentences > li::before {
-  content: counter(sent);
-  position: absolute;
-  top: 1.05rem;
-  left: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.72rem;
-  color: var(--ink-faint);
-}
-
 .en {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: var(--text-en);
   line-height: 1.65;
 }
 
@@ -185,13 +229,13 @@ a {
 
 .zh {
   margin: 0.25rem 0 0;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
 .note {
   margin: 0.4rem 0 0;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: var(--ink-faint);
 }
 
@@ -205,13 +249,47 @@ a {
   color: var(--ink);
 }
 
+/* ---------- 代码块 ---------- */
+
+pre {
+  margin: 0 0 1rem;
+  padding: 1rem 1.15rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  overflow-x: auto;
+}
+
+pre code {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--ink);
+}
+
+pre b {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+pre .zh {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Songti SC", "Noto Serif SC", serif;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
 /* ---------- 表格 ---------- */
 
 table {
   width: 100%;
   margin: 1rem 0;
   border-collapse: collapse;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
 }
 
 th,
@@ -224,7 +302,7 @@ td {
 
 th {
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--ink-faint);
@@ -250,7 +328,6 @@ td code {
   padding: 1.1rem 1.3rem;
   background: var(--paper-raised);
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--accent);
   border-radius: 2px;
 }
 
@@ -263,23 +340,35 @@ td code {
 }
 
 .topic .why {
-  font-size: 0.92rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
 /* ---------- 句子拆解（03 节） ---------- */
 
 .sent {
+  position: relative;
   margin: 0 0 1.1rem;
-  padding: 1rem 1.15rem;
+  padding: 1rem 2.6rem 1rem 1.15rem;
   background: var(--paper-raised);
   border: 1px solid var(--rule-soft);
   border-radius: 4px;
+  counter-increment: sent;
+}
+
+.sent::before {
+  content: counter(sent, decimal-leading-zero);
+  position: absolute;
+  top: 1.05rem;
+  right: 1.15rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
 }
 
 .sent-en {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: var(--text-en);
   line-height: 1.75;
 }
 
@@ -290,7 +379,7 @@ td code {
 
 .sent-zh {
   margin: 0.25rem 0 0;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
@@ -298,7 +387,7 @@ td code {
   margin: 0.7rem 0 0;
   padding-top: 0.7rem;
   border-top: 1px dashed var(--rule);
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   line-height: 1.8;
   color: var(--ink-soft);
 }
@@ -310,7 +399,7 @@ td code {
 .steps {
   margin: 0.9rem 0 0;
   padding-left: 1.3rem;
-  font-size: 0.92rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
@@ -335,7 +424,7 @@ td code {
 .docs-en {
   margin: 0;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   line-height: 1.75;
   color: var(--ink);
   word-break: break-word;
@@ -348,20 +437,20 @@ td code {
 
 .docs-zh {
   margin: 0.5rem 0 0;
-  font-size: 0.92rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
 .docs-why {
   margin: 0.45rem 0 0;
-  font-size: 0.86rem;
+  font-size: var(--text-sm);
   color: var(--ink-faint);
 }
 
 .docs-src {
   margin: 0.45rem 0 0;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.74rem;
+  font-size: var(--text-xs);
 }
 
 /* ---------- 聊天场景（04 节） ---------- */
@@ -371,14 +460,13 @@ td code {
   padding: 1rem 1.15rem;
   background: var(--paper-raised);
   border: 1px solid var(--rule-soft);
-  border-left: 3px solid var(--accent);
   border-radius: 4px;
 }
 
 .chat-head {
   margin: 0 0 0.6rem;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.86rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
@@ -386,7 +474,7 @@ td code {
   display: inline-block;
   margin-right: 0.5rem;
   padding: 0.08rem 0.4rem;
-  font-size: 0.7rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.03em;
   color: var(--accent);
   background: var(--accent-soft);
@@ -395,13 +483,13 @@ td code {
 
 .chat-en {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--text-body);
   line-height: 1.9;
 }
 
 .chat-zh {
   margin: 0.4rem 0 0;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
@@ -409,14 +497,14 @@ td code {
   margin: 0.5rem 0 0;
   padding-left: 0.85rem;
   border-left: 2px solid var(--rule);
-  font-size: 0.86rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
 .chat-bad {
   margin: 0.5rem 0 0;
   padding: 0.5rem 0.7rem;
-  font-size: 0.86rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
   background: var(--bad-soft);
   border-radius: 3px;
@@ -427,7 +515,7 @@ td code {
 }
 
 .chat-bad code {
-  font-size: 0.86rem;
+  font-size: var(--text-sm);
   color: var(--bad);
   background: transparent;
 }
@@ -452,7 +540,7 @@ td code {
 .speaking-zh {
   margin: 0;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.86rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
@@ -460,7 +548,7 @@ td code {
   display: inline-block;
   margin-right: 0.5rem;
   padding: 0.08rem 0.4rem;
-  font-size: 0.7rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.03em;
   color: var(--accent);
   background: var(--accent-soft);
@@ -469,7 +557,7 @@ td code {
 
 .speaking-en {
   margin: 0.3rem 0 0;
-  font-size: 1.05rem;
+  font-size: var(--text-en);
   line-height: 1.75;
 }
 
@@ -480,7 +568,7 @@ td code {
 
 .speaking-note {
   margin: 0.35rem 0 0;
-  font-size: 0.84rem;
+  font-size: var(--text-sm);
   color: var(--ink-faint);
 }
 
@@ -491,13 +579,12 @@ td code {
   padding: 1rem 1.15rem;
   background: var(--paper-raised);
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--accent);
   border-radius: 4px;
 }
 
 .prompt-lead {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
@@ -510,9 +597,10 @@ td code {
 }
 
 .prompt-btn {
-  padding: 0.35rem 0.8rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.9rem;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   color: var(--accent);
   background: var(--paper);
   border: 1px solid var(--accent);
@@ -524,9 +612,14 @@ td code {
   background: var(--accent-soft);
 }
 
+.prompt-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .prompt-state {
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.74rem;
+  font-size: var(--text-xs);
   color: var(--ink-faint);
 }
 
@@ -534,7 +627,7 @@ td code {
   margin: 0.7rem 0 0;
   padding: 0.7rem 0.9rem;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.82rem;
+  font-size: var(--text-sm);
   line-height: 1.75;
   color: var(--ink-soft);
   white-space: pre-wrap;
@@ -549,19 +642,19 @@ footer {
   margin-top: 4rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--rule);
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
 footer h2 {
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
 }
 
 .ask {
   padding: 0.9rem 1.1rem;
   background: var(--accent-soft);
   border-radius: 4px;
-  font-size: 0.92rem;
+  font-size: var(--text-sm);
 }
 
 .ask p {
@@ -573,7 +666,7 @@ footer h2 {
 .backlink {
   margin: 0 0 1.25rem;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
 }
 
 .lesson-list {
@@ -600,26 +693,26 @@ footer h2 {
 .lesson-no {
   grid-area: no;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   color: var(--ink-faint);
 }
 
 .lesson-title {
   grid-area: title;
-  font-size: 1.02rem;
+  font-size: var(--text-body);
   font-weight: 600;
 }
 
 .lesson-cn {
   margin-left: 0.5rem;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   font-weight: 400;
   color: var(--ink-soft);
 }
 
 .lesson-skill {
   grid-area: skill;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: var(--ink-faint);
 }
 
@@ -629,13 +722,15 @@ footer h2 {
   gap: 0.8rem;
   align-self: center;
   font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   white-space: nowrap;
 }
 
 .lesson-links a,
 .link-list a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
   padding: 0.25rem 0;
 }
 
@@ -659,7 +754,7 @@ footer h2 {
 }
 
 .link-list span {
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: var(--ink-faint);
 }
 
@@ -681,13 +776,13 @@ footer h2 {
   min-width: 1.5rem;
   margin-right: 0.4rem;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.72rem;
+  font-size: var(--text-xs);
   color: var(--ink-faint);
 }
 
 .cn {
   margin-left: 0.4rem;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
@@ -701,7 +796,7 @@ footer h2 {
 
 .anno .why {
   margin: 0.35rem 0 0;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   line-height: 1.8;
   color: var(--ink-soft);
 }
@@ -712,13 +807,13 @@ footer h2 {
   margin-top: 3.5rem;
   padding-top: 1.3rem;
   border-top: 1px solid var(--rule);
-  font-size: 0.88rem;
+  font-size: var(--text-sm);
   color: var(--ink-soft);
 }
 
 .sources h2 {
   margin: 0 0 0.6rem;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
 }
 
 .sources ul {
@@ -738,7 +833,7 @@ footer h2 {
   margin: 2.5rem 0 0;
   padding-top: 1.1rem;
   border-top: 1px solid var(--rule);
-  font-size: 0.92rem;
+  font-size: var(--text-sm);
 }
 
 .nav p {
@@ -747,13 +842,17 @@ footer h2 {
 
 .next {
   margin: 1rem 0 0;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: var(--ink-faint);
 }
 
 /* ---------- 打印 ---------- */
 
 @media print {
+  @page {
+    margin: 18mm;
+  }
+
   body {
     padding: 0;
     background: #fff;
@@ -771,6 +870,16 @@ footer h2 {
   a {
     color: var(--ink);
   }
+
+  .toc,
+  .prompt-tools {
+    display: none;
+  }
+
+  pre {
+    overflow: visible;
+    white-space: pre-wrap;
+  }
 }
 
 @media (max-width: 34rem) {
@@ -779,12 +888,17 @@ footer h2 {
     font-size: 1rem;
   }
 
-  h1 {
-    font-size: 1.7rem;
+  .toc ol {
+    columns: 1;
   }
 
-  .sentences > li {
-    padding-left: 1.6rem;
+  .lesson-links a,
+  .link-list a {
+    min-height: 2.75rem;
+  }
+
+  .prompt-btn {
+    min-height: 2.75rem;
   }
 
   .lesson-item {

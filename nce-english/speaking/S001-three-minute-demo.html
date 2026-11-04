@@ -29,7 +29,17 @@
     先能盖住英文说出中文对应的骨架，再来练这一课。</p>
   </div>
 
-  <section>
+  <nav class="toc" aria-label="本页目录">
+    <p class="toc-title">本页四节</p>
+    <ol>
+      <li><a href="#sec-01"><span class="n">01</span>什么时候用</a></li>
+      <li><a href="#sec-02"><span class="n">02</span>八句脚本</a></li>
+      <li><a href="#sec-03"><span class="n">03</span>别这么说</a></li>
+      <li><a href="#sec-04"><span class="n">04</span>拿去和 AI 练</a></li>
+    </ol>
+  </nav>
+
+  <section id="sec-01">
     <h2><span class="num">01</span>什么时候用</h2>
     <p>三种场合，说的是同一套话：</p>
     <ul class="steps">
@@ -43,7 +53,7 @@
     下面八句的顺序就是按这个来的，别自己调。</p>
   </section>
 
-  <section>
+  <section id="sec-02">
     <h2><span class="num">02</span>八句脚本</h2>
     <p>练法：<strong>盖住下面的英文，只看中文意图，每句出声说三遍。</strong>
     说的时候把 <code>[ ]</code> 里的内容换成你自己那个功能。八句都能顺出来，三分钟就填满了。</p>
@@ -118,7 +128,7 @@
     每句下面的说明都写了它用的是哪一条。</p>
   </section>
 
-  <section>
+  <section id="sec-03">
     <h2><span class="num">03</span>别这么说</h2>
     <p>这三句是中文直译过去最容易脱口而出的，都在演示场合出现过。上面是该说的，最下面那条是别人听到的。</p>
 
@@ -155,7 +165,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="sec-04">
     <h2><span class="num">04</span>拿去和 AI 练</h2>
     <p>这一课<strong>必须开口</strong>，看文字不算练。推荐用<strong>豆包的语音通话</strong>：
     把下面的提示词粘进去建一个智能体，然后直接跟它说话。
@@ -165,7 +175,7 @@
       <p class="prompt-lead"><strong>陪练 · 演示彩排。</strong>建议用豆包语音通话；没有语音时，用 Trae / codex 打字也能练结构。</p>
       <p class="prompt-tools">
         <button class="prompt-btn" type="button" data-copy-prompt="p-s001-partner">复制陪练提示词</button>
-        <span class="prompt-state" data-prompt-state></span>
+        <span class="prompt-state" data-prompt-state aria-live="polite"></span>
       </p>
       <template id="p-s001-partner">
         <p>你是我的英语口语陪练。请用语音和我对话；如果只能打字，也保持一问一答的节奏。</p>
