@@ -135,9 +135,9 @@
   `sentence.js` / `quiz.js` / `translate.js` 已于 2026-11-03 随交互环节删除，页面不得再引用。
 - 词汇表：`reference/glossary.html`——待学习者能正确使用某个术语后再收录，不做成词典。
   **前两课均未触发，尚未创建。**
-- `learning-records/` 不再作为课程流程的一部分；仅保留
-  [0001-baseline-diagnostic.md](learning-records/0001-baseline-diagnostic.md) 作历史归档，
-  该文件顶部已注明不再执行。
+- 摸底结论（2026-10-20）：三题首测答对 2/3，缺口在「复数主语配 are / were」，
+  另两轴（一般现在时三单、后缀辨词性）已是熟练反应。该诊断已取消，
+  结论已并入课程，不保留原始记录。
 
 ## 组件接口约定（写课程时必须遵守）
 
