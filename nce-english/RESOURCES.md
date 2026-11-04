@@ -87,15 +87,19 @@
   课程页本体，练「双宾语：先说给谁，再说给什么」。
 - [Lesson 3 课文全文批注](reference/lesson-03-text.html)
   Lesson 3 的完整批注手册，含 11 句逐句注释、生词与搭配、文化注释、背诵方法。
+- [Lesson 4 · An Exciting Trip](lessons/0004-an-exciting-trip.html)
+  课程页本体，练「现在完成时：事情发生在过去，现在留着结果」。
+- [Lesson 4 课文全文批注](reference/lesson-04-text.html)
+  Lesson 4 的完整批注手册，含 9 句逐句注释、19 个生词与 11 个搭配、文化注释、背诵方法。
 - [工作口语课 S001 · 三分钟讲清我做的一个功能](speaking/S001-three-minute-demo.html)
   教材线之外的第二条系列，按工作场景插入，编号独立于 Lesson。
   只用已学骨架总表里登记过的句型，所以它同时充当间隔复习。
 - [AI 提示词库](reference/ai-prompts.html)
-  陪练（豆包语音通话）/ 批改（Trae、codex）/ 出题（Trae、codex）三个角色共 14 条提示词，
+  陪练（豆包语音通话）/ 批改（Trae、codex）/ 出题（Trae、codex）三个角色共 17 条提示词，
   其中两份是跨课模板：项目系统指令、每周合成复习材料。复制到任意 AI 对话即可用，
   课程本身不调用任何 AI 接口。
 - [已学骨架总表](reference/review.html)
-  间隔复习的唯一入口，含 17 个骨架（其中 3 行被动语态只要求认得）、9 条聊天句、18 条工作句、11 条口语课句
+  间隔复习的唯一入口，含 21 个骨架（其中 3 行被动语态只要求认得）、12 条聊天句、24 条工作句、11 条口语课句
   与 2 / 4 / 8 / 16 天复习节奏，随课程累积；追加规则见 `NOTES.md`。
 
 ## Wisdom (Communities)
