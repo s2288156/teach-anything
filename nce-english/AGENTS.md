@@ -67,16 +67,14 @@
    第 07 节嵌三个角色各一个复制提示词按钮（按钮模板与 `reference/ai-prompts.html`
    同步各加一份）。
 6. 写 `reference/lesson-0N-text.html`：全文批注，含全部生词、搭配、文化注释。
-7. 在 `reference/review.html` 按 [NOTES.md](NOTES.md)「lesson 与 reference 的分工」登记本课。
+7. 在 `reference/review.html` 按 [NOTES.md](NOTES.md)「lesson 与 reference 的分工」登记本课：
+   第 01、02、04、05 节追加行，第 07 节记一条更新记录；若本课引入新的时态或时间标志词，
+   同步第 03 节「怎么判断时间」的判据。第 06 节只指向第 01、02 节，不写具体条数。
 8. 在 `index.html` 的对应单元课程表追加本课一行：标题直接链到课程页，右侧只放「全文批注版」；
-   单元不存在时先加该单元的 `h3` 与 `ul`。
-9. 跑 `npm run lint`；检查 `index.html` 的本地链接：
-
-   ```bash
-   node -e 'const fs=require("fs");const h=fs.readFileSync("index.html","utf8");const ls=[...h.matchAll(/href="([^"#?]+)"/g)].map(m=>m[1]).filter(x=>!x.startsWith("http")&&!x.startsWith("mailto:"));const missing=ls.filter(x=>!fs.existsSync(x));console.log((missing.length?"缺失: "+missing.join(", "):"全部 "+ls.length+" 个本地链接存在"));process.exit(missing.length?1:0)'
-   ```
-
-   再用 `file://` 打开课程，确认无控制台报错、提示词按钮可用。
+   单元不存在时先加该单元的 `h3` 与 `ul`。在 [RESOURCES.md](RESOURCES.md) 的课程清单
+   追加课程页与全文批注版两条。
+9. 跑 `npm run check`——它检查全站 HTML 的本地链接、提示词模板与重复 id，再跑 Markdown 格式。
+   再用浏览器打开课程页与全文批注版，确认无控制台报错、提示词按钮可用。
 
 判据见 [NOTES.md](NOTES.md) 的「验收判据」一节；达不到就不算完成。
 
@@ -88,7 +86,7 @@
    03 别这么说（3 条中式英语对照）/ 04 拿去和 AI 练（豆包语音陪练提示词）。
 4. 在 `review.html` 第 02 节追加本课句型（来源标 `S00N`），在 `index.html`
    的「工作口语课」区块追加一行。
-5. 跑 `npm run lint`，用 `file://` 打开确认提示词按钮可用。
+5. 跑 `npm run check`，再用浏览器打开本课页面，确认提示词按钮可用。
 
 ## 不做什么
 
