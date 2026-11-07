@@ -8,12 +8,8 @@ window.ONI_DATA = {
     { "id": "farming", "name": "农业/食物" },
     { "id": "industry", "name": "工业/制造" },
     { "id": "energy", "name": "能源/燃料" },
-    { "id": "temperature", "name": "温控系统" },
-    { "id": "storage", "name": "高压存储" },
-    { "id": "habitat", "name": "生活区" },
-    { "id": "recreation", "name": "娱乐区" },
-    { "id": "rocket", "name": "火箭模块" },
-    { "id": "geothermal", "name": "地热开发" }
+    { "id": "habitat", "name": "房间" },
+    { "id": "rocket", "name": "火箭模块" }
   ],
   "modules": [
     {
@@ -518,7 +514,7 @@ window.ONI_DATA = {
     {
       "id": "liquid-spring-high-pressure-reservoir",
       "name": "普通液体泉高压液库",
-      "category": "storage",
+      "category": "energy",
       "phase": "中期",
       "difficulty": 3,
       "source": "https://www.bilibili.com/video/BV1bLDCBfEuE",
