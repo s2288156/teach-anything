@@ -5,6 +5,28 @@ function shotTitle(s, i) {
   return s.title || s.desc || '示意图 ' + (i + 1);
 }
 
+// 同页多个版本时，screenshot 可带 series：索引与正文按「版本前缀 + 版本内序号」显示。
+// 没带 series 的模块仍用全页序号，保持旧模块不变。
+function shotSeries(s) {
+  return (s && typeof s.series === 'string') ? s.series.trim() : '';
+}
+
+function shotDisplay(shots, i) {
+  const title = shotTitle(shots[i], i);
+  const series = shotSeries(shots[i]);
+  if (!series) {
+    return { prefix: String(i + 1).padStart(2, '0'), rest: title };
+  }
+  let n = 0;
+  for (let k = 0; k <= i; k++) {
+    if (shotSeries(shots[k]) === series) n++;
+  }
+  const m = title.match(/^([^·]{1,14})\s*·\s*/);
+  const rest = (m && (m[1].indexOf('版本') >= 0 || m[1].indexOf('紧凑版') >= 0 ||
+    m[1].indexOf('更简版') >= 0)) ? title.slice(m[0].length) : title;
+  return { prefix: series + ' ' + String(n).padStart(2, '0'), rest: rest };
+}
+
 function getPageModuleId() {
   const fromBody = document.body.dataset.moduleId;
   if (fromBody) return fromBody;
@@ -79,9 +101,10 @@ function renderNav(m) {
   const shots = m.screenshots;
   let html = '<p class="nav-head">图片索引</p><ul class="nav-list nav-shots">';
   shots.forEach((s, i) => {
+    const d = shotDisplay(shots, i);
     html += '<li><a href="#shot-' + i + '" data-nav="shot-' + i + '">' +
-      String(i + 1).padStart(2, '0') + ' · ' +
-      window.ONI_CORE.esc(shotTitle(s, i)) + '</a></li>';
+      window.ONI_CORE.esc(d.prefix) + ' · ' +
+      window.ONI_CORE.esc(d.rest) + '</a></li>';
   });
   html += '</ul><p class="nav-head">文字数据</p><ul class="nav-list">' +
     '<li><a href="#io" data-nav="io">投入产出</a></li>' +
@@ -148,9 +171,10 @@ function renderMain(m) {
         ).join('') + '</div>' : '';
     const noteHtml = s.note
       ? '<p class="image-note">' + $(s.note) + '</p>' : '';
+    const d = shotDisplay(m.screenshots, i);
     return '<section class="module-section image-entry" id="shot-' + i + '">' +
-      '<h2><span class="shot-num">' + String(i + 1).padStart(2, '0') +
-      '</span>' + $(shotTitle(s, i)) + '</h2>' + viewTag +
+      '<h2><span class="shot-num">' + $(d.prefix) +
+      '</span>' + $(d.rest) + '</h2>' + viewTag +
       '<figure class="shot">' +
         '<img src="../screenshots/' + $(s.file) +
         '" alt="' + $(m.name + ' · ' + (s.desc || s.title)) +
