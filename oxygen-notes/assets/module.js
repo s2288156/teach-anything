@@ -96,17 +96,75 @@ function renderHeader(m) {
 
 // ──────────── 左侧导航 ────────────
 
+// 按连续的 series 切组：同一 series 的图片在正文里必须连续，分组只认相邻段。
+function groupShotsBySeries(shots) {
+  const groups = [];
+  shots.forEach((s, i) => {
+    const series = shotSeries(s);
+    const last = groups[groups.length - 1];
+    if (last && last.series === series) {
+      last.shots.push({ s: s, i: i });
+    } else {
+      groups.push({ series: series, shots: [{ s: s, i: i }], start: i });
+    }
+  });
+  return groups;
+}
+
+function navShotLink(shots, i) {
+  const d = shotDisplay(shots, i);
+  return '<li><a href="#shot-' + i + '" data-nav="shot-' + i + '">' +
+    window.ONI_CORE.esc(d.prefix) + ' · ' +
+    window.ONI_CORE.esc(d.rest) + '</a></li>';
+}
+
+// 带 #shot-N 深链时展开对应版本；否则默认展开第一组。
+function initialOpenSeries(groups) {
+  const hit = (location.hash || '').match(/^#shot-(\d+)$/);
+  if (hit) {
+    const idx = Number(hit[1]);
+    const group = groups.find(g => g.shots.some(x => x.i === idx));
+    if (group) return group.series;
+  }
+  return groups[0].series;
+}
+
 function renderNav(m) {
   const nav = document.getElementById('side-nav');
+  const $ = window.ONI_CORE.esc;
   const shots = m.screenshots;
-  let html = '<p class="nav-head">图片索引</p><ul class="nav-list nav-shots">';
-  shots.forEach((s, i) => {
-    const d = shotDisplay(shots, i);
-    html += '<li><a href="#shot-' + i + '" data-nav="shot-' + i + '">' +
-      window.ONI_CORE.esc(d.prefix) + ' · ' +
-      window.ONI_CORE.esc(d.rest) + '</a></li>';
-  });
-  html += '</ul><p class="nav-head">文字数据</p><ul class="nav-list">' +
+  const groups = groupShotsBySeries(shots);
+  const grouped = groups.length > 1;
+  let html;
+
+  if (grouped) {
+    const openSeries = initialOpenSeries(groups);
+    html = '<p class="nav-head">版本索引</p><div class="nav-series-chips">' +
+      groups.map(g =>
+        '<a class="nav-series-chip" href="#shot-' + g.start + '" data-series="' + $(g.series) + '">' +
+          $(g.series || '未分组') +
+          '<span class="chip-count">' + g.shots.length + '</span>' +
+        '</a>'
+      ).join('') +
+      '</div>' +
+      groups.map(g =>
+        '<details class="nav-series" data-series="' + $(g.series) + '"' +
+          (g.series === openSeries ? ' open' : '') + '>' +
+          '<summary class="nav-series-head">' +
+            '<span class="nav-series-name">' + $(g.series || '未分组') + '</span>' +
+            '<span class="nav-series-count">' + g.shots.length + ' 张</span>' +
+          '</summary>' +
+          '<ul class="nav-list nav-shots">' +
+            g.shots.map(x => navShotLink(shots, x.i)).join('') +
+          '</ul>' +
+        '</details>'
+      ).join('');
+  } else {
+    html = '<p class="nav-head">图片索引</p><ul class="nav-list nav-shots">' +
+      shots.map((s, i) => navShotLink(shots, i)).join('') + '</ul>';
+  }
+
+  html += '<p class="nav-head">文字数据</p><ul class="nav-list">' +
     '<li><a href="#io" data-nav="io">投入产出</a></li>' +
     '<li><a href="#materials" data-nav="materials">建筑材料要求</a></li></ul>';
   if (m.source) {
@@ -114,6 +172,17 @@ function renderNav(m) {
       '" target="_blank" rel="noopener">来源文档 ↗</a>';
   }
   nav.innerHTML = html;
+
+  // 点版本 chip 时先把目标分组展开，避免跳转后索引仍是收起的。
+  if (grouped) {
+    nav.querySelectorAll('.nav-series-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const target = Array.from(nav.querySelectorAll('details.nav-series'))
+          .find(g => g.dataset.series === chip.dataset.series);
+        if (target) target.open = true;
+      });
+    });
+  }
 }
 
 // ──────────── 正文 ────────────
@@ -307,10 +376,32 @@ function bindScrollSpy() {
   const targets = links.map(a => document.getElementById(a.dataset.nav)).filter(Boolean);
   if (!targets.length) return;
 
+  const chips = Array.from(document.querySelectorAll('.nav-series-chip'));
+  const desktop = window.matchMedia('(min-width: 861px)');
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      links.forEach(a => a.classList.toggle('active', a.dataset.nav === entry.target.id));
+      links.forEach(a => {
+        const active = a.dataset.nav === entry.target.id;
+        const wasActive = a.classList.contains('active');
+        a.classList.toggle('active', active);
+        if (!active) return;
+
+        // 当前图片属于哪个版本：同步 chip 高亮，并把折叠的分组展开。
+        const group = a.closest('details.nav-series');
+        chips.forEach(c =>
+          c.classList.toggle('active',
+            !!group && c.dataset.series === group.dataset.series)
+        );
+        // 窄屏侧栏在正文上方，自动展开会改变页面高度、把正文顶下去，所以只在桌面端展开。
+        if (group && !group.open && desktop.matches) group.open = true;
+
+        // 只在桌面端把当前条目滚进侧栏视口，窄屏侧栏是静态的，滚动会带动整页。
+        if (!wasActive && desktop.matches) {
+          a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        }
+      });
     });
   }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 

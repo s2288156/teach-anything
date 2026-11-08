@@ -487,6 +487,86 @@ html, body {
   border-left-color: var(--accent-oxygen);
 }
 .nav-shots a { font-size: 12px; }
+
+/* 多版本模块：版本 chip + 可折叠分组 */
+.nav-series-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+  padding-left: 2px;
+}
+.nav-series-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 11px;
+  line-height: 1.6;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.nav-series-chip:hover {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+.nav-series-chip.active {
+  background: var(--bg-panel);
+  color: var(--accent-oxygen);
+  border-color: var(--accent-oxygen);
+}
+.chip-count {
+  color: var(--text-dim);
+  font-size: 10px;
+}
+.nav-series + .nav-series {
+  margin-top: 2px;
+  border-top: 1px solid var(--border);
+}
+.nav-series-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.nav-series-head::-webkit-details-marker { display: none; }
+.nav-series-head::before {
+  content: '▸';
+  color: var(--text-dim);
+  font-size: 10px;
+  line-height: 1;
+}
+.nav-series[open] > .nav-series-head::before { content: '▾'; }
+.nav-series-head:hover { background: var(--bg-panel); }
+.nav-series-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav-series-count {
+  margin-left: auto;
+  color: var(--text-dim);
+  font-size: 10px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.nav-series .nav-list {
+  margin-left: 10px;
+  padding-left: 4px;
+  border-left: 1px solid var(--border);
+}
+
 .nav-source {
   display: block;
   margin-top: 20px;
@@ -706,5 +786,17 @@ html, body {
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 5px 12px;
+  }
+  .nav-series-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .nav-series-chip { flex: 0 0 auto; }
+  .nav-series-head { padding: 8px 2px; }
+  .nav-series .nav-list {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
   }
 }
