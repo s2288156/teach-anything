@@ -139,13 +139,16 @@ function renderNav(m) {
 
   if (grouped) {
     const openSeries = initialOpenSeries(groups);
-    html = '<p class="nav-head">版本索引</p><div class="nav-series-chips">' +
-      groups.map(g =>
-        '<a class="nav-series-chip" href="#shot-' + g.start + '" data-series="' + $(g.series) + '">' +
-          $(g.series || '未分组') +
-          '<span class="chip-count">' + g.shots.length + '</span>' +
-        '</a>'
-      ).join('') +
+    html = '<p class="nav-head">版本索引</p>' +
+      '<div class="nav-series-picker">' +
+        '<select id="nav-series-jump" aria-label="选择版本">' +
+          groups.map(g =>
+            '<option value="' + $(g.series) + '"' +
+              (g.series === openSeries ? ' selected' : '') + '>' +
+              $(g.series || '未分组') + '（' + g.shots.length + '）' +
+            '</option>'
+          ).join('') +
+        '</select>' +
       '</div>' +
       groups.map(g =>
         '<details class="nav-series" data-series="' + $(g.series) + '"' +
@@ -173,14 +176,16 @@ function renderNav(m) {
   }
   nav.innerHTML = html;
 
-  // 点版本 chip 时先把目标分组展开，避免跳转后索引仍是收起的。
-  if (grouped) {
-    nav.querySelectorAll('.nav-series-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        const target = Array.from(nav.querySelectorAll('details.nav-series'))
-          .find(g => g.dataset.series === chip.dataset.series);
-        if (target) target.open = true;
-      });
+  // 切换版本时先展开目标分组，再跳到该版本首图。
+  const picker = nav.querySelector('#nav-series-jump');
+  if (picker) {
+    picker.addEventListener('change', () => {
+      const target = groups.find(g => g.series === picker.value);
+      if (!target) return;
+      const details = Array.from(nav.querySelectorAll('details.nav-series'))
+        .find(g => g.dataset.series === picker.value);
+      if (details) details.open = true;
+      location.hash = 'shot-' + target.start;
     });
   }
 }
@@ -376,7 +381,7 @@ function bindScrollSpy() {
   const targets = links.map(a => document.getElementById(a.dataset.nav)).filter(Boolean);
   if (!targets.length) return;
 
-  const chips = Array.from(document.querySelectorAll('.nav-series-chip'));
+  const picker = document.getElementById('nav-series-jump');
   const desktop = window.matchMedia('(min-width: 861px)');
 
   const observer = new IntersectionObserver(entries => {
@@ -388,12 +393,9 @@ function bindScrollSpy() {
         a.classList.toggle('active', active);
         if (!active) return;
 
-        // 当前图片属于哪个版本：同步 chip 高亮，并把折叠的分组展开。
+        // 当前图片属于哪个版本：同步下拉选择，并把折叠的分组展开。
         const group = a.closest('details.nav-series');
-        chips.forEach(c =>
-          c.classList.toggle('active',
-            !!group && c.dataset.series === group.dataset.series)
-        );
+        if (picker && group) picker.value = group.dataset.series;
         // 窄屏侧栏在正文上方，自动展开会改变页面高度、把正文顶下去，所以只在桌面端展开。
         if (group && !group.open && desktop.matches) group.open = true;
 

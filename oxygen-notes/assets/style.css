@@ -488,39 +488,25 @@ html, body {
 }
 .nav-shots a { font-size: 12px; }
 
-/* 多版本模块：版本 chip + 可折叠分组 */
-.nav-series-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-bottom: 8px;
-  padding-left: 2px;
-}
-.nav-series-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 3px 7px;
+/* 多版本模块：版本下拉 + 可折叠分组 */
+.nav-series-picker { margin-bottom: 8px; }
+.nav-series-picker select {
+  width: 100%;
+  padding: 6px 8px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 6px;
+  background: var(--bg-panel);
   color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 11px;
-  line-height: 1.6;
-  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  color-scheme: dark;
+  cursor: pointer;
 }
-.nav-series-chip:hover {
-  background: var(--bg-panel);
-  color: var(--text-primary);
-}
-.nav-series-chip.active {
-  background: var(--bg-panel);
-  color: var(--accent-oxygen);
+.nav-series-picker select:focus {
+  outline: none;
   border-color: var(--accent-oxygen);
-}
-.chip-count {
-  color: var(--text-dim);
-  font-size: 10px;
+  color: var(--text-primary);
 }
 .nav-series + .nav-series {
   margin-top: 2px;
@@ -787,12 +773,6 @@ html, body {
     border-radius: 20px;
     padding: 5px 12px;
   }
-  .nav-series-chips {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 6px;
-  }
-  .nav-series-chip { flex: 0 0 auto; }
   .nav-series-head { padding: 8px 2px; }
   .nav-series .nav-list {
     margin-left: 0;
