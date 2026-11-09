@@ -185,9 +185,27 @@
           <td>（Lesson 5 课文未出现，见课程页第 05 节技术文档原句）</td>
           <td><code>Previously, users could not download large files.</code></td>
         </tr>
+        <tr>
+          <td>句尾状语序（地点在前、时间在后）</td>
+          <td>主语 + 动词 + 宾语 + <b>地点</b> + <b>时间 / 频率</b></td>
+          <td><code>He calls at every house in the street once a month.</code></td>
+          <td><code>The job writes the report to the shared drive every night.</code></td>
+        </tr>
+        <tr>
+          <td>句首状语</td>
+          <td><b>Then / Later / Once ...</b>, + 主语 + 动词 + 宾语</td>
+          <td><code>Later a neighbour told me about him.</code></td>
+          <td><code>Once you have reviewed the state of your project and its dependencies, upgrade to the latest maintenance release of Spring Boot 4.0.</code></td>
+        </tr>
+        <tr>
+          <td>动词 + 固定介词</td>
+          <td>主语 + <b>knock at / ask for / call at</b> + 宾语</td>
+          <td><code>He asked me for a meal and a glass of beer.</code></td>
+          <td><code>The script asks for permission before it runs.</code></td>
+        </tr>
       </tbody>
     </table>
-    <p class="note">技术例句中，除以下四处外，均为按骨架构造的示意句：
+    <p class="note">技术例句中，除以下五处外，均为按骨架构造的示意句：
     <code>The callback was executed</code> 摘自
     <a href="https://docs.gradle.org/8.10/release-notes.html">Gradle 8.10 Release Notes</a>；
     <code>CommandLineRunner and ApplicationRunner components are being processed</code> 与
@@ -195,7 +213,9 @@
     <a href="https://docs.spring.io/spring-boot/reference/features/spring-application.html#features.spring-application.application-availability">Spring Boot Reference · SpringApplication</a>
     的 Readiness State / Application Availability 两节；
     <code>It tells Spring that any HTTP request with the / path should be mapped to the home method.</code> 逐字摘自
-    <a href="https://docs.spring.io/spring-boot/tutorial/first-application/index.html#getting-started.first-application.code.mvc-annotations">Spring Boot 官方教程 · The @RestController and @RequestMapping Annotations</a>。</p>
+    <a href="https://docs.spring.io/spring-boot/tutorial/first-application/index.html#getting-started.first-application.code.mvc-annotations">Spring Boot 官方教程 · The @RestController and @RequestMapping Annotations</a>；
+    <code>Once you have reviewed the state of your project and its dependencies, upgrade to the latest maintenance release of Spring Boot 4.0.</code> 逐字摘自
+    <a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide#upgrade-to-spring-boot-4">Spring Boot 4.0 Migration Guide · Upgrade to Spring Boot 4</a>。</p>
   </section>
 
   <section>
@@ -544,6 +564,60 @@
           <td><code>I am not sure we need to change it now — up to now, the old script has never failed.</code></td>
           <td><code>up to now</code> + <code>has never failed</code>，拿「截至现在的事实」委婉顶回「现在要改」。</td>
         </tr>
+        <tr>
+          <td>L6 · 聊天</td>
+          <td>刚才是有人敲你门吗？／对，快递员让我签了个字就走了。</td>
+          <td><code>Did someone knock at your door just now?</code> / <code>Yes, the delivery man asked me for a signature and then went away.</code></td>
+          <td><code>knock</code> 必带 <code>at</code>；要东西用 <code>ask for</code>；<code>then</code> 挂句首。</td>
+        </tr>
+        <tr>
+          <td>L6 · 聊天</td>
+          <td>昨天你帮我搬家，我怎么报答你才好？／不用——下次请我喝杯咖啡就行。</td>
+          <td><code>You helped me move yesterday. What can I do in return for this?</code> / <code>Nothing — just buy me a coffee next time.</code></td>
+          <td><code>in return for</code> 介词固定；<code>yesterday</code> 钉死过去式；<code>buy me a coffee</code> 是第 3 课双宾语。</td>
+        </tr>
+        <tr>
+          <td>L6 · 聊天</td>
+          <td>这条街的人都认识那个卖面包的。／是啊，他每周到每家走一遍。</td>
+          <td><code>Everybody in the street knows that bread man.</code> / <code>Yes, he calls at every house once a week.</code></td>
+          <td><code>Everybody</code> 按单数配 <code>knows</code>；<code>call at</code> + 地点；地点在前、时间在后。</td>
+        </tr>
+        <tr>
+          <td>L6 · 演示</td>
+          <td>导出器把所有文件保存到同一个文件夹，每周清理一次缓存。</td>
+          <td><code>The exporter saves every file in one folder and cleans the cache once a week.</code></td>
+          <td>一般现在时三单；地点状语 <code>in one folder</code> 在前，频率 <code>once a week</code> 在后。</td>
+        </tr>
+        <tr>
+          <td>L6 · 演示</td>
+          <td>构建一通过，我们就把镜像推到镜像仓库。</td>
+          <td><code>Once the build passes, we push the image to the registry.</code></td>
+          <td><code>Once ...</code> 条件挂句首加逗号；主干 <code>we push the image to the registry</code> 不被打断。</td>
+        </tr>
+        <tr>
+          <td>L6 · 演示</td>
+          <td>这个工具先要你的 token，然后再调用 API。</td>
+          <td><code>This tool asks for your token before it calls the API.</code></td>
+          <td><code>ask for</code> 来自课文；<code>before</code> 从句挂句尾说先后。</td>
+        </tr>
+        <tr>
+          <td>L6 · 会议</td>
+          <td>能把计划再过一遍吗？时间线那部分我没跟上。</td>
+          <td><code>Could you go through the plan once more? I missed the part about the timeline.</code></td>
+          <td><code>Could you + 原形</code> 客气；<code>once more</code> 挂句尾；<code>missed</code> 是刚才的事，过去式。</td>
+        </tr>
+        <tr>
+          <td>L6 · 会议</td>
+          <td>所以周四冻结代码、周五早上发布——我理解得对吗？</td>
+          <td><code>So we freeze the code on Thursday and ship on Friday morning — do I have that right?</code></td>
+          <td>时间状语 <code>on Thursday</code> / <code>on Friday morning</code> 各挂各的句尾；确认句式收口。</td>
+        </tr>
+        <tr>
+          <td>L6 · 会议</td>
+          <td>我不确定要不要把演示挪到周五——那个点会议室从来没空过。</td>
+          <td><code>I am not sure we need to move the demo to Friday — the room is never free at that hour.</code></td>
+          <td><code>move ... to Friday</code> 时间挂句尾；<code>never free</code> 是第 2 课的频率副词配 be 动词。</td>
+        </tr>
       </tbody>
     </table>
   </section>
@@ -558,7 +632,9 @@
       <code>have / has + 过去分词</code> = 过去发生、现在有结果）；
       时间词也直接给答案：<code>yesterday</code>、<code>last night</code>、<code>ago</code> 钉死过去式，
       <code>up to now</code>、<code>so far</code> 钉死现在完成时（Lesson 5 新增）；
-      第三步切出「谁 + 做了什么 + 对象/地点」。主干到手，剩下的修饰成分读不懂也不影响理解。</p>
+      第三步切出「谁 + 做了什么 + 对象/地点」。切主干时记住：状语都挂在句首或句尾，
+      主干永远不被状语拆开；句尾同时有地点和时间时，地点在前、时间在后（Lesson 6 新增）。
+      主干到手，剩下的修饰成分读不懂也不影响理解。</p>
     </div>
     <p>这个顺序不会变。变的是句子里出现的骨架越来越多。</p>
   </section>
@@ -580,12 +656,14 @@
         <tr><td><code>spend</code></td><td><code>spent</code></td><td><code>think</code></td><td><code>thought</code></td><td><code>read</code></td><td><code>read</code>（同形）</td></tr>
         <tr><td><code>understand</code></td><td><code>understood</code></td><td colspan="4">Lesson 3 课文里的 <code>I did not understand a word</code></td></tr>
         <tr><td><code>begin</code></td><td><code>began</code></td><td><code>ride</code></td><td><code>rode</code></td><td><code>break</code></td><td><code>broke</code></td></tr>
+        <tr><td><code>eat</code></td><td><code>ate</code></td><td><code>drink</code></td><td><code>drank</code></td><td><code>stand</code></td><td><code>stood</code></td></tr>
+        <tr><td><code>put</code></td><td><code>put</code>（同形）</td><td colspan="4">Lesson 6 课文里的 <code>he put a piece of cheese in his pocket</code></td></tr>
       </tbody>
     </table>
     <p>现在完成时用的是<b>过去分词</b>，和过去式不是一回事：<code>be → was / were → been</code>、
     <code>go → went → gone</code>、<code>buy → bought → bought</code>、<code>run → run → run</code>、
     <code>receive → received → received</code>、<code>begin → began → begun</code>、
-    <code>send → sent → sent</code>。</p>
+    <code>send → sent → sent</code>、<code>put → put → put</code>。</p>
     <p>更完整的表在 <a href="past-simple.html">一般过去时速查</a> 第 03 节。</p>
   </section>
 
@@ -628,6 +706,10 @@
         <tr><td><code>He has called ten minutes ago.</code></td><td><code>He called ten minutes ago.</code></td><td><code>ago</code> 钉死过去，不能配 <code>have / has</code></td></tr>
         <tr><td><code>a great many of requests</code></td><td><code>a great many requests</code></td><td><code>a great many</code> 直接跟复数名词，中间不加 <code>of</code>；想用 <code>of</code> 就换 <code>a great number of</code></td></tr>
         <tr><td><code>he has began his own service</code></td><td><code>he has begun his own service</code></td><td><code>have / has</code> 后面用过去分词 <code>begun</code>，不是过去式 <code>began</code></td></tr>
+        <tr><td><code>He knocked the door.</code></td><td><code>He knocked at my door.</code></td><td><code>knock</code> 是不及物动词，接地点要带 <code>at</code>（或 <code>on</code>）</td></tr>
+        <tr><td><code>He asked me a meal.</code></td><td><code>He asked me for a meal.</code></td><td><code>ask</code> 要东西必须带 <code>for</code>；对照 <code>gave him a meal</code>——<code>give</code> 不用</td></tr>
+        <tr><td><code>He calls once a month at every house.</code></td><td><code>He calls at every house in the street once a month.</code></td><td>句尾状语地点在前、时间在后；照中文「每月到每家」直译就错了</td></tr>
+        <tr><td><code>a piece of cheeses</code></td><td><code>a piece of cheese</code></td><td><code>cheese</code> 不可数，「一块」靠 <code>a piece of</code>，本身不加复数</td></tr>
       </tbody>
     </table>
   </section>
@@ -702,6 +784,11 @@
           <td><a href="../lessons/0005-no-wrong-numbers.html">Lesson 5 · No Wrong Numbers</a></td>
           <td>2 个骨架（截至现在 up to now / so far、旧情况 Previously）、3 条聊天句、6 条工作句、3 组不规则动词（begin / ride / break）、5 处易错点；新建 <code>reference/lesson-05-text.html</code> 全文批注（6 句逐句拆解、15 个生词、10 个搭配、6 条文化与语用注释）；第 03 节拆句法补「时间词直接给答案」判据</td>
         </tr>
+        <tr>
+          <td>2026-11-09</td>
+          <td><a href="../lessons/0006-percy-buttons.html">Lesson 6 · Percy Buttons</a></td>
+          <td>3 个骨架（句尾状语序地点在前时间在后、句首状语、动词 + 固定介词 knock at / ask for / call at）、3 条聊天句、6 条工作句、4 组不规则动词（eat / drink / stand / put）、4 处易错点；新建 <code>reference/lesson-06-text.html</code> 全文批注（11 句逐句拆解、15 个生词、10 个搭配、6 条文化与语用注释）；第 03 节拆句法补「状语挂句首句尾、主干不打断」判据</td>
+        </tr>
       </tbody>
     </table>
   </section>
@@ -718,6 +805,8 @@
     <a href="lesson-04-text.html">Lesson 4 课文全文批注</a> ·
     <a href="../lessons/0005-no-wrong-numbers.html">Lesson 5 · No Wrong Numbers</a> ·
     <a href="lesson-05-text.html">Lesson 5 课文全文批注</a> ·
+    <a href="../lessons/0006-percy-buttons.html">Lesson 6 · Percy Buttons</a> ·
+    <a href="lesson-06-text.html">Lesson 6 课文全文批注</a> ·
     <a href="past-simple.html">一般过去时速查</a> ·
     <a href="ai-prompts.html">AI 提示词库</a> ·
     <a href="../index.html">← 课程总目录</a></p>

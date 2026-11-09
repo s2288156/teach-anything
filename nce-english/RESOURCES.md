@@ -33,6 +33,10 @@
 - [新概念英语第二册第五课课文合集（百度文库）](https://wk.baidu.com/aggs/b3b2c5707fd5360cba1adb10.html)
   Lesson 5 课文原文与译文。Use for: Lesson 5 原文的第二来源交叉核对。
 
+- [新概念英语第二册 Lesson 6 Percy Buttons 讲义（学科网）](https://m.zxxk.com/soft/43789678.html)
+  Lesson 6 课文原文、生词与语法讲解。Use for: Lesson 6 原文的第二来源交叉核对。
+  该来源将第 2 句写作 `Yesterday,` 带逗号，课程从教材不带逗号的写法。
+
 ### 技术文档原句语料（真实技术英语）
 
 课程页第 01 节的开场例句和第 05 节的精读原文都是逐字摘录、未作改写；
@@ -99,6 +103,10 @@
   课程页本体，练「时间词定时态：过去某一次用过去式，截至现在用现在完成时」。
 - [Lesson 5 课文全文批注](reference/lesson-05-text.html)
   Lesson 5 的完整批注手册，课后查生词、查全文用，可打印。
+- [Lesson 6 · Percy Buttons](lessons/0006-percy-buttons.html)
+  课程页本体，练「语序：主干不被状语打断，地点在前、时间在后」。
+- [Lesson 6 课文全文批注](reference/lesson-06-text.html)
+  Lesson 6 的完整批注手册，课后查生词、查全文用，可打印。
 - [工作口语课 S001 · 三分钟讲清我做的一个功能](speaking/S001-three-minute-demo.html)
   教材线之外的第二条系列，按工作场景插入，编号独立于 Lesson。
   只用已学骨架总表里登记过的句型，所以它同时充当间隔复习。
