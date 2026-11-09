@@ -107,7 +107,7 @@
         <p>五题里至少两句要是工作口语：一句功能演示，一句会议应对（请对方重说 / 复述确认 / 委婉不同意）。</p>
         <p>五题答完后按顺序做三件事：先给一句总评；再只指出我最系统的一处错误并讲清原因；最后把我的五个句子改写成升级版。</p>
         <p>评分只看三条：准确（意思没丢）、时态（时间关系对）、地道（搭配和语序自然）。</p>
-        <p>最近两课的骨架：Lesson 3：双宾语人先物后、换序 <code>to</code>、换序 <code>for</code>。Lesson 4：现在完成时 <code>have / has + 过去分词</code>、<code>just / already / never</code> 的位置、<code>for + 一段时间</code>。</p>
+        <p>最近两课的骨架：Lesson 4：现在完成时 <code>have / has + 过去分词</code>、<code>just / already / never</code> 的位置、<code>for + 一段时间</code>。Lesson 5：时间词定时态——<code>yesterday / last night / ago</code> 钉死过去式，<code>up to now / so far</code> 钉死现在完成时，<code>a great many</code> 直接跟复数名词。</p>
       </template>
     </div>
 
@@ -337,7 +337,57 @@
   </section>
 
   <section>
-    <h2><span class="num">08</span>每周五分钟：让 AI 合成复习材料</h2>
+    <h2><span class="num">08</span>Lesson 5 · No Wrong Numbers</h2>
+    <p>本课只练一件事：先看时间词，再定时态——<code>yesterday / ago</code> 钉死过去式，
+    <code>up to now / so far</code> 钉死 <code>have / has + 过去分词</code>。</p>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>批改。</strong>自己把课文四句核心句翻成英文后，贴给它批改。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l5-corrector">复制提示词</button>
+        <span class="prompt-state" data-prompt-state aria-live="polite"></span>
+      </p>
+      <template id="p-l5-corrector">
+        <p>你是我的英文批改助手。我在练「时间词定时态」的回译：过去某一次用过去式，截至现在用现在完成时。下面四句是课文原句，请以它们为标准：</p>
+        <p>1. Mr. James Scott has a garage in Silbury and now he has just bought another garage in Pinhurst.<br>2. Yesterday, a pigeon carried the first message from Pinhurst to Silbury.<br>3. The bird covered the distance in three minutes.<br>4. Up to now, Mr. Scott has sent a great many requests for spare parts and other urgent messages from one garage to the other.</p>
+        <p>我会发给你我的英文译文。请按三条标准逐句打分（每条 1–5 分）：准确（意思没丢）、时态（<code>yesterday / ago</code> 是否配了过去式，<code>up to now / so far</code> 是否配了 <code>have / has + 过去分词</code>）、地道（<code>a great many</code> 后有没有多写 <code>of</code>、搭配和语序是否自然）。</p>
+        <p>输出顺序固定：先给一句总评，指出我最系统的那一个毛病；再只挑一处最重要的错误讲清原因；最后给我一个升级版，保留我的原意，用更自然的英文重写。</p>
+        <p>不要一次列出所有错误，也不要把四句全部重写。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>陪练。</strong>配合课程页第 04 节的三个聊天场景和第 06 节的六句工作句。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l5-partner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state aria-live="polite"></span>
+      </p>
+      <template id="p-l5-partner">
+        <p>你是我的英语陪练，扮演我的外国同事。场景：周一早上在茶水间聊周末。</p>
+        <p>规则：你用英文提问，一次只问一句，等我回答后再问下一句；我卡住时给我一个关键词提示，不要替我说完整句。</p>
+        <p>这一轮只练两种时间的切换：一类问题问过去某一次（<code>What did you do yesterday?</code>、<code>Did the build pass this morning?</code>），一类问题问截至现在（<code>How many times have you done it so far?</code>、<code>Has it failed up to now?</code>）。两类交替问，逼我根据时间词在过去式和现在完成时之间来回切换。</p>
+        <p>聊完五轮，换到工作场景：让我用英文讲一个改动的时间线——昨天做了什么、到目前为止有没有人报问题、以前是什么样、这个版本改成了什么样。</p>
+        <p>如果我说成 <code>Yesterday I have ...</code> 或 <code>Up to now I + 过去式</code>，停下来让我重说，并告诉我时间词决定时态。</p>
+        <p>先开始：用一句英文跟我打招呼，然后问第一个问题。</p>
+      </template>
+    </div>
+
+    <div class="prompt">
+      <p class="prompt-lead"><strong>出题。</strong>学完课后自测「时间词定时态」，三句回译替代纸质默写。</p>
+      <p class="prompt-tools">
+        <button class="prompt-btn" type="button" data-copy-prompt="p-l5-examiner">复制提示词</button>
+        <span class="prompt-state" data-prompt-state aria-live="polite"></span>
+      </p>
+      <template id="p-l5-examiner">
+        <p>你是我的英语出题助手，只考「时间词定时态」，不考别的。</p>
+        <p>请按顺序做三件事：第一，给我三句中文，让我翻成英文——一句日常（昨天做了一次某事，到现在累计如何）、一句技术（升级说明语气：以前是什么样，现在改成什么样）、一句工作口语（演示里的一句，或会议里请对方重说 / 复述确认 / 委婉不同意）。三句里至少一句要在同一句里同时出现「过去某一次」和「截至现在」两种时间词。第二，等我全部答完再公布参考答案，参考答案用课文骨架：Yesterday, a pigeon carried the first message from Pinhurst to Silbury. / Up to now, Mr. Scott has sent a great many requests for spare parts. 第三，按准确、时态、地道三条标准各给 1–5 分，先总评，再只指出一处最该改的地方，最后给我的句子一个升级版。</p>
+        <p>不要在我回答前给提示，也不要问完就立刻公布答案。</p>
+      </template>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">09</span>每周五分钟：让 AI 合成复习材料</h2>
     <p>骨架背熟了不等于会用。每学完两三课，用下面这条让 AI 拿你已经学过的句型，
     写一段你工作里真会读到的英文——一份仿真 issue，或一段功能介绍。
     <strong>它只是复习材料，用完就在对话里，不落成本仓库的文件</strong>，
@@ -363,7 +413,7 @@
   </section>
 
   <section>
-    <h2><span class="num">09</span>使用建议</h2>
+    <h2><span class="num">10</span>使用建议</h2>
     <ul class="steps">
       <li>一次只用一个角色。陪练、批改、出题同时上，只会收到一堆泛泛的反馈。</li>
       <li>先写后复制。提示词里已经放了课文原句，先看原文再动笔，等于抄答案。</li>
@@ -382,6 +432,7 @@
       <li><a href="../lessons/0002-breakfast-or-lunch.html">Lesson 2 · Breakfast or Lunch</a><span>课程页</span></li>
       <li><a href="../lessons/0003-please-send-me-a-card.html">Lesson 3 · Please Send Me a Card</a><span>课程页</span></li>
       <li><a href="../lessons/0004-an-exciting-trip.html">Lesson 4 · An Exciting Trip</a><span>课程页</span></li>
+      <li><a href="../lessons/0005-no-wrong-numbers.html">Lesson 5 · No Wrong Numbers</a><span>课程页</span></li>
       <li><a href="../index.html">课程总目录</a><span>全部课程与速查</span></li>
     </ul>
   </footer>

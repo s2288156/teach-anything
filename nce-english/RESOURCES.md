@@ -26,8 +26,12 @@
   一般现在时与现在进行时的课文依据。
 
 - [新概念英语第二册 30 篇课文（沪江网）](https://m.hujiang.com/c/nceer/p1148716/)
-  Lesson 2 课文原文与中文译文。Use for: 原文逐字核对、译文比对。
-  该来源将 `lunchtime` 排作 `lunch time`，课程统一采用教材合写 `lunchtime`。
+  Lesson 2 / Lesson 5 课文原文与中文译文。Use for: 原文逐字核对、译文比对。
+  该来源将 `lunchtime` 排作 `lunch time`；Lesson 5 页面有 OCR 空格粘连
+  （如 `Mr.JamesScott`、`telephonefor`），空格与拼写以教材为准。
+
+- [新概念英语第二册第五课课文合集（百度文库）](https://wk.baidu.com/aggs/b3b2c5707fd5360cba1adb10.html)
+  Lesson 5 课文原文与译文。Use for: Lesson 5 原文的第二来源交叉核对。
 
 ### 技术文档原句语料（真实技术英语）
 
@@ -91,6 +95,10 @@
   课程页本体，练「现在完成时：事情发生在过去，现在留着结果」。
 - [Lesson 4 课文全文批注](reference/lesson-04-text.html)
   Lesson 4 的完整批注手册，课后查生词、查全文用，可打印。
+- [Lesson 5 · No Wrong Numbers](lessons/0005-no-wrong-numbers.html)
+  课程页本体，练「时间词定时态：过去某一次用过去式，截至现在用现在完成时」。
+- [Lesson 5 课文全文批注](reference/lesson-05-text.html)
+  Lesson 5 的完整批注手册，课后查生词、查全文用，可打印。
 - [工作口语课 S001 · 三分钟讲清我做的一个功能](speaking/S001-three-minute-demo.html)
   教材线之外的第二条系列，按工作场景插入，编号独立于 Lesson。
   只用已学骨架总表里登记过的句型，所以它同时充当间隔复习。
