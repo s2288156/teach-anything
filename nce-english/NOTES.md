@@ -132,6 +132,11 @@
 按钮点击后短暂显示「已复制」；`file://` 下 Clipboard API 不可用时自动退回 `execCommand`；
 两者都失败时把提示词展开成可选中的文本块并自动全选。
 
+全文批注版的「课文显示」是纯 CSS 实现，不算 JS 行为：页头 `.mode-switch` 内三个
+`input[name="text-mode"]`，`value` 为 `zh` / `en` / `both`，默认 `both`；第 01 节英文包
+`.en-text`，中文译文沿用 `.cn`；`:has()` 按选中项隐藏对应内容。不写 JS、不读写 localStorage；
+打印强制中英双语并隐藏控件。规则见 [ADR 0006](docs/adr/0006-text-display-modes.md)。
+
 除此之外页面不放任何 JS 行为：不生成测验、不记录作答、不读写 localStorage、不嵌音频。
 
 ## 待办
